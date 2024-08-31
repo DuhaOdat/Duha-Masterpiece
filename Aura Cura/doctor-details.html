@@ -43,8 +43,8 @@
     <!-- Spinner End -->
 
 
-   <!-- Navbar Start -->
-   <div class="container-fluid sticky-top">
+<!-- Navbar Start -->
+<div class="container-fluid sticky-top">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark p-0">
             <a href="index.html" class="navbar-brand">
@@ -92,12 +92,12 @@
         <div class="container pt-5">
             <div class="row g-5 pt-5">
                 <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight">Our Services</h1>
+                    <h1 class="display-4 text-white mb-4 animated slideInRight">Doctor's Details</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
                             <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
                            
-                            <li class="breadcrumb-item text-white active" aria-current="page"> Departments</li>
+                            <li class="breadcrumb-item text-white active" aria-current="page"> Doctor's Details</li>
                         </ol>
                     </nav>
                 </div>
@@ -109,99 +109,82 @@
     </div>
     <!-- Hero End -->
 
-  <!-- Search Modal Start -->
-  <div class="modal fade" id="searchModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Search</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- Doctor Profile Section Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="card border-0 shadow">
+                    <img class="card-img-top" src="img/doctor1.png" alt="Dr. John Doe">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-0">Dr. John Doe</h5>
+                        <small class="text-muted">Cardiologist</small>
+
+                        <!-- Doctor Rating under the Name -->
+                        <div class="mt-2 mb-3">
+                            <span class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            <small class="text-muted">4.0 out of 5</small>
+                        </div>
+
+                          <!-- Display experience as a number -->
+                        <p class="mt-3">20 Years of Experience</p>
+                        <!-- Availability Status -->
+                        <div class="mt-3">
+                            <span class="badge bg-success">Available</span> <!-- Use bg-danger for "Unavailable" -->
+                        </div>
+
+                        <a href="#" class="btn btn-primary rounded-pill px-4 mt-3">Book Appointment</a>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+            <div class="col-lg-8">
+                <h2 class="mb-4">Biography</h2>
+                <p class="text-muted">Dr. John Doe graduated from Harvard Medical School in 2000 and completed his residency at the Mayo Clinic. He specializes in cardiology, particularly in the treatment of heart disease and failure. Dr. Doe is known for his compassionate care and expertise in his field.</p>
+
+                <h4 class="mt-5 mb-3">Specialties</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="bi bi-heart-pulse me-2"></i>Cardiology</li>
+                    <li class="list-group-item"><i class="bi bi-activity me-2"></i>Interventional Cardiology</li>
+                    <li class="list-group-item"><i class="bi bi-shield-check me-2"></i>Preventive Cardiology</li>
+                </ul>
+
+                <h4 class="mt-5 mb-3">Education</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="bi bi-mortarboard-fill me-2"></i>MD, Harvard Medical School</li>
+                    <li class="list-group-item"><i class="bi bi-hospital me-2"></i>Residency, Mayo Clinic</li>
+                </ul>
+
+                <!-- Working Hours Section Start -->
+                <h4 class="mt-5 mb-3">Working Hours</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Monday:</strong> 9:00 AM - 5:00 PM</li>
+                    <li class="list-group-item"><strong>Tuesday:</strong> 9:00 AM - 5:00 PM</li>
+                    <li class="list-group-item"><strong>Wednesday:</strong> 9:00 AM - 5:00 PM</li>
+                    <li class="list-group-item"><strong>Thursday:</strong> 9:00 AM - 5:00 PM</li>
+                    <li class="list-group-item"><strong>Friday:</strong> 9:00 AM - 5:00 PM</li>
+                    <li class="list-group-item"><strong>Saturday:</strong> Closed</li>
+                    <li class="list-group-item"><strong>Sunday:</strong> Closed</li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
-<!-- Search Modal End -->
+<!-- Doctor Profile Section End -->
 
 
-     <!-- department Start -->
-     <div class="container-fluid bg-light py-5">
-        <div class="container py-5">
-            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1 class="mb-4">Departments</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/cardiology.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Cardiology</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/dentist-10.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Dentistry</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Ophthalmology.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Ophthalmology</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Surgical Department.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Surgical Department</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Internal Medicine.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Internal Medicine</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Pediatrics.webp" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Pediatrics</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- إضافة صف آخر إن لزم الأمر -->
-        </div>
-    </div>
-    
-    <!-- department End -->
 
 
-     <!-- Footer Start -->
-     <div class="container-fluid bg-dark text-white-50 footer pt-5">
+
+
+
+       <!-- Footer Start -->
+       <div class="container-fluid bg-dark text-white-50 footer pt-5">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
@@ -209,7 +192,8 @@
                         <h1 class="text-white">Aura Cura</h1>
                     </a>
                     <p class="mb-0">"Aura Cura: Where Healing Begins with Care
-                        Our commitment is to the highest standards of healthcare, ensuring that each individual receives the personalized attention they deserve. At Aura Cura, 
+                        Our commitment is to the highest standards of healthcare, ensuring that each individual receives
+                        the personalized attention they deserve. At Aura Cura,
                         we believe in healing with heart.
                     </p>
                 </div>
@@ -233,14 +217,14 @@
                     <a class="btn btn-link" href="services.html">Services</a>
                     <a class="btn btn-link" href="departments.html">Departments</a>
                     <a class="btn btn-link" href="doctors.html">Doctors</a>
-                   
+
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                     <h5 class="text-white mb-4">Our Services</h5>
                     <a class="btn btn-link" href="BloodDonation.html">Blood Donation</a>
                     <a class="btn btn-link" href="booking.html">Book Appointment</a>
                     <a class="btn btn-link" href="patientportal.html">patient Records</a>
-                    
+
                 </div>
             </div>
         </div>
@@ -255,7 +239,7 @@
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
                             <a href="">Home</a>
-                             <a href="">Help</a>
+                            <a href="">Help</a>
                             <a href="">FAQs</a>
                         </div>
                     </div>
@@ -263,6 +247,8 @@
             </div>
         </div>
     </div>
+
+    
     <!-- Footer End -->
 
 
@@ -296,3 +282,4 @@
 </body>
 
 </html>
+

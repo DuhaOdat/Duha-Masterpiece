@@ -43,48 +43,50 @@
     <!-- Spinner End -->
 
 
-   <!-- Navbar Start -->
-   <div class="container-fluid sticky-top">
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark p-0">
-            <a href="index.html" class="navbar-brand">
-                <h1 class="text-white"><i class="fa fa-heartbeat"></i> Aurea Cura</h1>
-            </a>
-            <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="doctors.html" class="nav-item nav-link">Doctors</a>
-                    <a href="departments.html" class="nav-item nav-link">Departments</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Portal</a>
-                        <div class="dropdown-menu bg-light mt-2">
-                            <a href="patient-portal.html" class="dropdown-item">Patient Portal</a>
-                            <a href="doctor-portal.html" class="dropdown-item">Doctor Portal</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                </div>
 
-                <!-- Search Icon and Input -->
-                <div class="d-flex align-items-center ms-auto mt-3 mt-lg-0">
-                    <input id="searchInput" class="form-control me-2 search-input" type="search"
-                        placeholder="Search" aria-label="Search">
-                    <button class="btn me-3" id="searchBtn" type="button">
-                        <i class="bi bi-search text-white"></i>
-                    </button>
-                    <a href="login.html" class="btn btn-outline-light me-2">Login</a>
-                    <a href="register.html" class="btn btn-primary">Register</a>
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="text-white"><i class="fa fa-heartbeat"></i> Aurea Cura</h1>
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="doctors.html" class="nav-item nav-link">Doctors</a>
+                        <a href="departments.html" class="nav-item nav-link">Departments</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Portal</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="patient-portal.html" class="dropdown-item">Patient Portal</a>
+                                <a href="doctor-portal.html" class="dropdown-item">Doctor Portal</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+
+                    <!-- Search Icon and Input -->
+                    <div class="d-flex align-items-center ms-auto mt-3 mt-lg-0">
+                        <input id="searchInput" class="form-control me-2 search-input" type="search"
+                            placeholder="Search" aria-label="Search">
+                        <button class="btn me-3" id="searchBtn" type="button">
+                            <i class="bi bi-search text-white"></i>
+                        </button>
+                        <a href="login.html" class="btn btn-outline-light me-2">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
-</div>
-<!-- Navbar End -->
+    <!-- Navbar End -->
 
 
     <!-- Hero Start -->
@@ -92,12 +94,11 @@
         <div class="container pt-5">
             <div class="row g-5 pt-5">
                 <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight">Our Services</h1>
+                    <h1 class="display-4 text-white mb-4 animated slideInRight">Login</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
                             <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
-                           
-                            <li class="breadcrumb-item text-white active" aria-current="page"> Departments</li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">login</li>
                         </ol>
                     </nav>
                 </div>
@@ -109,99 +110,71 @@
     </div>
     <!-- Hero End -->
 
-  <!-- Search Modal Start -->
-  <div class="modal fade" id="searchModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Search</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+    <!-- Search Modal Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Search</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-            <div class="modal-body">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+    </div>
+    <!-- Search Modal End -->
+
+    <!-- login form strat -->
+    <div class="container-fluid py-5 d-flex justify-content-center align-items-center"
+        style="min-height: 100vh; background-color: #f8f9fa;">
+        <div class="row g-0 shadow rounded overflow-hidden" style="max-width: 1200px; background-color: #fff;">
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="img/login-bg.jpg" class="img-fluid h-100" alt="Login" />
+            </div>
+            <div class="col-lg-6 p-5 d-flex flex-column justify-content-center">
+                <h2 class="text-center fw-bold mb-4">Login Here</h2>
+                <p class="text-center mb-4">
+                    Don't have an account yet? <a href="register.html" class="text-primary">Register Here</a>
+                </p>
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="First Name" />
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email" />
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Password" />
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Confirm Password" />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">
+                                Remember Me
+                            </label>
+                        </div>
+                        <a href="#" class="text-secondary">Forgot Password?</a>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary w-100 py-2">Login</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-</div>
-<!-- Search Modal End -->
 
-
-     <!-- department Start -->
-     <div class="container-fluid bg-light py-5">
-        <div class="container py-5">
-            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1 class="mb-4">Departments</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/cardiology.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Cardiology</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/dentist-10.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Dentistry</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Ophthalmology.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Ophthalmology</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Surgical Department.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Surgical Department</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Internal Medicine.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Internal Medicine</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Pediatrics.webp" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Pediatrics</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- إضافة صف آخر إن لزم الأمر -->
-        </div>
-    </div>
-    
-    <!-- department End -->
-
-
-     <!-- Footer Start -->
-     <div class="container-fluid bg-dark text-white-50 footer pt-5">
+    <!-- login form end -->
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
@@ -209,7 +182,8 @@
                         <h1 class="text-white">Aura Cura</h1>
                     </a>
                     <p class="mb-0">"Aura Cura: Where Healing Begins with Care
-                        Our commitment is to the highest standards of healthcare, ensuring that each individual receives the personalized attention they deserve. At Aura Cura, 
+                        Our commitment is to the highest standards of healthcare, ensuring that each individual receives
+                        the personalized attention they deserve. At Aura Cura,
                         we believe in healing with heart.
                     </p>
                 </div>
@@ -233,14 +207,14 @@
                     <a class="btn btn-link" href="services.html">Services</a>
                     <a class="btn btn-link" href="departments.html">Departments</a>
                     <a class="btn btn-link" href="doctors.html">Doctors</a>
-                   
+
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                     <h5 class="text-white mb-4">Our Services</h5>
                     <a class="btn btn-link" href="BloodDonation.html">Blood Donation</a>
                     <a class="btn btn-link" href="booking.html">Book Appointment</a>
                     <a class="btn btn-link" href="patientportal.html">patient Records</a>
-                    
+
                 </div>
             </div>
         </div>
@@ -255,7 +229,7 @@
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
                             <a href="">Home</a>
-                             <a href="">Help</a>
+                            <a href="">Help</a>
                             <a href="">FAQs</a>
                         </div>
                     </div>
@@ -263,6 +237,8 @@
             </div>
         </div>
     </div>
+
+    
     <!-- Footer End -->
 
 

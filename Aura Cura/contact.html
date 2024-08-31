@@ -43,6 +43,7 @@
     <!-- Spinner End -->
 
 
+   
     <!-- Navbar Start -->
     <div class="container-fluid sticky-top">
         <div class="container">
@@ -61,21 +62,24 @@
                         <a href="doctors.html" class="nav-item nav-link">Doctors</a>
                         <a href="departments.html" class="nav-item nav-link">Departments</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Portal</a>
                             <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item">Patient Portal</a>
-                                <a href="faq.html" class="dropdown-item">Doctor Portal</a>
+                                <a href="patient-portal.html" class="dropdown-item">Patient Portal</a>
+                                <a href="doctor-portal.html" class="dropdown-item">Doctor Portal</a>
                             </div>
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
 
                     <!-- Search Icon and Input -->
-                    <div class="d-flex align-items-center">
-                        <input id="searchInput" class="form-control me-2 search-input" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-secondary" id="searchBtn" type="button">
-                            <i class="bi bi-search"></i>
+                    <div class="d-flex align-items-center ms-auto mt-3 mt-lg-0">
+                        <input id="searchInput" class="form-control me-2 search-input" type="search"
+                            placeholder="Search" aria-label="Search">
+                        <button class="btn me-3" id="searchBtn" type="button">
+                            <i class="bi bi-search text-white"></i>
                         </button>
+                        <a href="login.html" class="btn btn-outline-light me-2">Login</a>
+                        <a href="register.html" class="btn btn-primary">Register</a>
                     </div>
                 </div>
             </nav>
@@ -92,7 +96,7 @@
                     <h1 class="display-4 text-white mb-4 animated slideInRight">Contact Us</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
                            
                             <li class="breadcrumb-item text-white active" aria-current="page">Contact Us</li>
                         </ol>
@@ -127,55 +131,54 @@
 <!-- Search Modal End -->
 
 
-    <!-- Contact Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
-                <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Contact Us</div>
-                <h1 class="mb-4">If You Have Any Query, Please Contact Us</h1>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <p class="text-center mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <div class="wow fadeIn" data-wow-delay="0.3s">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+   <!-- Contact Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-4">If You Have Any Questions, Please Contact Us</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <p class="text-center mb-4">Please fill out the form below to get in touch with us. We're here to help you with any inquiries you may have about our medical services.</p>
+                <div class="wow fadeIn" data-wow-delay="0.3s">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Contact End -->
-        
+</div>
+<!-- Contact End -->
+
 
 
    <!-- Footer Start -->

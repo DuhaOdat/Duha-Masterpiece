@@ -43,8 +43,10 @@
     <!-- Spinner End -->
 
 
-   <!-- Navbar Start -->
-   <div class="container-fluid sticky-top">
+   
+
+<!-- Navbar Start -->
+<div class="container-fluid sticky-top">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark p-0">
             <a href="index.html" class="navbar-brand">
@@ -61,21 +63,23 @@
                     <a href="doctors.html" class="nav-item nav-link">Doctors</a>
                     <a href="departments.html" class="nav-item nav-link">Departments</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Portal</a>
                         <div class="dropdown-menu bg-light mt-2">
-                            <a href="feature.html" class="dropdown-item">Patient Portal</a>
-                            <a href="faq.html" class="dropdown-item">Doctor Portal</a>
+                            <a href="patient-portal.html" class="dropdown-item">Patient Portal</a>
+                            <a href="doctor-portal.html" class="dropdown-item">Doctor Portal</a>
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
 
                 <!-- Search Icon and Input -->
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center ms-auto mt-3 mt-lg-0">
                     <input id="searchInput" class="form-control me-2 search-input" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-secondary" id="searchBtn" type="button">
-                        <i class="bi bi-search"></i>
+                    <button class="btn me-3" id="searchBtn" type="button">
+                        <i class="bi bi-search text-white"></i>
                     </button>
+                    <a href="login.html" class="btn btn-outline-light me-2">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
                 </div>
             </div>
         </nav>
@@ -89,12 +93,12 @@
         <div class="container pt-5">
             <div class="row g-5 pt-5">
                 <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight">Blood Donation</h1>
+                    <h1 class="display-4 text-white mb-4 animated slideInRight">Blood Donate</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                           
-                            <li class="breadcrumb-item text-white active" aria-current="page"> Blood Donation</li>
+                            <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
+                            
+                            <li class="breadcrumb-item text-white active" aria-current="page">Blood Donate</li>
                         </ol>
                     </nav>
                 </div>
@@ -105,6 +109,7 @@
         </div>
     </div>
     <!-- Hero End -->
+
 
   <!-- Search Modal Start -->
   <div class="modal fade" id="searchModal" tabindex="-1">
@@ -126,51 +131,179 @@
 <!-- Search Modal End -->
 
 
-     <!-- Start Blood Donation -->
-<div class="container py-5">
-    <div class="text-center wow fadeIn" data-wow-delay="0.5s">
-        <h1 class="mb-4">Blood Donation</h1>
-        
-        <p class="text-center">
-            Donate blood and help save lives. Every donation can contribute to saving lives and providing support to patients in need.
-        </p>
-    </div>
-
-    <div class="row align-items-center">
-        <div class="col-lg-6">
-            <div class="about-img text-center position-relative">
-                <img class="img-fluid w-100" src="img/blooddonation.webp" alt="Blood Donation">
-           
+<!-- Start Blood Donation Section -->
+<div class="container-fluid about py-5 bg-light">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5">
+                <div class="h-100">
+                    <img src="img/donate.png" class="img-fluid" alt="Blood Donation">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <h5 class="section-about-title pe-3 text-primary">Blood Donation</h5>
+                <h1 class="mb-4">Empower life <span class="text-primary">Join the blood donation movement</span></h1>
+                <p class="mb-4">Aura Cura is revolutionizing blood donation in Amman by connecting generous donors with those in need. Register your blood type, donate blood, and earn points for your contributions.</p>
+                <p class="mb-4">With every donation, you not only save lives but also earn rewards that can be redeemed for a free hospital test. Together, we create a healthier community, one donation at a time. Join us in making a difference today!</p>
+               
             </div>
         </div>
-        <div class="col-lg-6">
-            <!-- Donation Form Section -->
-            <div class="section mt-4" id="donate">
+    </div>
+</div>
+<!-- End Blood Donation Section -->
+
+
+<!-- Donation Rewards Start -->
+<div class="container py-5">
+    <div class="text-center">
+        <h2 class="mb-4">Donation Rewards</h2>
+        <p class="mb-5">Earn points with every blood donation and redeem them for valuable rewards!</p>
+    </div>
+    <div class="row g-4">
+        <!-- Package 1 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <img class="card-img-top fixed-image-size" src="img/bloodtest.jpg" alt="Package 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Basic Health Checkup</h5>
+                    <p class="card-text">Earn 100 points to redeem a free basic health checkup at our hospital.</p>
+                    <p class="text-primary">Points Required: 100</p>
+                </div>
+            </div>
+        </div>
+        <!-- Package 2 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <img class="card-img-top fixed-image-size" src="img/bloodtest.jpg" alt="Package 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Comprehensive Blood Test</h5>
+                    <p class="card-text">Earn 200 points to redeem a comprehensive blood test package.</p>
+                    <p class="text-primary">Points Required: 200</p>
+                </div>
+            </div>
+        </div>
+        <!-- Package 3 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <img class="card-img-top fixed-image-size" src="img/bloodtest.jpg" alt="Package 3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Full Body Checkup</h5>
+                    <p class="card-text">Earn 500 points to redeem a full body checkup package.</p>
+                    <p class="text-primary">Points Required: 500</p>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    <div class="row g-4">
+        <!-- Package 4 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <img class="card-img-top fixed-image-size" src="img/bloodtest.jpg" alt="Package 4">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Health Package</h5>
+                    <p class="card-text">Earn 150 points to redeem a health package at our hospital.</p>
+                    <p class="text-primary">Points Required: 150</p>
+                </div>
+            </div>
+        </div>
+        <!-- Package 5 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <img class="card-img-top fixed-image-size" src="img/bloodtest.jpg" alt="Package 5">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Special Blood Test</h5>
+                    <p class="card-text">Earn 250 points to redeem a special blood test package.</p>
+                    <p class="text-primary">Points Required: 250</p>
+                </div>
+            </div>
+        </div>
+        <!-- Package 6 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <img class="card-img-top fixed-image-size" src="img/bloodtest.jpg" alt="Package 6">
+                <div class="card-body text-center">
+                    <h5 class="card-title">VIP Health Checkup</h5>
+                    <p class="card-text">Earn 600 points to redeem a VIP health checkup package.</p>
+                    <p class="text-primary">Points Required: 600</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Donation Rewards End -->
+
+<!-- Blood Donation Form Start -->
+<div class="container-fluid py-5 bg-light">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow p-4">
                 <h2 class="text-center mb-4">Blood Donation Form</h2>
                 <form>
-                    <div class="mb-3">
-                        <label for="fullName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+                    <div class="row">
+                        <!-- Full Name -->
+                        <div class="col-md-6 mb-3">
+                            <label for="fullName" class="form-label">Full Name <span class="text-red-500">*</span></label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="col-md-6 mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number <span class="text-red-500">*</span></label>
+                            <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phone number" required>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="phoneNumber" class="form-label">Phone Number</label>
-                        <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
+
+                    <div class="row">
+                        <!-- Email Address -->
+                        <div class="col-md-6 mb-3">
+                            <label for="emailAddress" class="form-label">Email Address <span class="text-red-500">*</span></label>
+                            <input type="email" class="form-control" id="emailAddress" placeholder="Enter your email address" required>
+                        </div>
+
+                        <!-- Blood Type -->
+                        <div class="col-md-6 mb-3">
+                            <label for="bloodType" class="form-label">Blood Type <span class="text-red-500">*</span></label>
+                            <select class="form-select" id="bloodType" required>
+                                <option value="" selected>Select your blood type</option>
+                                <option value="A+">A+</option>
+                                <option value="B+">B+</option>
+                                <option value="O+">O+</option>
+                                <option value="AB+">AB+</option>
+                                <option value="A-">A-</option>
+                                <option value="B-">B-</option>
+                                <option value="O-">O-</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="emailAddress" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="emailAddress" placeholder="Enter your email address">
+
+                    <div class="row">
+                        <!-- Donation Date -->
+                        <div class="col-md-6 mb-3">
+                            <label for="donationDate" class="form-label">Preferred Donation Date</label>
+                            <input type="date" class="form-control" id="donationDate" required>
+                        </div>
+
+                        <!-- Comments -->
+                        <div class="col-md-6 mb-3">
+                            <label for="comments" class="form-label">Additional Information</label>
+                            <textarea class="form-control" id="comments" rows="3" placeholder="Any additional information"></textarea>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<!-- End Blood Donation -->
-  
+<!-- Blood Donation Form End -->
 
 
-  
 
      <!-- Footer Start -->
      <div class="container-fluid bg-dark text-white-50 footer pt-5">

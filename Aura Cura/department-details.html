@@ -97,7 +97,7 @@
                         <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
                             <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
                            
-                            <li class="breadcrumb-item text-white active" aria-current="page"> Departments</li>
+                            <li class="breadcrumb-item text-white active" aria-current="page"> Depatement's Details</Details></li>
                         </ol>
                     </nav>
                 </div>
@@ -129,75 +129,103 @@
 <!-- Search Modal End -->
 
 
-     <!-- department Start -->
-     <div class="container-fluid bg-light py-5">
-        <div class="container py-5">
-            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1 class="mb-4">Departments</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/cardiology.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Cardiology</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
+<!-- Department Details Section Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Department Details</h2>
+        <div class="card border-0 shadow p-4 mb-5">
+            <div class="row g-4 mb-4">
+                <!-- Department Image -->
+                <div class="col-md-6">
+                    <img src="img/cardiology.jpg" alt="Department Image" class="img-fluid rounded shadow-sm mb-4">
                 </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/dentist-10.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Dentistry</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Ophthalmology.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Ophthalmology</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Surgical Department.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Surgical Department</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Internal Medicine.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Internal Medicine</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Pediatrics.webp" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Pediatrics</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
+                <div class="col-md-6">
+                    <!-- Department Name -->
+                    <h3 class="text-primary mb-3">Gynecology Department</h3>
+
+                    <!-- Department Description -->
+                    <p class="mb-4">
+                        The Gynecology Department at our hospital is dedicated to providing comprehensive care for women’s reproductive health. 
+                        Our team of experienced gynecologists and nurses are committed to offering personalized care to ensure the best outcomes for our patients. 
+                        We offer a range of services including routine check-ups, prenatal care, and specialized treatments for gynecological disorders.
+                    </p>
+
+                    <!-- Department Head -->
+                    <p><strong>Head:</strong> Deena Cooley</p>
+
+                    <!-- Department Email -->
+                    <p><strong>Email:</strong> test@test.com</p>
+
+                    <!-- Department Phone -->
+                    <p><strong>Phone:</strong> 0009876541</p>
+
+                    <!-- Number of Rooms and Beds -->
+                 
+                        <p><strong>Number of Rooms:</strong> 3</p>
+                        <p><strong>Number of Beds:</strong> 8</p>
+                   
+
+                    <!-- Department Status -->
+                    <p><strong>Status:</strong> Active</p>
                 </div>
             </div>
-            <!-- إضافة صف آخر إن لزم الأمر -->
+
         </div>
+
+          <!-- Doctors in this Department Section Start -->
+          <h2 class="mb-4 text-center">Doctors in Gynecology Department</h2>
+          <div class="row g-4 mb-5">
+              <div class="col-md-3 wow fadeIn mb-4" data-wow-delay="0.1s">
+                  <div class="team-item bg-white text-center rounded p-4 pt-0">
+                      <img class="img-fluid rounded-circle p-4" src="img/doctor1.png" alt="">
+                      <h5 class="mb-0">Luna Falah</h5>
+                      <small>Gynecologist</small>
+                      <div class="d-flex justify-content-center mt-3">
+                        <a href="doctor-details.html" class="btn btn-primary rounded-pill">View Profile</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 wow fadeIn mb-4" data-wow-delay="0.3s">
+                  <div class="team-item bg-white text-center rounded p-4 pt-0">
+                      <img class="img-fluid rounded-circle p-4" src="img/doctor2.png" alt="">
+                      <h5 class="mb-0">Adam Crew</h5>
+                      <small>Gynecologist</small>
+                      <div class="d-flex justify-content-center mt-3">
+                        <a href="doctor-details.html" class="btn btn-primary rounded-pill">View Profile</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 wow fadeIn mb-4" data-wow-delay="0.5s">
+                  <div class="team-item bg-white text-center rounded p-4 pt-0">
+                      <img class="img-fluid rounded-circle p-4" src="img/doctor3.png" alt="">
+                      <h5 class="mb-0">Kate Winslet</h5>
+                      <small>Gynecologist</small>
+                      <div class="d-flex justify-content-center mt-3">
+                        <a href="doctor-details.html" class="btn btn-primary rounded-pill">View Profile</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 wow fadeIn mb-4" data-wow-delay="0.7s">
+                  <div class="team-item bg-white text-center rounded p-4 pt-0">
+                      <img class="img-fluid rounded-circle p-4" src="img/doctor4.jpg" alt="">
+                      <h5 class="mb-0">Cody Gardner</h5>
+                      <small>Gynecologist</small>
+                      <div class="d-flex justify-content-center mt-3">
+                        <a href="doctor-details.html" class="btn btn-primary rounded-pill">View Profile</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- End of Doctors Section -->
     </div>
     
-    <!-- department End -->
+</div>
+<!-- Department Details Section End -->
+
+
+
+
+
 
 
      <!-- Footer Start -->
