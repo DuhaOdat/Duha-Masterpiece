@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            background-color: #f8f9fa;
+            width: 250px;
+            padding-top: 20px;
+        }
+
+        .sidebar .nav-link {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .sidebar .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .fixed-image-size {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .points-bar .progress {
+            background-color: #28a745;
+            height: 24px;
+            border-radius: 12px;
+        }
+
+        .profile-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .points-tracker,
+        .donation-history,
+        .rewards-section,
+        .medical-reports {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .redeem-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .redeem-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar p-3">
+        <h2 class="text-center">Patient Portal</h2>
+        <nav class="nav flex-column">
+            <a class="nav-link active" href="#" data-target="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a class="nav-link" href="#" data-target="#appointments"><i class="fas fa-calendar-alt"></i> Appointments</a>
+            <a class="nav-link" href="#" data-target="#medications"><i class="fas fa-prescription-bottle-alt"></i> Medications</a>
+            <a class="nav-link" href="#" data-target="#lab-results"><i class="fas fa-vial"></i> Lab Results</a>
+            <a class="nav-link" href="#" data-target="#radiology"><i class="fas fa-x-ray"></i> Radiology</a>
+            <a class="nav-link" href="#" data-target="#medical-records"><i class="fas fa-file-medical-alt"></i> Medical Records</a>
+            <a class="nav-link" href="#" data-target="#blood-donations"><i class="fas fa-tint"></i> Blood Donations</a>
+            <a class="nav-link" href="#" data-target="#rewards"><i class="fas fa-gift"></i> Rewards & Discounts</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Dashboard -->
+        <div id="dashboard" class="tab-content active">
+            <div class="mb-4">
+                <h3>Welcome, John Doe</h3>
+                <p>Here you can manage your medical information, view upcoming appointments, and access lab results.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card text-center mb-4">
+                        <div class="card-body">
+                            <i class="fas fa-calendar-alt fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Appointments</h5>
+                            <p class="card-text">View and manage your upcoming and past appointments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card text-center mb-4">
+                        <div class="card-body">
+                            <i class="fas fa-prescription-bottle-alt fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Medications</h5>
+                            <p class="card-text">Review your current and past medications.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card text-center mb-4">
+                        <div class="card-body">
+                            <i class="fas fa-vial fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Lab Results</h5>
+                            <p class="card-text">Access your lab test results and detailed reports.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointments -->
+        <div id="appointments" class="tab-content">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Appointments</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Doctor</th>
+                                <th>Department</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>15-08-2023</td>
+                                <td>Dr. Ahmed Khaled</td>
+                                <td>Cardiology</td>
+                                <td>Upcoming</td>
+                            </tr>
+                            <tr>
+                                <td>01-07-2023</td>
+                                <td>Dr. Layla Hussein</td>
+                                <td>General Medicine</td>
+                                <td>Completed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medications -->
+        <div id="medications" class="tab-content">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Medications</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Medication</th>
+                                <th>Dosage</th>
+                                <th>Prescribed Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Atorvastatin</td>
+                                <td>10mg</td>
+                                <td>01-07-2023</td>
+                                <td>Ongoing</td>
+                            </tr>
+                            <tr>
+                                <td>Metformin</td>
+                                <td>500mg</td>
+                                <td>15-08-2023</td>
+                                <td>Ongoing</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lab Results -->
+        <div id="lab-results" class="tab-content">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Lab Results</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Test Name</th>
+                                <th>Result</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>15-08-2023</td>
+                                <td>Complete Blood Count</td>
+                                <td>Normal</td>
+                                <td><a href="#" class="btn btn-outline-primary btn-sm">View Report</a></td>
+                            </tr>
+                            <tr>
+                                <td>10-07-2023</td>
+                                <td>Lipid Profile</td>
+                                <td>High Cholesterol</td>
+                                <td><a href="#" class="btn btn-outline-primary btn-sm">View Report</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Radiology -->
+        <div id="radiology" class="tab-content">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Radiology</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Imaging Type</th>
+                                <th>Result</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>20-06-2023</td>
+                                <td>X-ray</td>
+                                <td>Fracture</td>
+                                <td><a href="#" class="btn btn-outline-primary btn-sm">View Report</a></td>
+                            </tr>
+                            <tr>
+                                <td>15-05-2023</td>
+                                <td>MRI</td>
+                                <td>Normal</td>
+                                <td><a href="#" class="btn btn-outline-primary btn-sm">View Report</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical Records -->
+        <div id="medical-records" class="tab-content">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Medical Records</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Past Visits</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Visit Type</th>
+                                <th>Doctor</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10-05-2023</td>
+                                <td>Routine Checkup</td>
+                                <td>Dr. Omar Saeed</td>
+                                <td>Patient in good health</td>
+                            </tr>
+                            <tr>
+                                <td>20-03-2023</td>
+                                <td>Follow-up</td>
+                                <td>Dr. Omar Saeed</td>
+                                <td>Improvement noted</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <h6>Surgeries & Treatments</h6>
+                    <ul>
+                        <li><strong>Appendectomy</strong> - Completed on 15-01-2023 at City Hospital</li>
+                        <li><strong>Physical Therapy</strong> - 5 sessions for back pain, ongoing</li>
+                        <!-- Add more details as needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blood Donations -->
+        <div id="blood-donations" class="tab-content">
+            <div class="profile-info mb-4">
+                <h2>Your Details</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Name:</strong> John Doe</p>
+                        <p><strong>Email:</strong> johndoe@example.com</p>
+                        <p><strong>Phone:</strong> (123) 456-7890</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Blood Type:</strong> O+</p>
+                        <p><strong>Date of Birth:</strong> January 1, 1980</p>
+                        <p><strong>Address:</strong> 123 Main St, Springfield, IL</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="points-tracker mb-4">
+                <h2>Points Tracker</h2>
+                <div class="points-bar">
+                    <div class="progress" style="width: 70%;"></div> <!-- Adjust width based on points -->
+                </div>
+                <p>Points Earned: 70/100 (30 points needed for a free test)</p>
+            </div>
+
+            <div class="donation-history mb-4">
+                <h2>Donation History</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Points Earned</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2023-08-01</td>
+                            <td>Springfield General Hospital</td>
+                            <td>20 Points</td>
+                        </tr>
+                        <tr>
+                            <td>2023-06-15</td>
+                            <td>Downtown Blood Donation Center</td>
+                            <td>25 Points</td>
+                        </tr>
+                        <tr>
+                            <td>2023-03-10</td>
+                            <td>Community Health Clinic</td>
+                            <td>25 Points</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Rewards & Discounts -->
+        <div id="rewards" class="tab-content">
+            <div class="rewards-section mb-4">
+                <h2>Donation Rewards</h2>
+                <div class="row g-4">
+                    <!-- Package 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img class="card-img-top fixed-image-size" src="img/package1.jpg" alt="Package 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Basic Health Checkup</h5>
+                                <p class="card-text">Earn 100 points to redeem a free basic health checkup at our hospital.</p>
+                                <p class="text-primary">Points Required: 100</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Package 2 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img class="card-img-top fixed-image-size" src="img/bloodtest.jpg" alt="Package 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Comprehensive Blood Test</h5>
+                                <p class="card-text">Earn 200 points to redeem a comprehensive blood test package.</p>
+                                <p class="text-primary">Points Required: 200</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Package 3 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img class="card-img-top fixed-image-size" src="img/package3.jpg" alt="Package 3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Full Body Checkup</h5>
+                                <p class="card-text">Earn 500 points to redeem a full body checkup package.</p>
+                                <p class="text-primary">Points Required: 500</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical Reports Section -->
+        <div id="medical-reports" class="tab-content">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Medical Reports</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Report Name</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Blood Test Results</td>
+                                <td>2024-08-01</td>
+                                <td><a href="#" class="btn btn-primary">Download</a></td>
+                            </tr>
+                            <tr>
+                                <td>X-Ray Report</td>
+                                <td>2024-06-15</td>
+                                <td><a href="#" class="btn btn-primary">Download</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // JavaScript to handle tab switching
+        document.querySelectorAll('.nav-link').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                // Remove active class from all tabs
+                document.querySelectorAll('.nav-link').forEach(function (link) {
+                    link.classList.remove('active');
+                });
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(function (tab) {
+                    tab.classList.remove('active');
+                });
+                // Add active class to the clicked tab
+                link.classList.add('active');
+                // Show the corresponding tab content
+                const target = document.querySelector(link.getAttribute('data-target'));
+                target.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
