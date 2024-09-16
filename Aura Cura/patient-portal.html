@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AI.Tech - Artificial Intelligence HTML Template</title>
+    <title>Aurea Cura-Medical care</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -35,7 +35,7 @@
 </head>
 
 
-<body onload="loadContent('dashboard')">
+<body onload="loadLastSection()" class="no-hero">
     <!-- Spinner Start --> 
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -62,17 +62,12 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="BloodDonation.html" class="nav-item nav-link">Blood Donation</a>
+                    <a href="patient-portal.html" class="nav-item nav-link">Patient Portal</a>
                     <a href="doctors.html" class="nav-item nav-link">Doctors</a>
                     <a href="departments.html" class="nav-item nav-link">Departments</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Portal</a>
-                        <div class="dropdown-menu bg-light mt-2">
-                            <a href="patient-portal.html" class="dropdown-item">Patient Portal</a>
-                            <a href="doctor-portal.html" class="dropdown-item">Doctor Portal</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                 </div>
 
                 <!-- Search Icon and Input -->
@@ -82,7 +77,7 @@
                         <i class="bi bi-search text-white"></i>
                     </button>
                     <a href="login.html" class="btn btn-outline-light me-2">Login</a>
-                    <a href="register.html" class="btn btn-primary">Register</a>
+                   
                 </div>
             </div>
         </nav>
@@ -91,27 +86,7 @@
 <!-- Navbar End -->
 
 
-    <!-- Hero Start -->
-    <div class="container-fluid pt-5 bg-primary hero-header">
-        <div class="container pt-5">
-            <div class="row g-5 pt-5">
-                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight">Patient Portal</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
-                            <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
-                            
-                            <li class="breadcrumb-item text-white active" aria-current="page">Patient Portal</li>
-                        </ol>
-                    </nav>
-                </div>
-                <div class="col-lg-6 align-self-end text-center text-lg-end">
-                    <img class="img-fluid" src="img/hero-img.png" alt="" style="max-height: 300px;">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Hero End -->
+   
 
 
   <!-- Search Modal Start -->
@@ -138,7 +113,7 @@
     <!-- Main Layout with Sidebar and Content -->
     <div class="container-fluid main-container">
         <!-- Sidebar -->
-        <div class="sidebar bg-light">
+         <div class="sidebar bg-light"> 
            
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -146,10 +121,20 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="loadContent('profile')"><i class="fas fa-calendar-alt"></i>Profile</a>
+                    <a class="nav-link" href="#" onclick="loadContent('profile')"><i class="fas fa-user"></i>Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="loadContent('appointments')"><i class="fas fa-calendar-alt"></i>Show Appointment</a>
+                    <a class="nav-link" href="#" onclick="toggleSubmenu('appointmentsSubmenu')"><i class="fas fa-calendar-alt"></i> Appointments
+                        <i class="fas fa-chevron-down float-end" id="appointmentsArrow"></i>
+                    </a>
+                    <ul class="nav flex-column ms-3" id="appointmentsSubmenu" style="display: none;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadContent('show-appointments')">Show All Appointments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadContent('add-appointment')">Add New Appointment</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" onclick="loadContent('lab-results')"><i class="fas fa-vials"></i>Lab Results</a>
@@ -157,14 +142,30 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" onclick="loadContent('medical-images')"><i class="fas fa-x-ray"></i>Medical Images</a>
                 </li>
+                   <!-- Blood Donation History -->
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="toggleSubmenu('bloodDonationSubmenu')" aria-expanded="false">
+                    <i class="fas fa-hand-holding-heart"></i> Blood Donation 
+                    <i class="fas fa-chevron-down float-end" id="bloodDonationArrow"></i>
+                </a>
+                <ul class="nav flex-column ms-3" id="bloodDonationSubmenu" style="display: none;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="loadContent('show-blood-donations')">Show All Donations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="loadContent('add-blood-donation')">Add New Donation</a>
+                    </li>
+                </ul>
+            </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="loadContent('blood-history')"><i class="fas fa-heart"></i>Blood Donation History</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="loadContent('donation-rewards')"><i class="fas fa-gift"></i>Donation Rewards</a>
+                    <a class="nav-link" href="#" onclick="loadContent('donation-rewards')"><i class="fas fa-trophy"></i>Donation Rewards</a>
                 </li>
             </ul>
-        </div>
+        </div> 
+
+
+    
+
 
         <!-- Main Content Area -->
         <div class="content">
@@ -260,6 +261,7 @@
 
 <!-- Template Javascript -->
 <script src="js/lab-result.js"></script>
+<script src="js/appointments.js"></script>
 <script src="js/main.js"></script>
 
 
@@ -275,6 +277,57 @@
             searchInput.focus();
         }
     });
+   
+
+    function loadLastSection() {
+    const lastSection = localStorage.getItem('currentSection');
+    
+    if (lastSection) {
+        loadContent(lastSection); // إذا كان هناك قسم محفوظ، نعرضه
+    } else {
+        loadContent('dashboard'); // إذا لم يكن هناك قسم محفوظ، نعرض قسم Dashboard كافتراضي
+    }
+}
+
+
+function toggleSubmenu(id, element) {
+    var submenu = document.getElementById(id);
+    var arrow = element.querySelector('.fas.fa-chevron-down, .fas.fa-chevron-up');
+
+    if (submenu.style.display === "none") {
+        submenu.style.display = "block";
+        // Rotate the arrow up when submenu is open
+        arrow.classList.remove('fa-chevron-down');
+        arrow.classList.add('fa-chevron-up');
+    } else {
+        submenu.style.display = "none";
+        // Rotate the arrow down when submenu is closed
+        arrow.classList.remove('fa-chevron-up');
+        arrow.classList.add('fa-chevron-down');
+    }
+}
+
+
+      // إذا كانت الصفحة الحالية هي "patient-portal.html"، أخفِ الـ Hero وأضف Padding للصفحة
+      if (window.location.pathname.includes('patient-portal.html')) {
+        // إخفاء الـ Hero section
+        document.getElementById('hero-section').style.display = 'none';
+        
+        // إضافة Padding لتعويض المساحة الفارغة بعد إخفاء الـ Hero
+        document.querySelector('.main-container').style.paddingTop = '100px';
+    }
+
+
+    function toggleSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    if (submenu.style.display === "none") {
+        submenu.style.display = "block";
+    } else {
+        submenu.style.display = "none";
+    }
+
+
+}
 </script>
 </body>
 

@@ -4,6 +4,7 @@
     --secondary: #15ACE1;
     --light: #F4F7FE;
     --dark: #14183E;
+    
 }
 
         body {
@@ -289,6 +290,14 @@ h6,
     height: 70vh !important;
 }
 
+.no-hero .sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background-color: #0056b3;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
 /*** Section Title ***/
 .section-title::before {
@@ -337,6 +346,12 @@ h6,
     left: 3px;
 }
 */
+
+
+
+
+
+
 
 /*** About ***/
 .about-img {
@@ -772,7 +787,7 @@ object-fit: cover;
 .sidebar {
     height: calc(100vh - 100px); /* Full viewport height minus header height */
     position: sticky; /* Sticky sidebar so it stays visible but doesn't scroll */
-    top: 307.2px; /* This will make the sidebar start after the header */
+   
     left: 0;
     background-color: #f8f9fa;
     padding: 15px;
@@ -1006,3 +1021,15 @@ object-fit: cover;
         border-radius: 5px;
         margin-right: 10px;
       }
+
+
+      .bg-purple {
+        background-color: #6f42c1 !important; 
+    }
+
+
+    /**** reward card*/
+   
+.card-custom-bg {
+    background-color: #b1b2b4; 
+}
