@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Patient Portal - Medications</title>
+    <style>
+        body {
+            padding-top: 56px; /* Offset for the fixed navbar */
+        }
+        .sidebar {
+            position: fixed;
+            top: 56px; /* Same height as the navbar */
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+        .main-content {
+            margin-left: 270px; /* Account for sidebar width + margin */
+            padding: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Patient Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Your Name
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar shadow">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.html"><i class="bi bi-house-door"></i> Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="appointments.html"><i class="bi bi-calendar"></i> Appointments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="medications.html"><i class="bi bi-capsule"></i> Medications</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="lab-results.html"><i class="bi bi-flask"></i> Lab Results</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="radiology.html"><i class="bi bi-flask"></i> Radiology</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="messages.html"><i class="bi bi-chat-dots"></i> Messages</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="profile.html"><i class="bi bi-person"></i> Profile</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="billing.html"><i class="bi bi-credit-card"></i> Billing</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <h2>Active Medications</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Medication</th>
+                    <th>Dosage</th>
+                    <th>Frequency</th>
+                    <th>Start Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Aspirin</td>
+                    <td>100mg</td>
+                    <td>Once daily</td>
+                    <td>Jan 01, 2024</td>
+                    <td>Active</td>
+                </tr>
+                <tr>
+                    <td>Lisinopril</td>
+                    <td>10mg</td>
+                    <td>Once daily</td>
+                    <td>Feb 15, 2024</td>
+                    <td>Active</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Medication History</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Medication</th>
+                    <th>Dosage</th>
+                    <th>Frequency</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Metformin</td>
+                    <td>500mg</td>
+                    <td>Twice daily</td>
+                    <td>Mar 01, 2023</td>
+                    <td>Dec 31, 2023</td>
+                    <td>Completed</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <p>© 2024 All rights reserved. Patient Portal</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

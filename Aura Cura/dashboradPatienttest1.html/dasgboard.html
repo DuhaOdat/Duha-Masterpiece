@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Portal</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: rgba(33, 66, 177, .5);
+    }
+
+    /* Sidebar style */
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #f8f9fa;
+      padding-top: 20px;
+    }
+
+    /* Links inside sidebar */
+    .sidebar a {
+      padding: 15px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .sidebar a:hover {
+      background-color: #ddd;
+    }
+
+    /* Main content area */
+    .main-content {
+      margin-left: 270px;
+      padding: 20px;
+    }
+
+    .content-box {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h4 class="text-center">Health Records</h4>
+    <a href="#allergies" onclick="showContent('allergies')">Allergies</a>
+    <a href="#clinical-vitals" onclick="showContent('clinical-vitals')">Clinical Vitals</a>
+    <a href="#conditions" onclick="showContent('conditions')">Conditions</a>
+    <a href="#immunizations" onclick="showContent('immunizations')">Immunizations</a>
+    <a href="#lab-results" onclick="showContent('lab-results')">Lab Results</a>
+    <a href="#medications" onclick="showContent('medications')">Medications</a>
+    <a href="#procedures" onclick="showContent('procedures')">Procedures</a>
+    <a href="#clinical-documents" onclick="showContent('clinical-documents')">Clinical Documents</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div id="content" class="content-box">
+      <h4>Welcome to the Patient Portal</h4>
+      <p>Select an option from the sidebar to view details.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript to dynamically load content -->
+  <script>
+    function showContent(page) {
+      let content = document.getElementById('content');
+      content.innerHTML = '';
+      switch(page) {
+        case 'allergies':
+          content.innerHTML = `<h4>Allergies</h4><p>Here are the details of allergies.</p>`;
+          break;
+        case 'clinical-vitals':
+          content.innerHTML = `<h4>Clinical Vitals</h4><p>Here are the details of clinical vitals.</p>`;
+          break;
+        case 'conditions':
+          content.innerHTML = `<h4>Conditions</h4><p>Here are the details of conditions.</p>`;
+          break;
+        case 'immunizations':
+          content.innerHTML = `<h4>Immunizations</h4><p>Here are the details of immunizations.</p>`;
+          break;
+        case 'lab-results':
+          content.innerHTML = `<h4>Lab Results</h4><p>Here are the details of lab results.</p>`;
+          break;
+        case 'medications':
+          content.innerHTML = `<h4>Medications</h4><p>Here are the details of medications.</p>`;
+          break;
+        case 'procedures':
+          content.innerHTML = `<h4>Procedures</h4><p>Here are the details of procedures.</p>`;
+          break;
+        case 'clinical-documents':
+          content.innerHTML = `<h4>Clinical Documents</h4><p>Here are the details of clinical documents.</p>`;
+          break;
+        default:
+          content.innerHTML = `<h4>Welcome to the Patient Portal</h4><p>Select an option from the sidebar to view details.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>

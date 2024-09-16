@@ -9,6 +9,10 @@
         body {
             font-family: 'Open Sans', sans-serif;
             color: var(--dark);
+        
+                margin: 0;
+                padding: 0;
+           
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -763,3 +767,242 @@ object-fit: cover;
 }
 
 
+/** style sidebar***/
+/* Sidebar Styles */
+.sidebar {
+    height: calc(100vh - 100px); /* Full viewport height minus header height */
+    position: sticky; /* Sticky sidebar so it stays visible but doesn't scroll */
+    top: 307.2px; /* This will make the sidebar start after the header */
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 15px;
+    width: 260px;
+    overflow-y: auto; /* Adds scroll if content overflows */
+}
+
+.content {
+ 
+    padding: 20px;
+    overflow: auto;
+}
+
+.main-container {
+    display: flex;
+    min-height: 100vh; /* Ensures the main container also spans the full height */
+}
+
+/* Card styling */
+.card {
+    margin-bottom: 20px;
+}
+
+/* Navigation links inside the sidebar */
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Icon inside the nav-link */
+.nav-link i {
+    margin-right: 10px;
+}
+
+/* Profile image styling */
+.profile-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+/* Ensure the sidebar is below the header */
+.main-container {
+    display: flex;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Sidebar takes full width on smaller screens */
+        position: relative; /* Relative positioning on smaller screens */
+        height: auto; /* Height becomes auto for smaller screens */
+    }
+
+    .content {
+        margin-left: 0; /* Content takes the full width on smaller screens */
+    }
+}
+
+
+
+    /*** card in home **/
+    .hover-effect {
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 12px !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    .hover-effect:hover {
+        transform: translateY(-10px)!important    ;
+      
+    }
+
+    .fixed-image-size {
+        height: 200px!important ;
+        object-fit: cover!important ;
+        border-top-left-radius: 12px!important ;
+        border-top-right-radius: 12px!important ;
+    }
+
+    .text-primary {
+        color: #007bff !important;
+    } 
+   /** General container styling **/
+.container {
+    width: 100%;
+ }
+ 
+ h2 {
+     color: #333;
+     margin-bottom: 20px;
+ }
+ 
+ .card .lab {
+     margin-bottom: 15px;
+     border-radius: 10px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 500px !important;
+    
+ }
+
+
+ 
+ /** Pending card style **/
+ .card.pending {
+     border-left: 5px solid #ffc107;
+ }
+ 
+ /** Complete card style **/
+ .card.complete {
+     border-left: 5px solid #28a745;
+ }
+ 
+ .status-label {
+     font-size: 0.9rem;
+     font-weight: bold;
+     border-radius: 5px;
+     padding: 3px 8px;
+     display: inline-block;
+     margin-left: 10px;
+ }
+ 
+ .status-label.pending {
+     background-color: #ffc107;
+     color: #fff;
+ }
+ 
+ .status-label.complete {
+     background-color: #28a745;
+     color: #fff;
+ }
+ 
+ .provider-name {
+     font-weight: bold;
+     color: #555;
+ }
+ 
+ .order-date {
+     font-size: 0.9rem;
+     color: #666;
+ }
+ 
+ .search-section {
+     background-color: #fff;
+     padding: 15px;
+     border-radius: 10px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     margin-bottom: 20px;
+ }
+ 
+ /* Toggle switch buttons styling */
+ .d-flex.justify-content-center.mb-4 .btn-outline-primary.active {
+     background-color: #007bff !important;
+     color: white!important;
+ }
+ 
+ .d-flex.justify-content-center.mb-4 .btn-outline-primary {
+     border: 2px solid #007bff!important;
+     color: #007bff !important;
+     background-color: white !important;
+ }
+ 
+
+   
+      /** medical images**/
+       
+      .main-content {
+        padding: 20px;
+      }
+  
+      .content-box {
+        width: 700px !important;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+  
+      .btn-tab {
+        margin: 10px 0;
+      }
+  
+      .report-item {
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #f1f1f1;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+  
+      .report-title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+  
+      .order-date {
+        color: #6c757d;
+      }
+  
+      .pending-badge {
+        background-color: #ffc107;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+  
+      .completed-badge {
+        background-color: #28a745;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+  
+      .thumbnail {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        margin-right: 10px;
+      }

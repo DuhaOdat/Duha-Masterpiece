@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: rgba(33, 66, 177, .5);
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #f8f9fa;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 15px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .sidebar a:hover {
+      background-color: #ddd;
+    }
+
+    .main-content {
+      margin-left: 270px;
+      padding: 20px;
+    }
+
+    .content-box {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h4 class="text-center">Menu</h4>
+    <a href="#profile">Profile</a>
+    <a href="#edit-profile">Edit Profile</a>
+    <a href="#appointments">Appointments</a>
+    <a href="#messages">Messages</a>
+    <a href="#logout">Logout</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="content-box">
+      <h4>Profile Information</h4>
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>Email:</strong> johndoe@example.com</p>
+      <p><strong>Phone:</strong> +123 456 7890</p>
+      <p><strong>Address:</strong> 1234 Elm St, Springfield</p>
+      <p><strong>Date of Birth:</strong> 01/01/1980</p>
+    </div>
+  </div>
+</body>
+</html>
