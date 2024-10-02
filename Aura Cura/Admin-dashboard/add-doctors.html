@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aura Cura -Admin Dashboard </title>
+
+    <!-- Meta -->
+    <meta name="description" content="Marketplace for Bootstrap Admin Dashboards">
+    <meta property="og:title" content="Admin Templates - Dashboard Templates">
+    <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+    <meta property="og:type" content="Website">
+    <link rel="shortcut icon" href="assets/images/favicon.svg">
+
+
+    <!-- *************
+		************ Vendor Css Files *************
+	************ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/fonts/remix/remixicon.css">
+   
+  
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- *************
+		************ Vendor Css Files *************
+	************ -->
+
+    <!-- Scrollbar CSS -->
+    <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
+     <link rel="stylesheet" href="assets/css/main.min.css">
+  </head>
+
+  <body>
+
+    <!-- Page wrapper starts -->
+    <div class="page-wrapper">
+
+      <!-- App header starts -->
+      <div class="app-header d-flex align-items-center">
+
+        <!-- Toggle buttons starts -->
+        <div class="d-flex">
+          <button class="toggle-sidebar">
+            <i class="ri-menu-line"></i>
+          </button>
+          <button class="pin-sidebar">
+            <i class="ri-menu-line"></i>
+          </button>
+        </div>
+        <!-- Toggle buttons ends -->
+
+        <!-- App brand starts -->
+        <div class="app-brand ms-3">
+        
+          <a href="index.html" class="navbar-brand">
+            <h1 class="text-white"><i class="fa fa-heartbeat"></i> Aurea Cura</h1>
+        </a>
+        </div>
+        <!-- App brand ends -->
+
+        <!-- App header actions starts -->
+        <div class="header-actions">
+
+          <!-- Search container starts -->
+          <div class="search-container d-lg-block d-none mx-3">
+            <input type="text" class="form-control" id="searchId" placeholder="Search">
+            <i class="ri-search-line"></i>
+          </div>
+          <!-- Search container ends -->
+
+          <!-- Header actions starts -->
+          <div class="d-lg-flex d-none gap-2">
+
+           
+
+           
+        
+
+          
+
+          
+              <!-- Notifications dropdown ends -->
+          </div>
+          <!-- Header actions ends -->
+
+          <!-- Header user settings starts -->
+          <div class="dropdown ms-2">
+            <a id="userSettings" class="dropdown-toggle d-flex align-items-center" href="#!" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="avatar-box">JB<span class="status busy"></span></div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end shadow-lg">
+              <div class="px-3 py-2">
+                <span class="small">Admin</span>
+                <h6 class="m-0">James Bruton</h6>
+              </div>
+              <div class="mx-3 my-2 d-grid">
+                <a href="login.html" class="btn btn-danger">Logout</a>
+              </div>
+            </div>
+          </div>
+          <!-- Header user settings ends -->
+
+        </div>
+        <!-- App header actions ends -->
+
+      </div>
+      <!-- App header ends -->
+
+      <!-- Main container starts -->
+      <div class="main-container">
+
+        <!-- Sidebar wrapper starts -->
+        <nav id="sidebar" class="sidebar-wrapper">
+
+          <!-- Sidebar profile starts -->
+          <div class="sidebar-profile">
+            <img src="assets/images/user6.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
+            <div class="m-0">
+              <h5 class="mb-1 profile-name text-nowrap text-truncate">Admin Name</h5>
+              <p class="m-0 small profile-name text-nowrap text-truncate">Admin Portal</p>
+            </div>
+          </div>
+          <!-- Sidebar profile ends -->
+
+          <!-- Sidebar menu starts -->
+          <div class="sidebarMenuScroll">
+            <ul class="sidebar-menu">
+              <!-- <li>
+                <a href="doctorDashboard.html">
+                  <i class="ri-home-6-line"></i>
+                  <span class="menu-text">Doctor Portal</span>
+                </a>
+              </li> -->
+            
+
+            
+              <li>
+                <a href="Admin-profile.html">
+                  <i class="ri-calendar-line"></i>
+                  <span class="menu-text">Profile</span>
+                </a>
+              </li> 
+              <li class="treeview">
+                <a href="#!">
+                  <i class="ri-stethoscope-line"></i>
+                  <span class="menu-text">Lab Test</span>
+                </a>
+                <ul class="treeview-menu">
+                 
+                  <li>
+                    <a href="show-lab-test.html">Lab Test List</a>
+                  </li>
+                
+                    <li>
+                    <a href="add-test-lab.html">Add Lab Test</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="ri-stethoscope-line"></i>
+                  <span class="menu-text">Doctors</span>
+                </a>
+                <ul class="treeview-menu">
+                 
+                  <li>
+                    <a href="doctors-list.html">Doctors List</a>
+                  </li>
+                
+                    <li>
+                    <a href="add-doctors.html">Add Doctor</a>
+                  </li>
+                  
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="ri-heart-pulse-line"></i>
+                  <span class="menu-text">Patients</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="patients-list.html">Patients List</a>
+                  </li>
+                  <li>
+                    <a href="add-patient.html">Add Patient</a>
+                  </li>
+                  
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="ri-nurse-line"></i>
+                  <span class="menu-text">Other staff</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="staff.html">Staff List</a>
+                  </li>
+                  <li>
+                    <a href="add-staff.html">Add Staff</a>
+                  </li>
+                  
+                </ul>
+              </li>
+              <!-- <li class="treeview">
+                <a href="#!">
+                  <i class="ri-dossier-line"></i>
+                  <span class="menu-text">Appointments</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="appointments.html">Appointments</a>
+                  </li>
+                  <li>
+                    <a href="appointments-list.html">Appointments List</a>
+                  </li>
+               
+                </ul>
+              </li> -->
+              <li class="treeview">
+                <a href="#!">
+                  <i class="ri-building-2-line"></i>
+                  <span class="menu-text">Departments</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="departments-list.html">Departments List</a>
+                  </li>
+                  <li>
+                    <a href="add-department.html">Add New Department</a>
+                  </li>
+                
+                </ul>
+              </li>
+
+              <li class="treeview">
+                <a href="#!">
+                  <i class="ri-building-2-line"></i>
+                  <span class="menu-text">Blood Donation</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="donation-point.html">Donation Point</a>
+                  </li>
+                  <li>
+                    <a href="donation-reward-list.html">Donation Reward list</a>
+                  </li>
+                  <li>
+                    <a href="add-donation-reward.html">Add Donation Reward</a>
+                  </li>
+                </ul>
+              </li>
+           
+              <!-- <li>
+                <a href="#">
+                  <i class="ri-calendar-line"></i>
+                  <span class="menu-text">Patient Feedback</span>
+                </a>
+              </li> -->
+              
+           
+            </ul>
+          </div>
+          <!-- Sidebar menu ends -->
+
+          <!-- Sidebar contact starts -->
+          <div class="sidebar-contact">
+            <p class="fw-light mb-1 text-nowrap text-truncate">Emergency Contact</p>
+            <h5 class="m-0 lh-1 text-nowrap text-truncate">0777601083</h5>
+            <i class="ri-phone-line"></i>
+          </div>
+          <!-- Sidebar contact ends -->
+
+        </nav>
+        <!-- Sidebar wrapper ends -->
+
+        <!-- App container starts -->
+        <div class="app-container">
+
+          <!-- App hero header starts -->
+          <div class="app-hero-header d-flex align-items-center">
+
+            <!-- Breadcrumb starts -->
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <i class="ri-home-8-line lh-1 pe-3 me-3 border-end"></i>
+                <a href="patientDashboard.html">Home</a>
+              </li>
+              <li class="breadcrumb-item text-primary" aria-current="page">
+                Doctor Dashboard
+              </li>
+            </ol>
+            <!-- Breadcrumb ends -->
+
+           
+
+          </div>
+          <!-- App Hero header ends -->
+
+          <!-- App body starts -->
+         <!-- App body starts -->
+         <div class="app-body">
+            <!-- Add Doctor Form -->
+            <div class="form-container card">
+                <div class="card-header">
+                    <h5>Add New Doctor</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <!-- Row for first column (First Name, Last Name) -->
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+                            </div>
+                            <div class="form-col">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+                            </div>
+                        </div>
+
+                        <!-- Row for second column (Specialty, Phone) -->
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label for="specialty" class="form-label">Specialty</label>
+                                <select class="form-control specialty-select" id="specialty">
+                                    <option value="Cardiology">Cardiology</option>
+                                    <option value="Neurology">Neurology</option>
+                                    <option value="Oncology">Oncology</option>
+                                    <option value="Pediatrics">Pediatrics</option>
+                                    <option value="Radiology">Radiology</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i> <!-- Icon for dropdown -->
+                            </div>
+                            <div class="form-col">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+
+                        <!-- Row for third column (Email, Working Hours) -->
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                            </div>
+                            <div class="form-col">
+                                <label for="workingHours" class="form-label">Working Hours</label>
+                                <input type="text" class="form-control" id="workingHours" placeholder="9:00 AM - 3:00 PM">
+                            </div>
+                        </div>
+
+                        <!-- Working Days Checkboxes -->
+                        <div class="mb-3">
+                            <label for="workingDays" class="form-label">Working Days</label>
+                            <div class="working-days-container">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Monday" id="monday">
+                                    <label class="form-check-label" for="monday">Monday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Tuesday" id="tuesday">
+                                    <label class="form-check-label" for="tuesday">Tuesday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Wednesday" id="wednesday">
+                                    <label class="form-check-label" for="wednesday">Wednesday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Thursday" id="thursday">
+                                    <label class="form-check-label" for="thursday">Thursday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Friday" id="friday">
+                                    <label class="form-check-label" for="friday">Friday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Saturday" id="saturday">
+                                    <label class="form-check-label" for="saturday">Saturday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="Sunday" id="sunday">
+                                    <label class="form-check-label" for="sunday">Sunday</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Is Active -->
+                        <div class="mb-3">
+                            <label class="form-label">Is Active</label>
+                            <div class="is-active-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="isActive" id="active" value="active" checked>
+                                    <label class="form-check-label" for="active">Active</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="isActive" id="inactive" value="inactive">
+                                    <label class="form-check-label" for="inactive">Inactive</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="submit-btn">
+                            <button type="submit" class="btn btn-primary">Add Doctor</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- App body ends -->
+       
+        <!-- App body ends -->
+      
+
+
+          <!-- App footer starts -->
+          <div class="app-footer bg-white">
+            <span>© Aurea Cura Doctor Portal 2024</span>
+          </div>
+          <!-- App footer ends -->
+
+        </div>
+        <!-- App container ends -->
+
+      </div>
+      <!-- Main container ends -->
+
+    </div>
+    <!-- Page wrapper ends -->
+
+    <!-- *************
+			************ JavaScript Files *************
+		************* -->
+    <!-- Required jQuery first, then Bootstrap Bundle JS -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+
+    <!-- *************
+			************ Vendor Js Files *************
+		************* -->
+
+    <!-- Overlay Scroll JS -->
+    <script src="assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
+    <script src="assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
+
+    <!-- Apex js -->
+    <script src="assets/vendor/apex/apexcharts.min.js"></script>
+    <script src="assets/vendor/apex/custom/patients/sparklines.js"></script>
+    <script src="assets/vendor/apex/custom/patients/insuranceClaims.js"></script>
+    <script src="assets/vendor/apex/custom/patients/medicalExpenses.js"></script>
+    <script src="assets/vendor/apex/custom/patients/healthActivity.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS files -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/medical-images.js"></script>
+  </body>
+
+
+</html>

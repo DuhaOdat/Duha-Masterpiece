@@ -1,0 +1,377 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\dto\\blooddonationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\dto\\blooddonationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\blooddonationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\blooddonationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\blooddonationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\blooddonationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\patientprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\patientprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\dto\\uploadlabtestresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\dto\\uploadlabtestresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\dto\\processblooddonationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\dto\\processblooddonationrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\labtestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\labtestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\labtestresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\labtestresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\dto\\createlabtestorderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\dto\\createlabtestorderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\labtestorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\labtestorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\patientprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\patientprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\doctorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\doctorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\dto\\editdoctordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\dto\\editdoctordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\departmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\dto\\labtestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\dto\\labtestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\dto\\adminuserregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\dto\\adminuserregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\labtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\labtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PatientProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\PatientProfile.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\PatientProfile.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\PatientProfile.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\PatientProfile.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvx8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T02:25:06.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BloodDonationRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\BloodDonationRequestDTO.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\DTO\\BloodDonationRequestDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\BloodDonationRequestDTO.cs",
+              "RelativeToolTip": "Auera-Cura\\DTO\\BloodDonationRequestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T01:49:33.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BloodDonationRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\BloodDonationRequest.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\BloodDonationRequest.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\BloodDonationRequest.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\BloodDonationRequest.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwBUAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T01:38:38.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UploadLabTestResultDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\UploadLabTestResultDTO.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\DTO\\UploadLabTestResultDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\UploadLabTestResultDTO.cs",
+              "RelativeToolTip": "Auera-Cura\\DTO\\UploadLabTestResultDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T00:55:17.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "bloodDonationController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\bloodDonationController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\bloodDonationController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\bloodDonationController.cs*",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\bloodDonationController.cs*",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwDsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T01:51:16.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProcessBloodDonationRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\ProcessBloodDonationRequestDTO.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\DTO\\ProcessBloodDonationRequestDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\ProcessBloodDonationRequestDTO.cs",
+              "RelativeToolTip": "Auera-Cura\\DTO\\ProcessBloodDonationRequestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T02:03:04.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateLabTestOrderDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\CreateLabTestOrderDTO.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\DTO\\CreateLabTestOrderDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\CreateLabTestOrderDTO.cs",
+              "RelativeToolTip": "Auera-Cura\\DTO\\CreateLabTestOrderDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T23:27:17.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "labTestController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\labTestController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\labTestController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\labTestController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\labTestController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADEBAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T23:16:48.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LabTestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\LabTestDTO.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\DTO\\LabTestDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\LabTestDTO.cs",
+              "RelativeToolTip": "Auera-Cura\\DTO\\LabTestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T15:34:31.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LabTestResult.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\LabTestResult.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\LabTestResult.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\LabTestResult.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\LabTestResult.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAgwBUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T00:12:07.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AdminUserRegistrationDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\AdminUserRegistrationDTO.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\DTO\\AdminUserRegistrationDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\AdminUserRegistrationDTO.cs",
+              "RelativeToolTip": "Auera-Cura\\DTO\\AdminUserRegistrationDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T06:42:53.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\MyDbContext.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\MyDbContext.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\MyDbContext.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\MyDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T07:55:01.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LabTestOrder.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\LabTestOrder.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\LabTestOrder.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\LabTestOrder.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\LabTestOrder.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAIwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T23:29:41.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PatientProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\PatientProfileController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\PatientProfileController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\PatientProfileController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\PatientProfileController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAcwFcAAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T10:42:16.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DoctorsController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\DoctorsController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\DoctorsController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\DoctorsController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\DoctorsController.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAtwGIAAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T08:01:43.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DepartmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\DepartmentsController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\DepartmentsController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\DepartmentsController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\DepartmentsController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAUwE8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T07:57:32.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "editDoctorDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\editDoctorDTO.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\DTO\\editDoctorDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\editDoctorDTO.cs",
+              "RelativeToolTip": "Auera-Cura\\DTO\\editDoctorDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T07:56:21.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\Doctor.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\Doctor.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\Doctor.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\Doctor.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBsAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T06:45:57.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAkwGwAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T08:00:59.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA8wEsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T06:50:19.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "LabTest.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\LabTest.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\LabTest.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\LabTest.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\LabTest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T15:34:41.461Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

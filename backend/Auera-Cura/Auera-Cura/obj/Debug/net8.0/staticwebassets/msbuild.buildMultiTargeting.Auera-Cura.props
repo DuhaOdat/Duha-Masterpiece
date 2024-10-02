@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Auera-Cura.props" />
+</Project>

@@ -123,75 +123,18 @@
 <!-- Search Modal End -->
 
 
-     <!-- department Start -->
-     <div class="container-fluid bg-light py-5">
-        <div class="container py-5">
-            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1 class="mb-4">Departments</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/cardiology.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Cardiology</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/dentist-10.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Dentistry</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Ophthalmology.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Ophthalmology</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Surgical Department.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Surgical Department</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Internal Medicine.jpg" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Internal Medicine</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="case-item position-relative overflow-hidden rounded mb-2 fixed-size">
-                        <img class="img-fluid" src="img/Pediatrics.webp" alt="">
-                        <a class="case-overlay text-decoration-none" href="department-details.html">
-                            <small>Pediatrics</small>
-                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- إضافة صف آخر إن لزم الأمر -->
+<!-- department Start -->
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="mb-4">Departments</h1>
+        </div> 
+        <div class="row g-4" id="departments-container">
+            <!-- Dynamic content will be injected here -->
         </div>
     </div>
-    
-    <!-- department End -->
+</div>
+<!-- department End -->
 
 
      <!-- Footer Start -->
@@ -272,7 +215,7 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
+  <script src="js/department.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>

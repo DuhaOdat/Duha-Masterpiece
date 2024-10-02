@@ -124,98 +124,113 @@
     </div>
     <!-- Search Modal End -->
 
-    <!-- login form strat -->
+    <!-- register form strat -->
     <div class="container-fluid py-5 d-flex justify-content-center align-items-center"
         style="min-height: 100vh; background-color: #f8f9fa;">
         <div class="row g-0 shadow rounded overflow-hidden" style="max-width: 1200px; background-color: #fff;">
             <div class="col-lg-6 d-none d-lg-block">
-                <img src="img/signup-bg.jpg" class="img-fluid h-100" alt="Login" />
+                <img src="img/signup-bg.jpg" class="img-fluid h-100" alt="Register" />
             </div>
             <div class="col-lg-6 p-5 d-flex flex-column justify-content-center">
                 <h2 class="text-center fw-bold mb-4">Register Here</h2>
                 <p class="text-center mb-4">
                     Already have an account? <a href="login.html" class="text-primary">Log In</a>
                 </p>
-                <form>
-                    <div class="row g-3">
-                      <div class="col-lg-6">
-                        <div class="form-group">
+                <form method="POST" id="register-form">
+                  <div class="row g-3">
+                    <!-- Username Field -->
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="FirstName"
+                          name="FirstName"
+                          id="FirstName"
+                          required
+                        />
+                      </div>
+                      <div class="form-group"></div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="lastName"
+                          name="lastName"
+                          id="lastName"
+                          required
+                        />
+                      </div>
+                    </div>
+                
+                    <!-- Email Field -->
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          class="form-control"
+                          placeholder="Your Email"
+                          name="Email"
+                          id="email" 
+                          required
+                        />
+                      </div>
+                    </div>
+                
+                    <!-- Password Field -->
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          placeholder="Password"
+                          name="Password"
+                          id="pass"
+                          required
+                        />
+                      </div>
+                    </div>
+                
+                    <!-- Confirm Password Field -->
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          placeholder="Confirm Password"
+                          id="confirm-pass"
+                          required
+                        />
+                      </div>
+                    </div>
+                
+                    <!-- Terms & Conditions Checkbox -->
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <div class="form-check">
                           <input
-                            type="text"
-                            class="form-control"
-                            placeholder="First Name"
+                            class="form-check-input"
+                            type="checkbox"
+                            id="gridCheck"
+                            required
                           />
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Last Name"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Phone Number"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <input
-                            type="email"
-                            class="form-control"
-                            placeholder="Your Email"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <input
-                            type="password"
-                            class="form-control"
-                            placeholder="Password"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <input
-                            type="password"
-                            class="form-control"
-                            placeholder="Confirm Password"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-12">
-                        <div class="form-group">
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="gridCheck"
-                            />
-                            <label class="form-check-label" for="gridCheck">
-                              Yes, I agree with all
-                              <a href="#">Terms & Conditions</a>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-12">
-                        <div class="text-center">
-                          <button type="submit" class="btn btn-primary px-5">
-                            Sign Up
-                          </button>
+                          <label class="form-check-label" for="gridCheck">
+                            Yes, I agree with all <a href="#">Terms & Conditions</a>
+                          </label>
                         </div>
                       </div>
                     </div>
-                  </form>
+                
+                    <!-- Sign Up Button -->
+                    <div class="col-lg-12">
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-primary px-5" onclick="Register()">
+                          Sign Up
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                
             </div>
         </div>
     </div>
@@ -303,6 +318,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/register.js"></script>
     <script>
         document.getElementById('searchBtn').addEventListener('click', function () {
             var searchInput = document.getElementById('searchInput');

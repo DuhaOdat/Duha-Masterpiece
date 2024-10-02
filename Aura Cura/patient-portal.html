@@ -35,7 +35,7 @@
 </head>
 
 
-<body onload="loadLastSection()" class="no-hero">
+<body  class="no-hero">
     <!-- Spinner Start --> 
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -112,66 +112,152 @@
 
     <!-- Main Layout with Sidebar and Content -->
     <div class="container-fluid main-container">
-        <!-- Sidebar -->
-         <div class="sidebar bg-light"> 
-           
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" onclick="loadContent('dashboard')"><i class="fas fa-home"></i>Patient Portal</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="loadContent('profile')"><i class="fas fa-user"></i>Profile</a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="toggleSubmenu('appointmentsSubmenu')"><i class="fas fa-calendar-alt"></i> Appointments
-                        <i class="fas fa-chevron-down float-end" id="appointmentsArrow"></i>
-                    </a>
-                    <ul class="nav flex-column ms-3" id="appointmentsSubmenu" style="display: none;">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="loadContent('show-appointments')">Show All Appointments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="loadContent('add-appointment')">Add New Appointment</a>
-                        </li>
-                    </ul>
-                </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="loadContent('lab-results')"><i class="fas fa-vials"></i>Lab Results</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="loadContent('medical-images')"><i class="fas fa-x-ray"></i>Medical Images</a>
-                </li>
-                   <!-- Blood Donation History -->
+      <!-- Sidebar -->
+      <div class="sidebar bg-light">
+        <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="#" onclick="toggleSubmenu('bloodDonationSubmenu')" aria-expanded="false">
-                    <i class="fas fa-hand-holding-heart"></i> Blood Donation 
+                <a class="nav-link active" href="patient-portal.html">
+                    <i class="fas fa-home"></i> Patient Portal
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="patient-profile.html">
+                    <i class="fas fa-user"></i> Profile
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-calendar-alt"></i> Appointment
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="lab-result.html">
+                    <i class="fas fa-vials"></i> Lab Results
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="medical-result.html">
+                    <i class="fas fa-x-ray"></i> Medical Images
+                </a>
+            </li>
+            <!-- Blood Donation History -->
+            <li class="nav-item">
+                <a class="nav-link" href="#" aria-expanded="false" id="bloodDonationToggle">
+                    <i class="fas fa-hand-holding-heart"></i> Blood Donation
                     <i class="fas fa-chevron-down float-end" id="bloodDonationArrow"></i>
                 </a>
                 <ul class="nav flex-column ms-3" id="bloodDonationSubmenu" style="display: none;">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadContent('show-blood-donations')">Show All Donations</a>
+                        <a class="nav-link" href="show-blood-donations.html">Show All Donations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadContent('add-blood-donation')">Add New Donation</a>
+                        <a class="nav-link" href="add-blood-donation.html">Add New Donation</a>
                     </li>
                 </ul>
             </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="loadContent('donation-rewards')"><i class="fas fa-trophy"></i>Donation Rewards</a>
-                </li>
-            </ul>
-        </div> 
-
+            <li class="nav-item">
+                <a class="nav-link" href="donation-rewards.html">
+                    <i class="fas fa-trophy"></i> Donation Rewards
+                </a>
+            </li>
+        </ul>
+    </div>
 
     
 
 
         <!-- Main Content Area -->
         <div class="content">
-            <div id="dynamic-content">
-               
-            </div>
+          
+           
+                          <div class="app-body">
+            
+                         <div id="dashboard" class="tab-content active">
+                           <div class="mb-4">
+                               <h3>Welcome, patient Name</h3>
+                               <p>Here you can manage your medical information, view upcoming appointments, and access lab results, etc.</p>
+                        </div>
+                           <div class="row">
+                               <div class="col-lg-4">
+                                   <div class="card text-center mb-4">
+                                       <div class="card-body hover-effect">
+                                         <i class="fas fa-calendar-alt fa-3x mb-3 text-primary"></i>
+                                         <h5 class="card-title">Appointments</h5>
+                                          <p class="card-text">Review your upcoming and past appointments.</p>
+                                          <a href="#" class="text-primary">See You Appointment</a>
+                                      </div>
+                                  </div>
+                               </div>
+                             
+                               <div class="col-lg-4">
+                                   <div class="card text-center mb-4">
+                                       <div class="card-body hover-effect">
+                                           <i class="fas fa-vial fa-3x mb-3 text-primary"></i>
+                                           <h5 class="card-title">Lab Results</h5>
+                                           <p class="card-text">Access your lab test results and detailed reports.</p>
+                                           <a href="lab-result.html" class="text-primary">See your lab results</a>
+                                      </div>
+                                   </div>
+            
+                               </div>
+                               <div class="col-lg-4">
+                                 <div class="card text-center mb-4">
+                                     <div class="card-body hover-effect">
+                                       <i class="fas fa-x-ray fa-3x mb-3 text-primary"></i>
+            
+                                        <h5 class="card-title">Medical Images</h5>
+                                        <p class="card-text">Review your upcoming and past Medical Images.</p>
+                                         <a href="medical-result.html" class="text-primary">See Your Medical Image</a>
+                                     </div>
+                                 </div>
+                             </div>
+                           </div>
+                           <div class="row">
+                           
+                             <div class="col-lg-4">
+                                 <div class="card text-center mb-4">
+            
+                                    <div class="card-body hover-effect">
+                                       <i class="fas fa-user fa-3x mb-3 text-success"></i>
+            
+                                        <h5 class="card-title">Profile</h5>
+                                        <p class="card-text">Review your Profile Where you can Show or edit it.</p>
+                                         <a href="patient-profile.html" class="text-primary">See your profile</a>
+                                     </div>
+                                 </div>
+                             </div>
+                           <div class="col-lg-4">
+                                 <div class="card text-center mb-4">
+                                     <div class="card-body hover-effect">
+                                     <i class="fas fa-hand-holding-heart fa-3x mb-3 text-danger"></i>
+            
+                                         <h5 class="card-title">Blood Donation History</h5>
+                                         <p class="card-text">check Your earn Point and your donation history.</p>
+                                         <a href="show-blood-donations.html" class="text-primary">See your Point</a>
+                                     </div>
+                                 </div>
+                            </div>
+                              <div class="col-lg-4">
+                                <div class="card text-center mb-4">
+                                    <div class="card-body hover-effect" >
+                                       <i class="fas fa-trophy fa-3x mb-3 text-warning"></i>
+            
+                                        <h5 class="card-title">Blood Donation Rewards</h5>
+                                        <p class="card-text">check your recent reward and available reward.</p>
+                                       <a href="donation-rewards.html" class="text-primary">See your reward</a>
+                                   </div>
+                                 </div>
+                             </div>
+                         </div>
+                       </div>
+            
+                     
+            
+                   </div>
+            
+         
+
+
         </div>
     </div>
 
