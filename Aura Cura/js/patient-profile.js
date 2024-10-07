@@ -23,9 +23,31 @@ async function loadPatientProfile() {
         if (data) {
             document.getElementById('patient-name').textContent = `${data.firstName} ${data.lastName}`;
             document.getElementById('email').textContent = data.email || 'N/A';
+              // Fill out patient details in the modal
+              document.getElementById('address-edit').value = data.profile?.address || '';
+             
+
+              document.getElementById('phone-edit').value = data.profile?.phone || '';
+              document.getElementById('weight-edit').value = data.profile?.weight || '';
+              document.getElementById('status-edit').value = data.profile?.status || '';
+              document.getElementById('gender-edit').value = data.profile?.gender || '';
+              document.getElementById('Birth-edit').value = data.profile?.dateOfBirth || '';
+               // Fill in the blood type field
+            if (data.profile.bloodType) {
+                // Loop through the select options and set the selected option based on blood type ID
+                const bloodTypeSelect = document.getElementById('blood-type-edit');
+                for (let i = 0; i < bloodTypeSelect.options.length; i++) {
+                    if (bloodTypeSelect.options[i].text === data.profile.bloodType) {
+                        bloodTypeSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            } else {
+                document.getElementById('blood-type-edit').value = ''; // If no blood type, set it to blank
+            }
             
             if (data.profile) {
-                document.getElementById('blood-type').textContent = data.profile.bloodTypeId || 'N/A';
+                document.getElementById('blood-type').textContent = data.profile.bloodType || 'N/A';
                 document.getElementById('gender').textContent = data.profile.gender || 'N/A';
                 document.getElementById('weight').textContent = data.profile.weight || 'N/A';
                 document.getElementById('dob').textContent = data.profile.dateOfBirth || 'N/A';
@@ -46,6 +68,7 @@ async function loadPatientProfile() {
 
 // Call the function when the page is loaded
 document.addEventListener("DOMContentLoaded", loadPatientProfile);
+
 
 
 

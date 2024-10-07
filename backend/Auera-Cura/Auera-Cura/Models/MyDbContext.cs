@@ -15,6 +15,8 @@ public partial class MyDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Appointment> Appointments { get; set; }
+
     public virtual DbSet<BloodDonationRequest> BloodDonationRequests { get; set; }
 
     public virtual DbSet<BloodType> BloodTypes { get; set; }
@@ -31,7 +33,15 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<LabTestResult> LabTestResults { get; set; }
 
+    public virtual DbSet<MedicalImage> MedicalImages { get; set; }
+
+    public virtual DbSet<MedicalImageOrder> MedicalImageOrders { get; set; }
+
+    public virtual DbSet<MedicalImageType> MedicalImageTypes { get; set; }
+
     public virtual DbSet<Notification> Notifications { get; set; }
+
+    public virtual DbSet<PatientPoint> PatientPoints { get; set; }
 
     public virtual DbSet<PatientProfile> PatientProfiles { get; set; }
 
@@ -47,14 +57,39 @@ public partial class MyDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Appointment>(entity =>
+        {
+            entity.HasKey(e => e.AppointmentId).HasName("PK__Appointm__8ECDFCA200632480");
+
+            entity.Property(e => e.AppointmentId).HasColumnName("AppointmentID");
+            entity.Property(e => e.AppointmentDate).HasColumnType("datetime");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.DoctorId).HasColumnName("DoctorID");
+            entity.Property(e => e.PatientId).HasColumnName("PatientID");
+            entity.Property(e => e.Status).HasMaxLength(50);
+
+            entity.HasOne(d => d.Doctor).WithMany(p => p.Appointments)
+                .HasForeignKey(d => d.DoctorId)
+                .HasConstraintName("FK__Appointme__Docto__05A3D694");
+
+            entity.HasOne(d => d.Patient).WithMany(p => p.Appointments)
+                .HasForeignKey(d => d.PatientId)
+                .HasConstraintName("FK__Appointme__Patie__0697FACD");
+        });
+
         modelBuilder.Entity<BloodDonationRequest>(entity =>
         {
             entity.HasKey(e => e.RequestId).HasName("PK__BloodDon__33A8519A19F58FB7");
 
             entity.Property(e => e.RequestId).HasColumnName("RequestID");
             entity.Property(e => e.BloodTypeId).HasColumnName("BloodTypeID");
+            entity.Property(e => e.DonationConfirmed).HasDefaultValue(false);
+            entity.Property(e => e.DonationDate).HasColumnType("datetime");
             entity.Property(e => e.LabTechnicianId).HasColumnName("LabTechnicianID");
             entity.Property(e => e.PatientId).HasColumnName("PatientID");
+            entity.Property(e => e.PreferredDonationDate).HasColumnType("datetime");
             entity.Property(e => e.RequestDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
@@ -206,6 +241,75 @@ public partial class MyDbContext : DbContext
                 .HasConstraintName("FK__Lab_Test___Uploa__31B762FC");
         });
 
+        modelBuilder.Entity<MedicalImage>(entity =>
+        {
+            entity.HasKey(e => e.ImageId).HasName("PK__MedicalI__7516F4ECF47EFBB5");
+
+            entity.Property(e => e.ImageId).HasColumnName("ImageID");
+            entity.Property(e => e.DoctorId).HasColumnName("DoctorID");
+            entity.Property(e => e.FilePath).HasMaxLength(255);
+            entity.Property(e => e.ImageTypeId).HasColumnName("ImageTypeID");
+            entity.Property(e => e.PatientId).HasColumnName("PatientID");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasDefaultValue("Pending");
+            entity.Property(e => e.UploadDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+
+            entity.HasOne(d => d.Doctor).WithMany(p => p.MedicalImageDoctors)
+                .HasForeignKey(d => d.DoctorId)
+                .HasConstraintName("FK__MedicalIm__Docto__76619304");
+
+            entity.HasOne(d => d.ImageType).WithMany(p => p.MedicalImages)
+                .HasForeignKey(d => d.ImageTypeId)
+                .HasConstraintName("FK__MedicalIm__Image__719CDDE7");
+
+            entity.HasOne(d => d.Patient).WithMany(p => p.MedicalImagePatients)
+                .HasForeignKey(d => d.PatientId)
+                .HasConstraintName("FK__MedicalIm__Patie__756D6ECB");
+
+            entity.HasOne(d => d.UploadedByLabTechNavigation).WithMany(p => p.MedicalImageUploadedByLabTechNavigations)
+                .HasForeignKey(d => d.UploadedByLabTech)
+                .HasConstraintName("FK__MedicalIm__Uploa__72910220");
+        });
+
+        modelBuilder.Entity<MedicalImageOrder>(entity =>
+        {
+            entity.HasKey(e => e.OrderId).HasName("PK__MedicalI__C3905BAF2415C87D");
+
+            entity.Property(e => e.OrderId).HasColumnName("OrderID");
+            entity.Property(e => e.DoctorId).HasColumnName("DoctorID");
+            entity.Property(e => e.ImageTypeId).HasColumnName("ImageTypeID");
+            entity.Property(e => e.OrderDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.PatientId).HasColumnName("PatientID");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasDefaultValue("Pending");
+
+            entity.HasOne(d => d.Doctor).WithMany(p => p.MedicalImageOrderDoctors)
+                .HasForeignKey(d => d.DoctorId)
+                .HasConstraintName("FK__MedicalIm__Docto__7A3223E8");
+
+            entity.HasOne(d => d.ImageType).WithMany(p => p.MedicalImageOrders)
+                .HasForeignKey(d => d.ImageTypeId)
+                .HasConstraintName("FK__MedicalIm__Image__7B264821");
+
+            entity.HasOne(d => d.Patient).WithMany(p => p.MedicalImageOrderPatients)
+                .HasForeignKey(d => d.PatientId)
+                .HasConstraintName("FK__MedicalIm__Patie__793DFFAF");
+        });
+
+        modelBuilder.Entity<MedicalImageType>(entity =>
+        {
+            entity.HasKey(e => e.ImageTypeId).HasName("PK__MedicalI__B9E9EB962639A8CE");
+
+            entity.Property(e => e.ImageTypeId).HasColumnName("ImageTypeID");
+            entity.Property(e => e.ImageTypeName).HasMaxLength(50);
+        });
+
         modelBuilder.Entity<Notification>(entity =>
         {
             entity.HasKey(e => e.NotificationId).HasName("PK__Notifica__20CF2E324901F660");
@@ -220,6 +324,20 @@ public partial class MyDbContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Notifications)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK__Notificat__UserI__367C1819");
+        });
+
+        modelBuilder.Entity<PatientPoint>(entity =>
+        {
+            entity.HasKey(e => e.PointId).HasName("PK__PatientP__40A977E1CB99BB5E");
+
+            entity.Property(e => e.LastUpdated)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.TotalPoints).HasDefaultValue(600);
+
+            entity.HasOne(d => d.Patient).WithMany(p => p.PatientPoints)
+                .HasForeignKey(d => d.PatientId)
+                .HasConstraintName("FK__PatientPo__Patie__00DF2177");
         });
 
         modelBuilder.Entity<PatientProfile>(entity =>

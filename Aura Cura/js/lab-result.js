@@ -1,41 +1,12 @@
-const pendingTests = [
-    {
-        testName: "Kidney Function Test Yellow Top Serum SP LB",
-        provider: "RAGHAD, RAED ABD AL RAZZAQ",
-        orderDate: "2024-07-28 04:31 PM"
-    },
-    {
-        testName: "Troponin I Yellow-Top Serum SP LB",
-        provider: "RAGHAD, RAED ABD AL RAZZAQ",
-        orderDate: "2024-07-28 04:31 PM"
-    }
-];
-
-const completeTests = [
-    {
-        testName: "Blood Glucose Test ",
-        provider: "DR. SMITH, JOHN",
-        orderDate: "2024-05-22 10:00 AM",
-        completeDate: "2024-05-23 02:45 PM",
-        resultLink: "https://example.com/view/blood-glucose-test",
-        downloadLink: "https://example.com/download/blood-glucose-test.pdf"
-    },
-    {
-        testName: "Lipid Profile Test",
-        provider: "DR. JANE DOE",
-        orderDate: "2024-04-10 08:00 AM",
-        completeDate: "2024-04-11 11:00 AM",
-        resultLink: "https://example.com/view/lipid-profile-test",
-        downloadLink: "https://example.com/download/lipid-profile-test.pdf"
-    }
-];
+let pendingTests = [];
+let completeTests = [];
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOMContentLoaded event fired");
-    toggleResults('pending');
+    toggleResults('pending'); // عرض النتائج المعلقة عند تحميل الصفحة
+    fetchLabResults(); // جلب النتائج من API
 });
 
-
+// Function to toggle between pending and completed tests
 function toggleResults(type) {
     const resultsDiv = document.getElementById('resultsContent');
     const pendingBtn = document.getElementById('pendingBtn');
@@ -44,6 +15,7 @@ function toggleResults(type) {
     // Reset results content
     resultsDiv.innerHTML = '';
 
+    // Load the pending or completed tests based on the button clicked
     if (type === 'pending') {
         pendingBtn.classList.add('active');
         completeBtn.classList.remove('active');
@@ -55,15 +27,21 @@ function toggleResults(type) {
     }
 }
 
+// Function to dynamically load results into the page
 function loadResults(tests, type) {
     const resultsDiv = document.getElementById('resultsContent');
     tests.forEach(test => {
+        console.log(tests);
+
         const statusLabel = type === 'pending' ? `<span class="status-label pending">Pending</span>` : `<span class="status-label complete">Complete</span>`;
+      
         const completeDateInfo = type === 'complete' ? `<p class="order-date">Completed Date: ${test.completeDate}</p>` : '';
-        const viewDownloadButtons = type === 'complete' 
-            ? `<button class="btn btn-info me-2" onclick="viewResult('${test.resultLink}')">View</button>
-               <a class="btn btn-success" href="${test.downloadLink}" download>Download</a>` 
-            : '';
+
+        // Removed the View button and kept only the Download button
+        const viewDownloadButtons = type === 'complete'
+        ? `<a class="btn btn-success" href="https://localhost:44396/api/labTest/DownloadLabResult/${test.orderId}" download>Download</a>`  // استخدام API لتحميل PDF
+        : '';
+    
 
         const card = `
             <div class="col-md-6">
@@ -73,7 +51,7 @@ function loadResults(tests, type) {
                         ${statusLabel}
                     </div>
                     <div class="card-body lab">
-                        <p class="provider-name">Provider: ${test.provider}</p>
+                        <p class="provider-name">Provider: ${test.doctorName}</p>
                         <p class="order-date">Order Date: ${test.orderDate}</p>
                         ${completeDateInfo}
                         ${viewDownloadButtons}
@@ -85,12 +63,45 @@ function loadResults(tests, type) {
     });
 }
 
-// View result function (opens a new window)
-function viewResult(link) {
-    if (link) {
-        window.open(link, '_blank');
-    } else {
-        alert("Result is not available yet.");
+// Fetch lab results from the API
+async function fetchLabResults() {
+    const patientId = localStorage.getItem('userId'); // احصل على الـ ID من localStorage
+    const token = localStorage.getItem('jwtToken');
+
+    try {
+        // Fetch pending lab tests
+        let pendingResponse = await fetch(`https://localhost:44396/api/labTest/GetPendingLabTestsForPatient/${patientId}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (pendingResponse.ok) {
+            pendingTests = await pendingResponse.json();
+        } else {
+            console.error("Failed to fetch pending lab results");
+        }
+
+        // Fetch completed lab tests
+        let completeResponse = await fetch(`https://localhost:44396/api/labTest/GetCompletedLabTestsForPatient/${patientId}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (completeResponse.ok) {
+            completeTests = await completeResponse.json();
+            console.log("Completed Tests:", completeTests); // للتحقق من البيانات
+        } else {
+            console.error("Failed to fetch completed lab results");
+        }
+
+        // Reload the current view (pending by default)
+        toggleResults('pending');
+    } catch (error) {
+        console.error("Error fetching lab results:", error);
     }
 }
 

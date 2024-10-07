@@ -167,55 +167,41 @@
     
 
 
-        <!-- Main Content Area -->
-        <div class="content">
+    <!-- Main Content Area -->
 
-             <div class="app-container">
-
-          <div class="container">
-            <h2>Your Laboratory Orders / Results</h2>
-        
-            <!-- Search Functionality -->
-            <div class="search-section">
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <label for="fromDate" class="form-label">From Date</label>
-                        <input type="date" class="form-control" id="fromDate">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="toDate" class="form-label">To Date</label>
-                        <input type="date" class="form-control" id="toDate">
-                    </div>
-                    <div class="col-md-3 d-flex align-items-end">
-                        <button class="btn btn-primary me-2" onclick="searchResults()">Search</button>
-                        <button class="btn btn-secondary" onclick="clearSearch()">Clear Search</button>
-                    </div>
+    <div class="container">
+        <h2>Your Laboratory Orders / Results</h2>
+    
+        <!-- Search Functionality -->
+        <div class="search-section">
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="fromDate" class="form-label">From Date</label>
+                    <input type="date" class="form-control" id="fromDate">
+                </div>
+                <div class="col-md-3">
+                    <label for="toDate" class="form-label">To Date</label>
+                    <input type="date" class="form-control" id="toDate">
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button class="btn btn-primary me-2" onclick="searchResults()">Search</button>
+                    <button class="btn btn-secondary" onclick="clearSearch()">Clear</button>
                 </div>
             </div>
-        
-            <!-- Toggle Switch for Pending/Complete -->
-            <div class="toggle-switch d-flex justify-content-center mb-4">
-                <button id="pendingBtn" class="switch-button active" onclick="toggleResults('pending')">Pending</button>
-                <button id="completeBtn" class="switch-button" onclick="toggleResults('complete')">Complete</button>
-            </div>
-
-          
-        
-            <!-- Results Content -->
-            <div id="resultsContent" class="row">
-                <!-- Pending and Complete results will be dynamically inserted here -->
-            </div>
         </div>
-           
-       
-
- <!-- Row starts -->
-
+    
+        <!-- Toggle Switch for Pending/Complete -->
+        <div class="toggle-switch d-flex justify-content-center mb-4">
+            <button id="pendingBtn" class="switch-button active" onclick="toggleResults('pending')">Pending</button>
+            <button id="completeBtn" class="switch-button" onclick="toggleResults('complete')">Complete</button>
         </div>
-           
-
+    
+        <!-- Results Content -->
+        <div id="resultsContent" class="row">
+            <!-- Pending and Complete results will be dynamically inserted here -->
+        </div>
     </div>
-       
+    
 
 
 </div>
@@ -300,7 +286,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="lib/wow/wow.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
+
 <script src="lib/counterup/counterup.min.js"></script>
 <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 

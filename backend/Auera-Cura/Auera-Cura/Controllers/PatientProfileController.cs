@@ -37,7 +37,7 @@ namespace Auera_Cura.Controllers
                                   u.PatientProfile.Phone,
                                   u.PatientProfile.Weight,
                                   u.PatientProfile.Status,
-                                  u.PatientProfile.BloodTypeId,
+                                  BloodType = u.PatientProfile.BloodType != null ? u.PatientProfile.BloodType.BloodType1 : "Unknown",  // إرجاع اسم فصيلة الدم
                                   u.PatientProfile.RewardPoints
                               } : null
                           }).FirstOrDefault();
@@ -50,12 +50,13 @@ namespace Auera_Cura.Controllers
             return Ok(user);
         }
 
-
         [HttpPost("UpdatePatientProfile/{id}")]
         public IActionResult UpdatePatientProfile(int id, [FromForm] UpdatePatientProfileDTO updatedProfile)
         {
             // ابحث عن الملف الشخصي للمريض باستخدام المعرف "id"
-            var patientProfile = _db.PatientProfiles.FirstOrDefault(p => p.UserId == id);
+            var patientProfile = _db.PatientProfiles
+                                    .Include(p => p.BloodType) // إضافة العلاقة لجلب اسم فصيلة الدم
+                                    .FirstOrDefault(p => p.UserId == id);
 
             // إذا لم يكن هناك سجل في "PatientProfile"، قم بإنشاء سجل جديد
             if (patientProfile == null)
@@ -84,16 +85,30 @@ namespace Auera_Cura.Controllers
                 patientProfile.Weight = updatedProfile.Weight ?? patientProfile.Weight;
                 patientProfile.Status = updatedProfile.Status ?? patientProfile.Status;
                 patientProfile.BloodTypeId = updatedProfile.BloodTypeId ?? patientProfile.BloodTypeId;
-                patientProfile.Gender = updatedProfile.Gender ??patientProfile.Gender;
+                patientProfile.Gender = updatedProfile.Gender ?? patientProfile.Gender;
                 patientProfile.DateOfBirth = updatedProfile.DateOfBirth ?? patientProfile.DateOfBirth;
             }
 
             // حفظ التغييرات في قاعدة البيانات
             _db.SaveChanges();
 
-            return Ok(new { message = "Profile updated successfully" ,patientProfile});
+            // إرجاع الملف الشخصي المحدث مع اسم فصيلة الدم
+            var updatedProfileResult = new
+            {
+                patientProfile.UserId,
+                patientProfile.Address,
+                patientProfile.Phone,
+                patientProfile.Weight,
+                patientProfile.Status,
+                BloodType = patientProfile.BloodType != null ? patientProfile.BloodType.BloodType1 : "Unknown", // إرجاع اسم فصيلة الدم
+                patientProfile.Gender,
+                patientProfile.DateOfBirth
+            };
+
+            return Ok(new { message = "Profile updated successfully", profile = updatedProfileResult });
         }
-        
+
+
 
 
 

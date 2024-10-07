@@ -19,6 +19,12 @@ public partial class BloodDonationRequest
 
     public int? LabTechnicianId { get; set; }
 
+    public DateTime? PreferredDonationDate { get; set; }
+
+    public bool? DonationConfirmed { get; set; }
+
+    public DateTime? DonationDate { get; set; }
+
     public virtual BloodType? BloodType { get; set; }
 
     public virtual User? LabTechnician { get; set; }

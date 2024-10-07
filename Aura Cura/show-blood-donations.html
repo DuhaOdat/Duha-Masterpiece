@@ -175,86 +175,52 @@
           <!-- Request Status Page Start -->
 <div class="container-fluid py-5">
     <div class="container">
-        <h2 class="mb-4 text-center">Your Blood Donation Requests</h2>
+        <h2 class="mb-4 text-center">Blood Donation </h2>
 
         <!-- Points Tracker Start -->
-        <div class="mb-4">
-            <h4 class="text-center">Your Current Points: <span id="currentPoints">30</span> / 600</h4>
-            <div class="progress mb-4">
-                <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="600"></div>
+        <div class="points-container">
+            <p id="pointsText">Your Current Points: <span id="currentPoints">0</span> </p>
+            <div class="progress-bar">
+              <div id="progress" class="progress"></div>
             </div>
-        </div>
+          </div>
+          
         <!-- Points Tracker End -->
 
         <!-- Current Request -->
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h5>Current Request</h5>
-            </div>
-            <div class="card-body">
-                <h6>Request Date: September 10, 2024</h6>
-                <p><strong>Patient Name:</strong> John Doe</p>
-                <p><strong>Phone Number:</strong> (123) 456-7890</p>
-                <p><strong>Email Address:</strong> john.doe@example.com</p>
-                <p>Blood Type: O+</p>
-                <p>Donation Date: September 15, 2024</p>
-                <p>Status: <strong class="text-warning">Pending</strong></p>
+        <div class="donation-requests-container">
+            <h2>Your Pending Blood Donation Requests</h2>
+            <div id="donationRequests" class="requests-list">
+                <!-- سيتم إدراج البطاقات هنا -->
             </div>
         </div>
+        
+        
 
         <!-- Previous Requests -->
         <h3 class="mb-4">Previous Requests</h3>
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Request Date</th>
-                        <th>Donation Date</th>
-                        <th>Status</th>
-                        <th>Comments</th>
-                        <th>Points Earned</th> <!-- عمود النقاط المكتسبة -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>August 5, 2024</td>
-                        <td>August 10, 2024</td>
-                        <td class="text-success">Accepted</td>
-                        <td>Successful donation</td>
-                        <td>10</td> <!-- النقاط المكتسبة -->
-                    </tr>
-                    <tr>
-                        <td>July 1, 2024</td>
-                        <td>July 3, 2024</td>
-                        <td class="text-success">Accepted</td>
-                        <td>Successful donation</td>
-                        <td>10</td> <!-- النقاط المكتسبة -->
-                    </tr>
-                    <tr>
-                        <td>June 15, 2024</td>
-                        <td>June 18, 2024</td>
-                        <td class="text-success">Accepted</td>
-                        <td>Successful donation</td>
-                        <td>10</td> <!-- النقاط المكتسبة -->
-                    </tr>
-                </tbody>
-            </table>
+        <table id="approvedRequestsTable" class="table">
+            <thead>
+                <tr>
+                    <th>Request Date</th>
+                    <th>Donation Date</th>
+                    <th>Status</th>
+                    <th>Comments</th>
+                    <th>Points Earned</th>
+                </tr>
+            </thead>
+            <tbody id="approvedRequestsBody">
+                <!-- Table rows will be injected here -->
+            </tbody>
+        </table>
+
+
+
+
+
         </div>
 
-        <!-- Point -->
-        <div class="mt-5">
-            <h4 class="mb-4 text-center">Point:</h4>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">10 points - O+</li>
-                <li class="list-group-item">15 points - O-</li>
-                <li class="list-group-item">8 points - A+</li>
-                <li class="list-group-item">12 points - A-</li>
-                <li class="list-group-item">8 points - B+</li>
-                <li class="list-group-item">12 points - B-</li>
-                <li class="list-group-item">6 points - AB+</li>
-                <li class="list-group-item">10 points - AB-</li>
-            </ul>
-        </div>
+      
         <!-- Rewards Section End -->
     </div>
 </div>

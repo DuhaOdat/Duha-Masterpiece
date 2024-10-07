@@ -31,6 +31,8 @@ public partial class Doctor
 
     public int? UserId { get; set; }
 
+    public virtual ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
+
     public virtual Department? Department { get; set; }
 
     public virtual ICollection<DoctorSchedule> DoctorSchedules { get; set; } = new List<DoctorSchedule>();
