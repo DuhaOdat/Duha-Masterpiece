@@ -266,6 +266,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "GetPastAppointments",
+    "RelativePath": "api/Appointments/GetPastAppointments/{patientId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "GetUpcomingAppointments",
+    "RelativePath": "api/Appointments/GetUpcomingAppointments/{patientId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
     "Method": "AddReward",
     "RelativePath": "api/bloodDonation/addReward",
@@ -321,6 +353,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "GetAllBloodDonationRequests",
+    "RelativePath": "api/bloodDonation/GetAllBloodDonationRequests",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

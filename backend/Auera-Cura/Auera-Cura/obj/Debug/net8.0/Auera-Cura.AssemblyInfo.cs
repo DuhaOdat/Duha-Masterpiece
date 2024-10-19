@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Auera-Cura")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1183e748dafd9963ee155ad6dd5f65f0aaebd83e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e61e6000d0ccb0c4e4c56d695bdf219d08d238b7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Auera-Cura")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Auera-Cura")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

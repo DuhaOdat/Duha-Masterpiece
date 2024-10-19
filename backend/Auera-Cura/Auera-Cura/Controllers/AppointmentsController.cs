@@ -266,5 +266,84 @@ namespace Auera_Cura.Controllers
 
 
 
+        [HttpGet("GetPastAppointments/{patientId}")]
+        public async Task<IActionResult> GetPastAppointments(int patientId)
+        {
+            // Find the patient using patientId
+            var patient = await _db.PatientProfiles.Include(p => p.User).FirstOrDefaultAsync(p => p.PatientId == patientId);
+            if (patient == null)
+            {
+                return NotFound("Patient not found.");
+            }
+
+            // Get the current date and time
+            var currentDate = DateTime.Now;
+
+            // Retrieve past appointments (appointments that have already occurred)
+            var pastAppointments = await _db.Appointments
+                .Include(a => a.Doctor)
+                .ThenInclude(d => d.User)  // Include doctor user information
+                .Where(a => a.PatientId == patient.PatientId && a.AppointmentDate < currentDate)
+                .Select(a => new
+                {
+                    a.AppointmentId,
+                    DoctorName = $"{a.Doctor.User.FirstName} {a.Doctor.User.LastName}",
+                    a.AppointmentDate,
+                    a.Status,
+                    a.Notes
+                })
+                .ToListAsync();
+
+            if (!pastAppointments.Any())
+            {
+                return NotFound("No past appointments found.");
+            }
+
+            return Ok(pastAppointments);
+        }
+
+
+
+
+
+
+        [HttpGet("GetUpcomingAppointments/{patientId}")]
+        public async Task<IActionResult> GetUpcomingAppointments(int patientId)
+        {
+            // Find the patient using patientId
+            var patient = await _db.PatientProfiles.Include(p => p.User).FirstOrDefaultAsync(p => p.PatientId == patientId);
+            if (patient == null)
+            {
+                return NotFound("Patient not found.");
+            }
+
+            // Get the current date and time
+            var currentDate = DateTime.Now;
+
+            // Retrieve future appointments (appointments that will occur in the future)
+            var upcomingAppointments = await _db.Appointments
+                .Include(a => a.Doctor)
+                .ThenInclude(d => d.User)  // Include doctor user information
+                .Where(a => a.PatientId == patient.PatientId && a.AppointmentDate >= currentDate)
+                .Select(a => new
+                {
+                    a.AppointmentId,
+                    DoctorName = $"{a.Doctor.User.FirstName} {a.Doctor.User.LastName}",
+                    a.AppointmentDate,
+                    a.Status,
+                    a.Notes
+                })
+                .ToListAsync();
+
+            if (!upcomingAppointments.Any())
+            {
+                return NotFound("No upcoming appointments found.");
+            }
+
+            return Ok(upcomingAppointments);
+        }
+
+
+
     }
 }

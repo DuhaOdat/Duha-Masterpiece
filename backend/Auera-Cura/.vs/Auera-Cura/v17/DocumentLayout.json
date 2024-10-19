@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\labtestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\labtestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\blooddonationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\blooddonationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\blooddonationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\blooddonationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "labTestController.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\labTestController.cs",
-              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\labTestController.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\labTestController.cs",
-              "RelativeToolTip": "Auera-Cura\\Controllers\\labTestController.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "BloodDonationRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\BloodDonationRequest.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\BloodDonationRequest.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\BloodDonationRequest.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\BloodDonationRequest.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAkwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T19:27:01.103Z",
+              "WhenOpened": "2024-10-19T21:25:17.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\User.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\User.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAkwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T21:18:33.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "bloodDonationController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\bloodDonationController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\bloodDonationController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\bloodDonationController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\bloodDonationController.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAGwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T21:04:06.415Z",
               "EditorCaption": ""
             }
           ]

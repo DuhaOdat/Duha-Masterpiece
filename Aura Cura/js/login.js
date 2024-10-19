@@ -41,7 +41,7 @@ async function Login() {
                 window.location.href = "doctor-dashboard/Doctor-profile.html";  // Redirect to doctor page
             } 
             else if (result.role === 'Lab Technician') {
-                window.location.href = "lab-technician-dashboard/lab-technician-dashboard.html";  // Redirect to lab technician page
+                window.location.href = "lab-technician-dashboard/technician-profile.html";  // Redirect to lab technician page
             }
             else if (result.role === 'Radiologic Technologist') {
                 window.location.href = "radiologic-technologist-dashboard/radiologic-technologist-dashboard.html";  // Redirect to radiologic technician page

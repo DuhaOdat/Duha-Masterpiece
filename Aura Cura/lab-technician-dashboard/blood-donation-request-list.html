@@ -101,7 +101,7 @@
                 <a href="../login.html" class="btn btn-danger" onclick="logout()">Logout</a>
               </div>
             </div>
-          </div
+          </div>
           <!-- Header user settings ends -->
 
         </div>
@@ -144,11 +144,10 @@
                   <li>
                     <a href="All-lab-request.html">  All Lab Request</a>
                   </li>
-                  
+                
                  
                 </ul>
               </li>
-
               <li class="treeview">
                 <a href="#!">
                   <i class="ri-nurse-line"></i>
@@ -162,6 +161,8 @@
                  
                 </ul>
               </li>
+
+             
 
             </ul>
           </div>
@@ -195,35 +196,83 @@
 
           <!-- App body starts -->
 
-          <div class="row gx-3 ">
-            <h2 >General Information</h2>
-            <div class="col-12 col-sm-12 col-md-8 col-lg-10">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-lg-3">
-                      <img src="assets/images/person-icon.png" class="img-fluid rounded-2" style="max-width: 200px;" alt="Bootstrap Gallery">
-                    </div>
-                    <div class="col-sm-9">
-                      <div class="align-items-center">
-                        <div class="profile-content">
-                          <div class="row">
-                            <div class="col-6">
-                           
-                              <p class="profile-row"><span class="profile-label">First Name:</span> <span id="Technician-first-name"></span></p>
-                              <p class="profile-row"><span class="profile-label">Last Name:</span> <span id="Technician-last-name"></span></p>
-                              <p class="profile-row"><span class="profile-label">Email:</span> <span id="email"></span></p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="app-body">
+            <!-- Lab Test Requests List -->
+         <div class="card">
+           <div class="card-header d-flex align-items-center justify-content-between">
+               <h5 class="card-title">Lab Test Order</h5>
+               <!-- Search Input -->
+               <div class="input-group" style="width: 300px;">
+                   <input type="text" class="form-control" id="searchInput" placeholder="Search by Patient ID or Name" onkeyup="searchTable()">
+                   <span class="input-group-text"><i class="fas fa-search"></i></span>
+               </div>
+           </div>
+           <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped" id="bloodDonationRequestTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Blood Type</th>
+                            <th>Request Date</th>
+                            <th>Preferred Donation Date</th>
+                            <th>Lab Technician</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                            <th>Donation Confirmed</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic rows will be injected here via JavaScript -->
+                    </tbody>
+                </table>
             </div>
-          </div>
+        </div>
+        
 
+<!-- نموذج لقبول أو رفض طلب التبرع -->
+<div class="modal" id="processRequestModal" tabindex="-1" aria-labelledby="processRequestModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="processRequestModalLabel">Process Blood Donation Request</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="processRequestForm">
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select id="status" class="form-control">
+                            <option value="Approved">Approve</option>
+                            <option value="Rejected">Reject</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="notes" class="form-label">Notes</label>
+                        <textarea id="notes" class="form-control" rows="3" placeholder="Add any notes..."></textarea>
+                    </div>
+                    <input type="hidden" id="requestId" />
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+        
+
+  
+
+
+
+         
+                   <!-- App footer starts -->
+                   <div class="app-footer bg-white">
+                     <span>© Aurea Cura Doctor Portal 2024</span>
+                   </div>
+                   <!-- App footer ends -->
+         
+                 </div>
 
           
           <!-- App body ends -->
@@ -265,6 +314,8 @@
     <!-- Custom JS files -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/technician-profile.js"></script>
+    <script src="assets/js/all-lab-request.js"></script>
+    <script src="assets/js/blood-donation-request-list.js"></script>
    
   </body>
 

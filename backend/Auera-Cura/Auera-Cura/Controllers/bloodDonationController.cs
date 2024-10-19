@@ -584,5 +584,48 @@ namespace Auera_Cura.Controllers
             }
         }
 
+
+
+        [HttpGet("GetAllBloodDonationRequests")]
+        public async Task<IActionResult> GetAllBloodDonationRequests()
+        {
+            // Retrieve all blood donation requests from the database
+            var bloodDonationRequests = await _db.BloodDonationRequests
+                .Include(r => r.BloodType)                 // Load BloodType
+                .Include(r => r.Patient)                   // Include Patient from User table
+                .Include(r => r.LabTechnician)             // Include Lab Technician from User table
+                .Select(r => new
+                {
+                    r.RequestId,
+                    PatientName = r.Patient != null
+                        ? $"{r.Patient.FirstName} {r.Patient.LastName}"
+                        : "Unknown",                       // Get patient's full name from User table or "Unknown"
+                    BloodType = r.BloodType != null
+                        ? r.BloodType.BloodType1
+                        : "Unknown",                       // Get BloodType or "Unknown" if null
+                    r.RequestDate,
+                    r.PreferredDonationDate,               // Get preferred donation date
+                    r.Status,
+                    r.Notes,
+                    LabTechnician = r.LabTechnician != null
+                        ? $"{r.LabTechnician.FirstName} {r.LabTechnician.LastName}"
+                        : "Not assigned yet",              // Get Lab Technician's full name from User table
+                    r.DonationConfirmed,                   // Check if the donation was confirmed
+                    r.DonationDate                        // Actual donation date if confirmed
+                })
+                .ToListAsync();
+
+            // If there are no requests found
+            if (!bloodDonationRequests.Any())
+            {
+                return NotFound("No blood donation requests found.");
+            }
+
+            return Ok(bloodDonationRequests);
+        }
+
+
+
+
     }
 }
