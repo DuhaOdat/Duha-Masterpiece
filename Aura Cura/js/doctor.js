@@ -65,6 +65,7 @@ async function getAllDoctors() {
         }
 
         let data = await request.json();
+        console.log(data);
         let container = document.getElementById("doctors-container");
 
         // Check if data is empty
@@ -79,7 +80,7 @@ async function getAllDoctors() {
                 <div class="col-md-3 wow fadeIn mb-4" data-wow-delay="0.1s">
                     <div class="team-item bg-white text-center rounded p-4 pt-0">
                         <img class="img-fluid rounded-circle p-4" src="../backend/Auera-Cura/Auera-Cura/Uploads/${doctor.image}" alt="${doctor.firstName}">
-                        <h5 class="mb-0">${doctor.firstName} ${doctor.lastName}</h5>
+                        <h5 class="mb-0">${doctor.fullName}</h5>
                         <small>${doctor.specialty}</small>
                         <div class="d-flex justify-content-center mt-3">
                             <a class="btn btn-link" href="doctor-details.html?id=${doctor.doctorId}" onclick="storeDoctorId(${doctor.doctorId})">More Details</a>

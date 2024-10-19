@@ -145,3 +145,51 @@ var popoverTriggerList = [].slice.call(
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl);
 });
+
+
+/*************************************** */
+async function loadImageProfile() {
+  let userId = localStorage.getItem('userId'); // Retrieve the user ID from localStorage
+  let token = localStorage.getItem('jwtToken'); // Retrieve the token
+
+  // Ensure the UserId and token exist before fetching data
+  if (!userId || !token) {
+      console.error("User ID or token missing");
+      return;
+  }
+
+  let url = `https://localhost:44396/api/Doctors/GetDoctorByUserId/${userId}`; // Correct API URL
+
+  try {
+      let response = await fetch(url, {
+          method: 'GET',
+          headers: {
+              'Authorization': `Bearer ${token}`,  // Include the JWT token in the request
+              'Content-Type': 'application/json'
+          }
+      });
+
+      if (!response.ok) {
+          throw new Error(`Error fetching Doctor profile: ${response.statusText}`);
+      }
+
+      let data = await response.json();
+      console.log(data);
+
+      // عرض صورة الطبيب
+      if (data.image) {
+          document.getElementById('doctor-profile-image2').src = `../../../../backend/Auera-Cura/Auera-Cura/Uploads/${data.image}`;
+      } else {
+          document.getElementById('doctor-profile-image2').src = 'default-image-path.jpg'; // صورة افتراضية إذا لم تكن هناك صورة للطبيب
+      }
+
+  } catch (error) {
+      console.error("Error loading doctor profile image:", error);
+  }
+}
+
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", loadImageProfile);
+
+
+// document.getElementById("admin-name-header")=logcal

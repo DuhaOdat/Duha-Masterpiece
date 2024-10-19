@@ -42,6 +42,68 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Auera_Cura.Controllers.AdminController",
+    "Method": "UpdateLabTest",
+    "RelativePath": "api/Admin/update-lab-test/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "TestName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedBy",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "NormalRange",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Unit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsAvailable",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "CountDoctorAppointments",
+    "RelativePath": "api/Appointments/CountDoctorAppointments/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
     "Method": "CreateAppointment",
     "RelativePath": "api/Appointments/CreateAppointment",
@@ -73,6 +135,163 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "DeleteAppointment",
+    "RelativePath": "api/Appointments/DeleteAppointment/{appointmentId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "appointmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "EditAppointment",
+    "RelativePath": "api/Appointments/EditAppointment/{appointmentId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "appointmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "DoctorID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PatientID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "AppointmentDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Notes",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "GetAllDoctorAppointments",
+    "RelativePath": "api/Appointments/GetAllDoctorAppointments/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "GetAllPatients",
+    "RelativePath": "api/Appointments/GetAllPatients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "GetDoctorAppointmentsByDate",
+    "RelativePath": "api/Appointments/GetDoctorAppointmentsByDate/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "GetDoctorByUserId",
+    "RelativePath": "api/Appointments/GetDoctorByUserId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "GetDoctorScheduleByDoctorId",
+    "RelativePath": "api/Appointments/GetDoctorScheduleByDoctorId/{doctorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "AddReward",
+    "RelativePath": "api/bloodDonation/addReward",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RewardName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PointsRequired",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
     "Method": "ConfirmBloodDonation",
     "RelativePath": "api/bloodDonation/ConfirmBloodDonation",
@@ -86,6 +305,42 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "DeleteReward",
+    "RelativePath": "api/bloodDonation/deleteReward/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "GetAllBloodTypes",
+    "RelativePath": "api/bloodDonation/getAllBloodTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "GetAllRewards",
+    "RelativePath": "api/bloodDonation/getAllRewards",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -263,8 +518,60 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "UpdatePointsPerDonation",
+    "RelativePath": "api/bloodDonation/updatePointsPerDonation/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PointsPerDonation",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "UpdateReward",
+    "RelativePath": "api/bloodDonation/updateReward/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "RewardName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PointsRequired",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Auera_Cura.Controllers.DepartmentsController",
-    "Method": "AddNedwDepartment",
+    "Method": "AddNewDepartment",
     "RelativePath": "api/Departments/AddNewDepartment",
     "HttpMethod": "POST",
     "IsController": true,
@@ -315,6 +622,64 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.DepartmentsController",
+    "Method": "GetAllDepartmentsWithHead",
+    "RelativePath": "api/Departments/allDepartmentsWithHead",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DepartmentsController",
+    "Method": "CanDeleteDepartment",
+    "RelativePath": "api/Departments/CanDeleteDepartment/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DepartmentsController",
+    "Method": "DeleteDepartment",
+    "RelativePath": "api/Departments/DeleteDepartment/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DepartmentsController",
+    "Method": "GetDoctorsInDepartment",
+    "RelativePath": "api/Departments/doctorsInDepartment/{departmentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "departmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DepartmentsController",
     "Method": "GetDepartmentById",
     "RelativePath": "api/Departments/GetDepartmentById/{id}",
     "HttpMethod": "GET",
@@ -330,13 +695,90 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Auera_Cura.Controllers.DoctorsController",
-    "Method": "AddNedwDoctor",
-    "RelativePath": "api/Doctors/AddNewDoctor",
-    "HttpMethod": "POST",
+    "ContainingType": "Auera_Cura.Controllers.DepartmentsController",
+    "Method": "UpdateDepartment",
+    "RelativePath": "api/Departments/UpdateDepartment/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "DepartmentName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DepartmentDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumberOfRooms",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "NumberOfBeds",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorsController",
+    "Method": "GetAllDoctors",
+    "RelativePath": "api/Doctors/AllDoctors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorsController",
+    "Method": "DeleteDoctor",
+    "RelativePath": "api/Doctors/DeleteDoctor/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorsController",
+    "Method": "EditDoctor",
+    "RelativePath": "api/Doctors/EditDoctor/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "IsHead",
         "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -392,37 +834,6 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.DoctorsController",
-    "Method": "GetAllDoctors",
-    "RelativePath": "api/Doctors/AllDoctors",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auera_Cura.Controllers.DoctorsController",
-    "Method": "EditDoctor",
-    "RelativePath": "api/Doctors/EditDoctor/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "editDoctorDTO",
-        "Type": "Auera_Cura.DTO.editDoctorDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auera_Cura.Controllers.DoctorsController",
     "Method": "GetDoctorByDepartmentId",
     "RelativePath": "api/Doctors/GetDoctorByDepartmentId/{departmentId}",
     "HttpMethod": "GET",
@@ -465,6 +876,121 @@
         "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorschedulesController",
+    "Method": "AddDoctorSchedule",
+    "RelativePath": "api/Doctorschedules/AddDoctorSchedule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DayOfWeek",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "StartTime",
+        "Type": "System.TimeOnly",
+        "IsRequired": false
+      },
+      {
+        "Name": "EndTime",
+        "Type": "System.TimeOnly",
+        "IsRequired": false
+      },
+      {
+        "Name": "DoctorId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorschedulesController",
+    "Method": "DeleteDoctorSchedule",
+    "RelativePath": "api/Doctorschedules/DeleteDoctorSchedule/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorschedulesController",
+    "Method": "GetDoctorSchedule",
+    "RelativePath": "api/Doctorschedules/GetDoctorSchedule/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorschedulesController",
+    "Method": "GetDoctorSchedules",
+    "RelativePath": "api/Doctorschedules/GetDoctorSchedules",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorschedulesController",
+    "Method": "GetSchedulesByDoctor",
+    "RelativePath": "api/Doctorschedules/GetSchedulesByDoctor/{doctorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorschedulesController",
+    "Method": "UpdateDoctorSchedule",
+    "RelativePath": "api/Doctorschedules/UpdateDoctorSchedule/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "StartTime",
+        "Type": "System.TimeOnly",
+        "IsRequired": false
+      },
+      {
+        "Name": "EndTime",
+        "Type": "System.TimeOnly",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -545,7 +1071,17 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.labTestController",
-    "Method": "getAllTestOrder",
+    "Method": "GetAllLabTestResults",
+    "RelativePath": "api/labTest/GetAllLabTestResults",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.labTestController",
+    "Method": "GetAllTestOrders",
     "RelativePath": "api/labTest/getAllTestOrder",
     "HttpMethod": "GET",
     "IsController": true,
@@ -579,6 +1115,22 @@
     "Parameters": [
       {
         "Name": "patientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.labTestController",
+    "Method": "GetLabTestResultByOrderId",
+    "RelativePath": "api/labTest/GetLabTestResultByOrderId/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -913,6 +1465,32 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.PatientProfileController",
+    "Method": "DeletePatient",
+    "RelativePath": "api/PatientProfile/DeletePatient/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.PatientProfileController",
+    "Method": "GetAllPatients",
+    "RelativePath": "api/PatientProfile/GetAllPatients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.PatientProfileController",
     "Method": "UpdatePatientProfile",
     "RelativePath": "api/PatientProfile/UpdatePatientProfile/{id}",
     "HttpMethod": "POST",
@@ -966,6 +1544,58 @@
     "ContainingType": "Auera_Cura.Controllers.ServicesController",
     "Method": "GetAllServices",
     "RelativePath": "api/Services/GetAllServices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.TechniciansController",
+    "Method": "GetAllLabTestOrders",
+    "RelativePath": "api/Technicians/GetAllLabTestOrders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.TechniciansController",
+    "Method": "GetTechnicianProfile",
+    "RelativePath": "api/Technicians/GetTechnicianProfile/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.UsersController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Users/DeleteUser/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.UsersController",
+    "Method": "GetUsersExceptPatients",
+    "RelativePath": "api/Users/GetUsersExceptPatients",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1049,6 +1679,42 @@
       },
       {
         "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Role",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.UsersController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/Users/UpdateUser/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
         "Type": "System.String",
         "IsRequired": false
       },

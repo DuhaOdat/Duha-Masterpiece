@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aura Cura -Admin Dashboard </title>
+    <title>Aura Cura -Doctor Dashboard </title>
 
     <!-- Meta -->
     <meta name="description" content="Marketplace for Bootstrap Admin Dashboards">
@@ -13,7 +13,8 @@
     <meta property="og:type" content="Website">
     <link rel="shortcut icon" href="assets/images/favicon.svg">
 
-
+ <!-- SweetAlert2 CSS and JS -->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- *************
 		************ Vendor Css Files *************
 	************ -->
@@ -31,6 +32,7 @@
     <!-- Scrollbar CSS -->
     <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
      <link rel="stylesheet" href="assets/css/main.min.css">
+     <link rel="stylesheet" href="assets/css/add-appoinment.css">
   </head>
 
   <body>
@@ -64,12 +66,7 @@
         <!-- App header actions starts -->
         <div class="header-actions">
 
-          <!-- Search container starts -->
-          <div class="search-container d-lg-block d-none mx-3">
-            <input type="text" class="form-control" id="searchId" placeholder="Search">
-            <i class="ri-search-line"></i>
-          </div>
-          <!-- Search container ends -->
+         
 
           <!-- Header actions starts -->
           <div class="d-lg-flex d-none gap-2">
@@ -86,23 +83,25 @@
           </div>
           <!-- Header actions ends -->
 
-          <!-- Header user settings starts -->
-          <div class="dropdown ms-2">
+          
+           <!-- Header user settings starts -->
+           <div class="dropdown ms-2">
             <a id="userSettings" class="dropdown-toggle d-flex align-items-center" href="#!" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="avatar-box">JB<span class="status busy"></span></div>
+              <div class="avatar-box">Dr<span class="status busy"></span></div>
             </a>
             <div class="dropdown-menu dropdown-menu-end shadow-lg">
               <div class="px-3 py-2">
-                <span class="small">Admin</span>
-                <h6 class="m-0">James Bruton</h6>
+                <span class="small"></span>
+                <h6 class="m-0 " id="doctor-name-header"></h6>
               </div>
               <div class="mx-3 my-2 d-grid">
-                <a href="login.html" class="btn btn-danger">Logout</a>
+                <a href="../login.html" class="btn btn-danger" onclick="logout()">Logout</a>
               </div>
             </div>
           </div>
           <!-- Header user settings ends -->
+   
 
         </div>
         <!-- App header actions ends -->
@@ -116,25 +115,24 @@
         <!-- Sidebar wrapper starts -->
         <nav id="sidebar" class="sidebar-wrapper">
 
-          <!-- Sidebar profile starts -->
-          <div class="sidebar-profile">
-            <img src="assets/images/user6.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
-            <div class="m-0">
-              <h5 class="mb-1 profile-name text-nowrap text-truncate">Admin Name</h5>
-              <p class="m-0 small profile-name text-nowrap text-truncate">Admin Portal</p>
+             <!-- Sidebar profile starts -->
+             <div class="sidebar-profile">
+              <img id="doctor-profile-image2" src="assets/images/person-icon.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
+             
             </div>
-          </div>
-          <!-- Sidebar profile ends -->
+            <!-- Sidebar profile ends -->
 
            <!-- Sidebar menu starts -->
            <div class="sidebarMenuScroll">
             <ul class="sidebar-menu">
+    
               <li>
                 <a href="Doctor-profile.html">
                   <i class="ri-calendar-line"></i>
                   <span class="menu-text">Profile</span>
                 </a>
               </li> 
+
               <li class="treeview">
                 <a href="#!">
                   <i class="ri-nurse-line"></i>
@@ -145,17 +143,16 @@
                     <a href="add-appoinment.html">Add Appointment</a>
                   </li>
                   <li>
-                    <a href="#">show Lab Order</a>
+                    <a href="show-appoinment.html">Show  Appointment</a>
                   </li>
                  
                 </ul>
               </li>
-
-              
+             
               <li class="treeview">
                 <a href="#!">
                   <i class="ri-nurse-line"></i>
-                  <span class="menu-text">Lab Result</span>
+                  <span class="menu-text">Lab Test</span>
                 </a>
                 <ul class="treeview-menu">
                   <li>
@@ -167,42 +164,12 @@
                  
                 </ul>
               </li>
-
-              <li class="treeview">
-                <a href="#!">
-                  <i class="ri-nurse-line"></i>
-                  <span class="menu-text">Medical Images</span>
-                </a>
-                <ul class="treeview-menu">
-                  <li>
-                    <a href="medical-image-request.html">Medical Image Request</a>
-                  </li>
-                  <li>
-                    <a href="show-medical-image-result.html">show Image Result</a>
-                  </li>
-                 
-                </ul>
-              </li>
-
-
-
-
-           
-
-         
-          
-               
-           
            
             </ul>
           </div>
+          <!-- Sidebar menu ends -->
 
-          <!-- Sidebar contact starts -->
-          <div class="sidebar-contact">
-            <p class="fw-light mb-1 text-nowrap text-truncate">Emergency Contact</p>
-            <h5 class="m-0 lh-1 text-nowrap text-truncate">0777601083</h5>
-            <i class="ri-phone-line"></i>
-          </div>
+          
           <!-- Sidebar contact ends -->
 
         </nav>
@@ -218,7 +185,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <i class="ri-home-8-line lh-1 pe-3 me-3 border-end"></i>
-                <a href="patientDashboard.html">Home</a>
+                <a href="#">Home</a>
               </li>
               <li class="breadcrumb-item text-primary" aria-current="page">
                 Doctor Dashboard
@@ -229,33 +196,35 @@
            
 
           </div>
-          <!-- App Hero header ends -->
+     <!-- App Hero header ends -->
+<div id="app-appointment">
+  <div class="app-body">
+      <h2>Assign Appointment to Patient</h2>
 
-          <div class="app-body">
-           
-          
-            
-            
-            <form id="createAppointmentForm">
-                <label for="doctorId">Doctor ID:</label>
-                <input type="number" id="doctorId" name="DoctorID" required>
-                <br>
-                <label for="patientId">Patient ID:</label>
-                <input type="number" id="patientId" name="PatientID" required>
-            <br>
-                <label for="appointmentDate">Appointment Date:</label>
-                <input type="datetime-local" id="appointmentDate" name="AppointmentDate" required>
-            <br>
-                <label for="notes">Notes:</label>
-                <textarea id="notes" name="Notes"></textarea>
-            <br>
-                <button type="submit">Create Appointment</button>
-            </form>
-            
+      <!-- Dropdown for selecting a patient -->
+      <label for="patientSelect">Choose a Patient:</label>
+      <select id="patientSelect"></select>
+  
+      <!-- Date input for choosing appointment date -->
+      <label for="appointmentDate">Appointment Date:</label>
+      <input type="date" id="appointmentDate" required>'
+  
+      <!-- Dropdown for available time slots -->
+      <label for="timeSlotSelect">Available Time Slots:</label>
+      <select id="timeSlotSelect"></select>
+  
+      <!-- Textarea for notes -->
+      <label for="notes">Notes:</label>
+      <textarea id="notes" placeholder="Add notes"></textarea>
+  
+      <!-- Submit button -->
+      <button id="submitAppointment">Assign Appointment</button>
+  
+      <div id="result"></div>
+  </div>
+</div>
+<!-- App body ends -->
 
-
-        </div>
-        <!-- App body ends -->
       
 
 
@@ -296,13 +265,13 @@
 
     <!-- Custom JS files -->
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/doctor-profile.js"></script>
    <script src="assets/js/add-appoinment.js"></script>
-
+   
+   
 
 <!-- JavaScript to handle form submission and modal confirmation -->
-<script>
-  
-</script>
+
 
 
   </body>

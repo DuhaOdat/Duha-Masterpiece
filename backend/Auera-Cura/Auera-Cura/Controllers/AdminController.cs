@@ -39,6 +39,8 @@ namespace Auera_Cura.Controllers
                     TestName = labTestDto.TestName,
                     Description = labTestDto.Description,
                     IsAvailable = labTestDto.IsAvailable,
+                    NormalRange=labTestDto.NormalRange,
+                    Unit= labTestDto.Unit,
                     CreatedBy = labTestDto.CreatedBy,  // Use the UserID provided by the frontend
                     CreatedDate = DateTime.Now,
                 };
@@ -56,6 +58,12 @@ namespace Auera_Cura.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");  // Return the exception message
             }
         }
+
+
+
+
+
+
 
         [HttpGet("Show-Lab-Test")]
         public IActionResult showLabTest()
@@ -85,6 +93,91 @@ namespace Auera_Cura.Controllers
 
             return Ok(user);
         }
+
+
+        //[HttpPut("update-lab-test/{id}")]
+        //public IActionResult UpdateLabTest(int id, [FromForm] LabTestDTO labTestDto)
+        //{
+        //    try
+        //    {
+        //        // Step 1: Validate the input
+        //        if (labTestDto == null || string.IsNullOrEmpty(labTestDto.TestName))
+        //        {
+        //            return BadRequest("Lab test details are required.");
+        //        }
+
+        //        // Step 2: Find the lab test in the database by ID
+        //        var existingLabTest = _db.LabTests.FirstOrDefault(t => t.TestId == id);
+        //        if (existingLabTest == null)
+        //        {
+        //            return NotFound("Lab test not found.");
+        //        }
+
+        //        // Step 3: Update the lab test details
+        //        existingLabTest.TestName = labTestDto.TestName;
+        //        existingLabTest.Description = labTestDto.Description;
+        //        existingLabTest.IsAvailable = labTestDto.IsAvailable;
+        //        existingLabTest.NormalRange = labTestDto.NormalRange ?? existingLabTest.NormalRange;
+        //        existingLabTest.Unit = labTestDto.Unit ?? existingLabTest.Unit;
+
+        //        existingLabTest.CreatedBy = labTestDto.CreatedBy;  // Assuming the frontend sends the ID of the user making the update
+        //        existingLabTest.CreatedDate = DateTime.Now;  // Set the update date to now
+
+        //        // Step 4: Save the changes to the database
+        //        _db.SaveChanges();
+
+        //        return Ok(new
+        //        {
+        //            Message = "Lab test updated successfully.",
+        //            LabTest = existingLabTest
+        //        });
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Log the error
+        //        Console.WriteLine($"Error updating lab test: {ex.Message}");
+        //        return StatusCode(500, $"Internal server error: {ex.Message}");  // Return the exception message
+        //    }
+        //}
+
+        [HttpPut("update-lab-test/{id}")]
+        public IActionResult UpdateLabTest(int id, [FromForm] LabTestDTO labTestDto)
+        {
+            // Step 1: Validate the input
+            if (labTestDto == null || string.IsNullOrEmpty(labTestDto.TestName))
+            {
+                Console.WriteLine("TestName is missing or labTestDto is null.");
+                return BadRequest("Lab test details are required.");
+            }
+
+            // Debug: Log the incoming data for debugging
+            Console.WriteLine($"Received TestName: {labTestDto.TestName}, Description: {labTestDto.Description}, IsAvailable: {labTestDto.IsAvailable}");
+
+            var existingLabTest = _db.LabTests.FirstOrDefault(t => t.TestId == id);
+            if (existingLabTest == null)
+            {
+                return NotFound("Lab test not found.");
+            }
+
+            // Step 2: Update the lab test details
+            existingLabTest.TestName = !string.IsNullOrEmpty(labTestDto.TestName) ? labTestDto.TestName : existingLabTest.TestName;
+            existingLabTest.Description = !string.IsNullOrEmpty(labTestDto.Description) ? labTestDto.Description : existingLabTest.Description;
+            existingLabTest.IsAvailable = labTestDto.IsAvailable;  // Boolean, so it must be handled
+            existingLabTest.NormalRange = !string.IsNullOrEmpty(labTestDto.NormalRange) ? labTestDto.NormalRange : existingLabTest.NormalRange;
+            existingLabTest.Unit = !string.IsNullOrEmpty(labTestDto.Unit) ? labTestDto.Unit : existingLabTest.Unit;
+
+            // Save the updated values to the database
+            _db.SaveChanges();
+
+            return Ok(new
+               {
+                   Message = "Lab test updated successfully.",
+                    LabTest = existingLabTest
+                });
+        }
+
+
 
 
     }

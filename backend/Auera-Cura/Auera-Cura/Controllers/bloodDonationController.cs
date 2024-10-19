@@ -424,8 +424,165 @@ namespace Auera_Cura.Controllers
 
 
 
+        [HttpGet("getAllBloodTypes")]
+        public async Task<IActionResult> GetAllBloodTypes()
+        {
+            try
+            {
+                // Fetch all blood types with their reward points
+                var bloodTypes = await _db.BloodTypes
+                    .Select(bt => new
+                    {
+                        bt.BloodTypeId,
+                        BloodType = bt.BloodType1, // Assuming BloodType1 is the name of the blood type
+                        PointsPerDonation = bt.RewardPoints // Reward points for the donation
+                    })
+                    .ToListAsync();
+
+                // Return the list of blood types with status code 200 (OK)
+                return Ok(bloodTypes);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception and return a 500 (Internal Server Error) with a message
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, new { message = "An error occurred while retrieving blood types." });
+            }
+        }
+
+        [HttpPut("updatePointsPerDonation/{id}")]
+        public async Task<IActionResult> UpdatePointsPerDonation(int id, [FromForm] UpdatePointsPerDonationDto dto)
+        {
+            try
+            {
+                // Find the blood type by ID
+                var bloodType = await _db.BloodTypes.FindAsync(id);
+                if (bloodType == null)
+                {
+                    return NotFound(new { message = "Blood type not found." });
+                }
+
+                // Update the points per donation
+                bloodType.RewardPoints = dto.PointsPerDonation;
+
+                // Save changes to the database
+                await _db.SaveChangesAsync();
+
+                return Ok(new { message = "Points per donation updated successfully." });
+            }
+            catch (Exception ex)
+            {
+                // Log the error and return a 500 Internal Server Error response
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, new { message = "An error occurred while updating points per donation." });
+            }
+        }
+
+        [HttpGet("getAllRewards")]
+        public async Task<IActionResult> GetAllRewards()
+        {
+            try
+            {
+                // Retrieve all rewards from the database
+                var rewards = await _db.Rewards.ToListAsync();
+
+                // Return the list of rewards
+                return Ok(rewards);
+            }
+            catch (Exception ex)
+            {
+                // Log the error and return a 500 Internal Server Error response
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, new { message = "An error occurred while retrieving rewards." });
+            }
+        }
 
 
+        [HttpPut("updateReward/{id}")]
+        public async Task<IActionResult> UpdateReward(int id, [FromForm] UpdateRewardDto dto)
+        {
+            try
+            {
+                // Find the reward by its ID
+                var reward = await _db.Rewards.FindAsync(id);
+                if (reward == null)
+                {
+                    return NotFound(new { message = "Reward not found." });
+                }
+
+                // Update reward fields
+                reward.RewardName = dto.RewardName;
+                reward.Description = dto.Description;
+                reward.PointsRequired = dto.PointsRequired;
+
+                // Save changes to the database
+                await _db.SaveChangesAsync();
+
+                return Ok(new { message = "Reward updated successfully." });
+            }
+            catch (Exception ex)
+            {
+                // Log the error and return a 500 Internal Server Error response
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, new { message = "An error occurred while updating the reward." });
+            }
+        }
+
+        [HttpDelete("deleteReward/{id}")]
+        public async Task<IActionResult> DeleteReward(int id)
+        {
+            try
+            {
+                // Find the reward by its ID
+                var reward = await _db.Rewards.FindAsync(id);
+                if (reward == null)
+                {
+                    return NotFound(new { message = "Reward not found." });
+                }
+
+                // Remove the reward from the database
+                _db.Rewards.Remove(reward);
+                await _db.SaveChangesAsync();
+
+                return Ok(new { message = "Reward deleted successfully." });
+            }
+            catch (Exception ex)
+            {
+                // Log the error and return a 500 Internal Server Error response
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, new { message = "An error occurred while deleting the reward." });
+            }
+        }
+
+
+        // API Controller for adding a new reward
+        [HttpPost("addReward")]
+        public async Task<IActionResult> AddReward([FromForm] AddRewardDto dto)
+        {
+            try
+            {
+                // Create a new reward instance
+                var reward = new Reward
+                {
+                    RewardName = dto.RewardName,
+                    Description = dto.Description,
+                    PointsRequired = dto.PointsRequired
+                };
+
+                // Add the reward to the database
+                _db.Rewards.Add(reward);
+                await _db.SaveChangesAsync();
+
+                // Return a success message
+                return Ok(new { message = "Reward added successfully!" });
+            }
+            catch (Exception ex)
+            {
+                // Log the error and return a 500 Internal Server Error
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, new { message = "An error occurred while adding the reward." });
+            }
+        }
 
     }
 }

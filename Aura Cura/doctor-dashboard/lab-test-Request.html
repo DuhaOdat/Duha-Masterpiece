@@ -31,6 +31,13 @@
     <!-- Scrollbar CSS -->
     <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
      <link rel="stylesheet" href="assets/css/main.min.css">
+     <style>
+      .form-container {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+     </style>
   </head>
 
   <body>
@@ -64,12 +71,7 @@
         <!-- App header actions starts -->
         <div class="header-actions">
 
-          <!-- Search container starts -->
-          <div class="search-container d-lg-block d-none mx-3">
-            <input type="text" class="form-control" id="searchId" placeholder="Search">
-            <i class="ri-search-line"></i>
-          </div>
-          <!-- Search container ends -->
+         
 
           <!-- Header actions starts -->
           <div class="d-lg-flex d-none gap-2">
@@ -86,23 +88,23 @@
           </div>
           <!-- Header actions ends -->
 
-          <!-- Header user settings starts -->
-          <div class="dropdown ms-2">
-            <a id="userSettings" class="dropdown-toggle d-flex align-items-center" href="#!" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="avatar-box">JB<span class="status busy"></span></div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end shadow-lg">
-              <div class="px-3 py-2">
-                <span class="small">Admin</span>
-                <h6 class="m-0">James Bruton</h6>
-              </div>
-              <div class="mx-3 my-2 d-grid">
-                <a href="login.html" class="btn btn-danger">Logout</a>
+            <!-- Header user settings starts -->
+            <div class="dropdown ms-2">
+              <a id="userSettings" class="dropdown-toggle d-flex align-items-center" href="#!" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="avatar-box">Dr<span class="status busy"></span></div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end shadow-lg">
+                <div class="px-3 py-2">
+                  <span class="small"></span>
+                  <h6 class="m-0 " id="doctor-name-header"></h6>
+                </div>
+                <div class="mx-3 my-2 d-grid">
+                  <a href="../login.html" class="btn btn-danger" onclick="logout()">Logout</a>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Header user settings ends -->
+            <!-- Header user settings ends -->
 
         </div>
         <!-- App header actions ends -->
@@ -116,25 +118,24 @@
         <!-- Sidebar wrapper starts -->
         <nav id="sidebar" class="sidebar-wrapper">
 
-          <!-- Sidebar profile starts -->
-          <div class="sidebar-profile">
-            <img src="assets/images/user6.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
-            <div class="m-0">
-              <h5 class="mb-1 profile-name text-nowrap text-truncate">Admin Name</h5>
-              <p class="m-0 small profile-name text-nowrap text-truncate">Admin Portal</p>
+             <!-- Sidebar profile starts -->
+             <div class="sidebar-profile">
+              <img id="doctor-profile-image2" src="assets/images/person-icon.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
+             
             </div>
-          </div>
-          <!-- Sidebar profile ends -->
+            <!-- Sidebar profile ends -->
 
-           <!-- Sidebar menu starts -->
-           <div class="sidebarMenuScroll">
+              <!-- Sidebar menu starts -->
+          <div class="sidebarMenuScroll">
             <ul class="sidebar-menu">
+    
               <li>
                 <a href="Doctor-profile.html">
                   <i class="ri-calendar-line"></i>
                   <span class="menu-text">Profile</span>
                 </a>
               </li> 
+
               <li class="treeview">
                 <a href="#!">
                   <i class="ri-nurse-line"></i>
@@ -145,16 +146,16 @@
                     <a href="add-appoinment.html">Add Appointment</a>
                   </li>
                   <li>
-                    <a href="#">show Lab Order</a>
+                    <a href="show-appoinment.html">Show  Appointment</a>
                   </li>
                  
                 </ul>
               </li>
-              
+             
               <li class="treeview">
                 <a href="#!">
                   <i class="ri-nurse-line"></i>
-                  <span class="menu-text">Lab Result</span>
+                  <span class="menu-text">Lab Test</span>
                 </a>
                 <ul class="treeview-menu">
                   <li>
@@ -166,42 +167,12 @@
                  
                 </ul>
               </li>
-
-              <li class="treeview">
-                <a href="#!">
-                  <i class="ri-nurse-line"></i>
-                  <span class="menu-text">Medical Images</span>
-                </a>
-                <ul class="treeview-menu">
-                  <li>
-                    <a href="medical-image-request.html">Medical Image Request</a>
-                  </li>
-                  <li>
-                    <a href="show-medical-image-result.html">show Image Result</a>
-                  </li>
-                 
-                </ul>
-              </li>
-
-
-
-
-           
-
-         
-          
-               
-           
            
             </ul>
           </div>
+          <!-- Sidebar menu ends -->
 
-          <!-- Sidebar contact starts -->
-          <div class="sidebar-contact">
-            <p class="fw-light mb-1 text-nowrap text-truncate">Emergency Contact</p>
-            <h5 class="m-0 lh-1 text-nowrap text-truncate">0777601083</h5>
-            <i class="ri-phone-line"></i>
-          </div>
+          
           <!-- Sidebar contact ends -->
 
         </nav>
@@ -232,28 +203,36 @@
 
           <div class="app-body">
            
-            <div class="form-container card">
-                <div class="card-header">
-                    <h5>New Lab Test Request</h5>
-                </div>
-                <div class="card-body">
-                  <form id="labTestOrderForm" onsubmit="createLabTestOrder(); return false;">
-                    <label for="patient-select">Select Patient:</label>
-                    <select id="patient-select">
-                        <!-- Patients will be populated dynamically -->
-                    </select>
-                
-                    <label for="test-select">Select Lab Test:</label>
-                    <select id="test-select">
-                        <!-- Lab tests will be populated dynamically -->
-                    </select>
-                
-                    <button type="submit">Create Lab Test Order</button>
-                </form>
-                
-                
-                </div>
-            </div>
+            <div class="container mt-5">
+              <div class="form-container card shadow-lg mx-auto" style="max-width: 900px;">
+                  <div class="card-headertext-white" >
+                      <h5 class="mb-0">New Lab Test Request</h5>
+                  </div>
+                  <div class="card-body p-4">
+                      <form id="labTestOrderForm" onsubmit="createLabTestOrder(); return false;">
+                          <div class="form-group mb-4">
+                              <label for="patient-select" class="form-label">Select Patient:</label>
+                              <select id="patient-select" class="form-select">
+                                  <!-- Patients will be populated dynamically -->
+                              </select>
+                          </div>
+          
+                          <div class="form-group mb-4">
+                              <label for="test-select" class="form-label">Select Lab Test:</label>
+                              <select id="test-select" class="form-select">
+                                  <!-- Lab tests will be populated dynamically -->
+                              </select>
+                          </div>
+          
+                          <div class="d-grid">
+                              <button type="submit" class="btn btn-primary btn-lg" style="border-radius: 5px; width: fit-content;">Create Lab Test Order</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          
+          
             
         
 
@@ -301,7 +280,7 @@
     <!-- Custom JS files -->
     <script src="assets/js/custom.js"></script>
    <script  src="assets/js/lab-test-request.js"></script>
-
+    <script src="assets/js/doctor-profile.js"></script>
 
 <!-- JavaScript to handle form submission and modal confirmation -->
 <script>

@@ -1,0 +1,53 @@
+   /* Ensure images in the table are responsive */
+   .table td img {
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
+    border-radius: 4px; /* Optional: Adds rounded corners */
+    display: block;
+    margin: auto; /* Centers the image in the table cell */
+}
+
+/* Ensure buttons are compact and uniform */
+.btn {
+    padding: 4px 10px;
+    font-size: 14px;
+}
+
+/* Style for aligning Update and Delete buttons side-by-side */
+.action-buttons {
+    display: flex;
+    gap: 5px; /* Small space between buttons */
+}
+
+/* Phone number style for better display */
+.phone-number {
+    white-space: nowrap; /* Keep the phone number on one line */
+}
+
+/* Adjust the padding and font size of buttons on smaller screens */
+@media (max-width: 768px) {
+    .btn {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+}
+
+/* Make the table scrollable horizontally */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling */
+}
+
+
+
+/*////////////////////////*/
+.doctor-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Space between each doctor */
+}
+
+.doctor-info img {
+    border-radius: 50%; /* Optional: Makes the image circular */
+}

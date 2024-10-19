@@ -38,7 +38,7 @@ async function Login() {
                 window.location.href = "Admin-dashboard/Admin-profile.html";  // Redirect to admin page
             }
              else if (result.role === 'Doctor') {
-                window.location.href = "doctor-dashboard/doctorDashboard.html";  // Redirect to doctor page
+                window.location.href = "doctor-dashboard/Doctor-profile.html";  // Redirect to doctor page
             } 
             else if (result.role === 'Lab Technician') {
                 window.location.href = "lab-technician-dashboard/lab-technician-dashboard.html";  // Redirect to lab technician page

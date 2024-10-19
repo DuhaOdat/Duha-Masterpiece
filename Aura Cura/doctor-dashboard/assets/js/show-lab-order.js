@@ -29,6 +29,7 @@ async function fetchLabTestOrders(doctorId) {
 
 
 // Function to dynamically populate the table with lab test orders
+// Function to dynamically populate the table with lab test orders
 function renderLabTestOrders(labOrders) {
     const labTestTableBody = document.querySelector("#labTestTable tbody");
     labTestTableBody.innerHTML = ''; // Clear the table body before adding new rows
@@ -36,10 +37,17 @@ function renderLabTestOrders(labOrders) {
     labOrders.forEach((order, index) => {
         const row = document.createElement("tr");
 
+        // Determine the delete button visibility (only show for Pending status)
         const deleteButton = order.status === 'Pending' 
             ? `<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTestModal" onclick="setOrderToDelete(${order.orderId})">Delete</button>`
-            : ''; // Disable delete button for non-pending orders
+            : ''; // No delete button if the order is completed
 
+        // Determine the view result button visibility (only show for Completed status)
+        const viewButton = order.status === 'Completed' 
+            ? `<button class="btn btn-secondary" onclick="openViewResultModal(${order.orderId})">View Result</button>`
+            : ''; // No view button if the order is not completed
+
+        // Insert the row with buttons based on the order status
         row.innerHTML = `
             <td>${index + 1}</td>
             <td>${order.orderId}</td>
@@ -48,12 +56,52 @@ function renderLabTestOrders(labOrders) {
             <td>Dr. ${order.doctorName}</td>
             <td>${new Date(order.orderDate).toLocaleDateString()}</td>
             <td>${order.status}</td>
-            <td>${deleteButton}</td>
+            <td>${deleteButton} ${viewButton}</td>
         `;
 
         labTestTableBody.appendChild(row);
     });
 }
+
+
+// Function to open the modal and load lab test result
+async function openViewResultModal(orderId) {
+    try {
+        // Fetch the lab test result based on the OrderId
+        const response = await fetch(`https://localhost:44396/api/labTest/GetLabTestResultByOrderId/${orderId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+
+        const result = await response.json();
+
+        // Check if result exists
+        if (result) {
+            // Populate the modal with the fetched data
+            document.getElementById('labTestResult').textContent = result.result;
+            document.getElementById('labTechnicianName').textContent = result.labTechnicianName;
+            document.getElementById('uploadDate').textContent = new Date(result.uploadDate).toLocaleDateString();
+            document.getElementById('completeDate').textContent = new Date(result.completeDate).toLocaleDateString();
+
+            // Show the modal
+            const viewModal = new bootstrap.Modal(document.getElementById('viewResultModal'));
+            viewModal.show();
+        } else {
+            alert('No result found for this order.');
+        }
+    } catch (error) {
+        console.error('Error fetching lab test result:', error);
+        alert('Failed to fetch the result.');
+    }
+}
+
 
 
 // Function to set the order ID to be deleted (for the modal)

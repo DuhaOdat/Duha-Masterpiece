@@ -365,7 +365,7 @@
                 <p class="mb-4">Join the movement and donate blood to make a difference today. Your donation can save lives!</p>
                 <!-- Donate Now Button -->
                 <div class="d-inline-block">
-                    <a href="login.html" class="btn btn-primary rounded-pill px-4 py-2">Donate Now</a>
+                    <a href="#" class="btn btn-primary rounded-pill px-4 py-2" onclick="handleDonateNowClick()">Donate Now</a>
                 </div>
             </div>
         </div>
@@ -470,6 +470,21 @@
                 searchInput.focus();
             }
         });
+
+
+
+        function handleDonateNowClick() {
+        // Check if the user is logged in by checking for a token in localStorage
+        const isLoggedIn = localStorage.getItem('jwtToken'); // Assuming you store the token in localStorage
+        
+        if (isLoggedIn) {
+            // If the user is logged in, redirect to the donation page
+            window.location.href = "add-blood-donation.html"; // Change to the actual donation page
+        } else {
+            // If not logged in, redirect to the login page
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    }
     </script>
 </body>
 

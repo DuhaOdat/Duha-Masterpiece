@@ -1,0 +1,83 @@
+/* select, input, textarea, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+} */
+
+
+/* استهداف العناصر داخل div المعرف app-appointment فقط */
+#app-appointment .app-body {
+ max-width: 900px;
+    margin: 5px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+#app-appointment h2 {
+    font-size: 24px;
+    color: #343a40;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#app-appointment label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #495057;
+}
+
+#app-appointment input[type="date"],
+#app-appointment select,
+#app-appointment textarea,
+#app-appointment button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+#app-appointment input[type="date"]:focus,
+#app-appointment select:focus,
+#app-appointment textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#app-appointment textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#app-appointment button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 12px;
+    transition: background-color 0.3s ease;
+}
+
+#app-appointment button:hover {
+    background-color: #0056b3;
+}
+
+#app-appointment button:active {
+    background-color: #004085;
+}
+
+#app-appointment #result {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #28a745;
+    text-align: center;
+}

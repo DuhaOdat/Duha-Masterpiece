@@ -115,11 +115,9 @@ function storeDoctorId(doctorId) {
 
 /************************************* */
 
+let url3 = "https://localhost:44396/api/Services/GetAllServices";
 
-let url3="https://localhost:44396/api/Services/GetAllServices";
-
-async function GetAllServices()
-{
+async function GetAllServices() {
     try {
         let request = await fetch(url3);
 
@@ -127,39 +125,54 @@ async function GetAllServices()
         if (!request.ok) {
             throw new Error("Failed to fetch data");
         }
+
         let data = await request.json();
         console.log("Services data:", data); 
-        let container = document.getElementById("services-container"); 
-        
+        let container = document.getElementById("services-container");
+
         // Check if data is empty
         if (!data || data.length === 0) {
             console.log("No services found");
             return;
         }
 
+        // Loop through services
         data.forEach(service => {
-            console.log(service);  // طباعة الخدمة للتحقق من البيانات
-        container.innerHTML+=`
-                 
+            console.log(service);  // Log service data for debugging
 
-           <div class="col-md-4 wow fadeIn" data-wow-delay="0.3s">
-                        <div class="service-item d-flex flex-column justify-content-center text-center rounded" style="min-height: 350px; max-height: 350px;">
-                            <div class="service-icon btn-square">
-                                <i class="material-icons">${service.serviceIcon}</i>
-                            </div>
-                            <h5 class="mb-3">${service.serviceName}</h5>
-                            <p class="mt-2">${service.serviceDescription}</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="${service.serviceLink}">Read More</a>
+            // Create the service card
+            container.innerHTML += `
+                <div class="col-md-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="service-item d-flex flex-column justify-content-center text-center rounded" style="min-height: 350px; max-height: 350px;">
+                        <div class="service-icon btn-square">
+                            <i class="material-icons">${service.serviceIcon}</i>
                         </div>
+                        <h5 class="mb-3">${service.serviceName}</h5>
+                        <p class="mt-2">${service.serviceDescription}</p>
+                        <a class="btn px-3 mt-auto mx-auto" href="#" onclick="handleServiceClick('${service.serviceLink}')">Read More</a>
                     </div>
-        
-        
-        `
-        
-    });
-}catch (error) {
-    console.error("Error fetching services", error);
+                </div>
+            `;
+        });
+
+    } catch (error) {
+        console.error("Error fetching services", error);
+    }
 }
 
+// Function to handle the service link click
+function handleServiceClick(serviceLink) {
+    // Check if the user is logged in by checking for a token or user ID in localStorage
+    const isLoggedIn = localStorage.getItem('jwtToken'); // Assuming you store the token in localStorage
+
+    if (isLoggedIn) {
+        // If the user is logged in, redirect to the service link
+        window.location.href = serviceLink;
+    } else {
+        // If not logged in, redirect to the login page
+        window.location.href = "login.html"; // Change this to your login page URL
+    }
 }
+
+// Call the function when the page loads
 GetAllServices();

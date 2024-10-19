@@ -26,6 +26,7 @@
     <!-- *************
 		************ Vendor Css Files *************
 	************ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- Scrollbar CSS -->
     <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
@@ -63,13 +64,6 @@
         <!-- App header actions starts -->
         <div class="header-actions">
 
-          <!-- Search container starts -->
-          <div class="search-container d-lg-block d-none mx-3">
-            <input type="text" class="form-control" id="searchId" placeholder="Search">
-            <i class="ri-search-line"></i>
-          </div>
-          <!-- Search container ends -->
-
           <!-- Header actions starts -->
           <div class="d-lg-flex d-none gap-2">
 
@@ -89,12 +83,12 @@
           <div class="dropdown ms-2">
             <a id="userSettings" class="dropdown-toggle d-flex align-items-center" href="#!" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="avatar-box">Doctor<span class="status busy"></span></div>
+              <div class="avatar-box">Dr<span class="status busy"></span></div>
             </a>
             <div class="dropdown-menu dropdown-menu-end shadow-lg">
               <div class="px-3 py-2">
                 <span class="small"></span>
-                <h6 class="m-0 " id="admin-name-header"></h6>
+                <h6 class="m-0 " id="doctor-name-header"></h6>
               </div>
               <div class="mx-3 my-2 d-grid">
                 <a href="../login.html" class="btn btn-danger" onclick="logout()">Logout</a>
@@ -117,26 +111,15 @@
 
           <!-- Sidebar profile starts -->
           <div class="sidebar-profile">
-            <img src="assets/images/person-icon.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
-            <div class="m-0">
-              <h5 class="mb-1 profile-name text-nowrap text-truncate " id="admin-name-sidebar"></h5>
-              <p class="m-0 small profile-name text-nowrap text-truncate"> Doctor Portal</p>
-            </div>
+            <img id="doctor-profile-image2" src="assets/images/person-icon.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
+           
           </div>
           <!-- Sidebar profile ends -->
 
           <!-- Sidebar menu starts -->
           <div class="sidebarMenuScroll">
             <ul class="sidebar-menu">
-              <!-- <li>
-                <a href="doctorDashboard.html">
-                  <i class="ri-home-6-line"></i>
-                  <span class="menu-text">Doctor Portal</span>
-                </a>
-              </li> -->
-            
-
-           
+    
               <li>
                 <a href="Doctor-profile.html">
                   <i class="ri-calendar-line"></i>
@@ -154,7 +137,7 @@
                     <a href="add-appoinment.html">Add Appointment</a>
                   </li>
                   <li>
-                    <a href="#">show Lab Order</a>
+                    <a href="show-appoinment.html">Show  Appointment</a>
                   </li>
                  
                 </ul>
@@ -163,7 +146,7 @@
               <li class="treeview">
                 <a href="#!">
                   <i class="ri-nurse-line"></i>
-                  <span class="menu-text">Lab Result</span>
+                  <span class="menu-text">Lab Test</span>
                 </a>
                 <ul class="treeview-menu">
                   <li>
@@ -175,27 +158,12 @@
                  
                 </ul>
               </li>
-       
-           
-              <!-- <li>
-                <a href="#">
-                  <i class="ri-calendar-line"></i>
-                  <span class="menu-text">Patient Feedback</span>
-                </a>
-              </li> -->
-              
            
             </ul>
           </div>
           <!-- Sidebar menu ends -->
 
-          <!-- Sidebar contact starts -->
-          <div class="sidebar-contact">
-            <p class="fw-light mb-1 text-nowrap text-truncate">Emergency Contact</p>
-            <h5 class="m-0 lh-1 text-nowrap text-truncate">0777601083</h5>
-            <i class="ri-phone-line"></i>
-          </div>
-          <!-- Sidebar contact ends -->
+       
 
         </nav>
         <!-- Sidebar wrapper ends -->
@@ -210,10 +178,10 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <i class="ri-home-8-line lh-1 pe-3 me-3 border-end"></i>
-                <a href="patientDashboard.html">Home</a>
+                <a href="#">Home</a>
               </li>
               <li class="breadcrumb-item text-primary" aria-current="page">
-                Doctor Dashboard
+              profile
               </li>
             </ol>
             <!-- Breadcrumb ends -->
@@ -228,45 +196,70 @@
 
        <!-- General Information Section -->
 <!-- Profile Data Display -->
-<div class="row gx-3 ">
-    <h2>General Information</h2>
-    <div class="col-12 col-sm-12 col-md-8 col-lg-10">
-        <div class="card mb-3">
-            <div class="card-body">
-                <input type="hidden" id="editDoctorId" value="">
 
-                <div class="row">
-                    <div class="col-lg-3">
-                        <img id="doctor-image" src="assets/images/person-icon.png" class="img-fluid rounded-2" style="max-width: 200px;" alt="Profile Image">
-                    </div>
-                    <div class="col-sm-9">
-                        <div class="align-items-center">
-                            <div class="profile-content">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="profile-row"><span class="profile-label">First Name:</span> <span id="doctor-first-name"></span></p>
-                                        <p class="profile-row"><span class="profile-label">Last Name:</span> <span id="doctor-last-name"></span></p>
-                                        <p class="profile-row"><span class="profile-label">Email:</span> <span id="email"></span></p>
-                                        <p class="profile-row"><span class="profile-label">Biography:</span> <span id="doctor-biography"></span></p>
-                                        <p class="profile-row"><span class="profile-label">Specialty:</span> <span id="doctor-specialty"></span></p>
-                                        <p class="profile-row"><span class="profile-label">Rating:</span> <span id="doctor-rating"></span></p>
-                                        <p class="profile-row"><span class="profile-label">Experience Years:</span> <span id="doctor-experience"></span></p>
-                                        <p class="profile-row"><span class="profile-label">Education:</span> <span id="doctor-education"></span></p>
-                                        <p class="profile-row"><span class="profile-label">Availability Status:</span> <span id="doctor-availability"></span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="btn btn-warning" onclick="openEditModal()">Edit Profile</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="row gx-4">
+  <!-- <h2>General Information</h2> -->
+
+  <!-- البطاقة الأولى: صورة الطبيب -->
+  <div class="col-lg-4 col-md-6 mb-4 text-center">
+      <div class="card">
+          <div class="card-body text-center">
+              <!-- صورة الطبيب -->
+              <img id="doctor-profile-image" src="assets/images/person-icon.png" class="img-fluid rounded-circle mb-3" style="width: 150px;" alt="Profile Image">
+              
+              <!-- اسم الطبيب -->
+              <h5 id="doctor-full-name" class="mb-2"></h5>
+              
+              <!-- تقييم الطبيب كنجوم -->
+              <div id="doctor-rating-stars" class="d-flex justify-content-center"></div>
+          </div>
+      </div>
+  </div>
+
+  <!-- البطاقة الثانية: المعلومات الشخصية -->
+  <div class="col-lg-8 col-md-6 mb-4">
+      <div class="card">
+          <div class="card-body">
+              <!-- المعلومات الشخصية -->
+              <p class="profile-row"><span class="profile-label">Email:</span> <span id="email"></span></p>
+              <p class="profile-row"><span class="profile-label">Biography:</span> <span id="doctor-biography"></span></p>
+              <p class="profile-row"><span class="profile-label">Specialty:</span> <span id="doctor-specialty"></span></p>
+              <p class="profile-row"><span class="profile-label">Experience Years:</span> <span id="doctor-experience"></span></p>
+              <p class="profile-row"><span class="profile-label">Education:</span> <span id="doctor-education"></span></p>
+              <!-- <p class="profile-row"><span class="profile-label">Availability Status:</span> <span id="doctor-availability"></span></p> -->
+              
+              <!-- زر تعديل البيانات -->
+              <!-- <button class="btn btn-warning mt-3" onclick="openEditModal()">Edit Profile</button> -->
+          </div>
+      </div>
+  </div>
 </div>
 
+      
+<div class="container mt-5">
+  <h2 class="mb-4">Doctor's Schedule</h2>
+
+  <!-- Button to trigger fetching schedule -->
+
+
+  <table class="table table-bordered table-striped" id="scheduleTable">
+      <thead class="table-light">
+          <tr>
+              <th>Day of Week</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- Schedule will be populated here -->
+      </tbody>
+  </table>
+
+</div>      
+
+
 <!-- Modal for Editing Doctor Profile -->
-<div class="modal fade" id="editDoctorModal" tabindex="-1" aria-labelledby="editDoctorModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="editDoctorModal" tabindex="-1" aria-labelledby="editDoctorModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -274,7 +267,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!-- Hidden field for doctorId -->
+             
                 <input type="hidden" id="editDoctorId">
                 
                 <div class="mb-3">
@@ -323,7 +316,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
           
           
@@ -374,6 +367,9 @@
 
     <!-- Custom JS files -->
     <script src="assets/js/custom.js"></script>
+    <!-- Include SweetAlert CSS and JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="assets/js/doctor-profile.js"></script>
   </body>
 

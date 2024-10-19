@@ -12,73 +12,256 @@ namespace Auera_Cura.Controllers
     {
         private readonly MyDbContext _db;
 
-        public AppointmentsController( MyDbContext db)
+        public AppointmentsController(MyDbContext db)
         {
             _db = db;
         }
 
-        [HttpPost("CreateAppointment")]
-        public async Task<IActionResult> CreateAppointment([FromForm] CreateAppointmentDTO dto)
-        {
-            // Fetch the doctor from the Users table based on the UserID in the Doctors table
-            var doctor = await _db.Doctors
-                .Include(d => d.User)  // Assuming Doctor has a navigation property to User
-                .FirstOrDefaultAsync(d => d.DoctorId == dto.DoctorID);
 
+
+        [HttpGet("GetDoctorByUserId/{userId}")]
+        public async Task<IActionResult> GetDoctorByUserId(int userId)
+        {
+            // Find the doctor by userId
+            var doctor = await _db.Doctors.FirstOrDefaultAsync(d => d.UserId == userId);
             if (doctor == null)
             {
                 return NotFound("Doctor not found.");
             }
 
-            // Create the appointment
+            // Return the DoctorId
+            return Ok(new
+            {
+                DoctorId = doctor.DoctorId
+            });
+        }
+
+        [HttpGet("GetDoctorScheduleByDoctorId/{doctorId}")]
+        public async Task<IActionResult> GetDoctorScheduleByDoctorId(int doctorId)
+        {
+            // Get the doctor's schedule using the doctorId
+            var schedule = await _db.DoctorSchedules
+                .Where(s => s.DoctorId == doctorId)
+                .ToListAsync();
+
+            if (schedule == null || !schedule.Any())
+            {
+                return NotFound("No schedule found for this doctor.");
+            }
+
+            // Return the schedule
+            return Ok(schedule);
+        }
+
+
+
+
+
+
+
+
+
+        [HttpPost("CreateAppointment")]
+        public async Task<IActionResult> CreateAppointment([FromForm] AppointmentDTO dto)
+        {
+            // التحقق من أن الجدول الزمني للطبيب يحتوي على موعد
+            var doctorSchedule = await _db.DoctorSchedules
+                .Where(s => s.DoctorId == dto.DoctorID && s.DayOfWeek == dto.AppointmentDate.DayOfWeek.ToString())
+                .FirstOrDefaultAsync();
+
+            if (doctorSchedule == null ||
+                TimeOnly.FromTimeSpan(dto.AppointmentDate.TimeOfDay) < doctorSchedule.StartTime ||
+                TimeOnly.FromTimeSpan(dto.AppointmentDate.TimeOfDay) > doctorSchedule.EndTime)
+            {
+                return BadRequest("Doctor is not available at this time.");
+            }
+
+            // التحقق من أن الموعد غير موجود مسبقًا باستخدام مقارنة دقيقة للوقت
+            var existingAppointment = await _db.Appointments
+                .Where(a => a.DoctorId == dto.DoctorID &&
+                            a.AppointmentDate.Date == dto.AppointmentDate.Date && // التحقق من نفس اليوم
+                            a.AppointmentDate.TimeOfDay == dto.AppointmentDate.TimeOfDay) // التحقق من نفس الوقت
+                .FirstOrDefaultAsync();
+
+            if (existingAppointment != null)
+            {
+                return BadRequest("Appointment already exists at this time.");
+            }
+
+            // إنشاء موعد جديد
             var appointment = new Appointment
             {
                 DoctorId = dto.DoctorID,
                 PatientId = dto.PatientID,
                 AppointmentDate = dto.AppointmentDate,
-                Status = "Pending",
+                Status = "Confirmed",
                 Notes = dto.Notes
             };
 
             _db.Appointments.Add(appointment);
             await _db.SaveChangesAsync();
 
-            // Respond with a success message including the doctor's name (from Users table)
-            return Ok(new { message = $"Appointment created successfully with Dr. {doctor.User.FirstName} {doctor.User.LastName}." });
+            return Ok(new { message = "Appointment created successfully." });
         }
 
-        //[HttpGet("GetDoctorAppointments/{userId}")]
-        //public async Task<IActionResult> GetDoctorAppointments(int userId)
-        //{
-        //    // Find the doctor based on the provided userId
-        //    var doctor = await _db.Doctors.FirstOrDefaultAsync(d => d.UserID == userId);
-        //    if (doctor == null)
-        //    {
-        //        return NotFound("Doctor not found.");
-        //    }
 
-        //    // Retrieve all appointments for this doctor
-        //    var appointments = await _db.Appointments
-        //        .Include(a => a.Patient)  // Include patient details
-        //        .Where(a => a.DoctorId == doctor.DoctorID)  // Use doctor ID to get appointments
-        //        .Select(a => new
-        //        {
-        //            a.AppointmentId,
-        //            DoctorName = $"{doctor.User.FirstName} {doctor.User.LastName}", // Get doctor's name from Users table
-        //            PatientName = $"{a.Patient.FirstName} {a.Patient.LastName}", // Get patient's name from Users table
-        //            a.AppointmentDate,
-        //            a.Status,
-        //            a.Notes
-        //        })
-        //        .ToListAsync();
 
-        //    if (!appointments.Any())
-        //    {
-        //        return NotFound("No appointments found for this doctor.");
-        //    }
 
-        //    return Ok(appointments);
-        //}
+        [HttpGet("GetAllPatients")]
+        public async Task<IActionResult> GetAllPatients()
+        {
+            var patients = await _db.PatientProfiles
+                .Join(_db.Users,
+                      patientProfile => patientProfile.UserId,  // Foreign key from PatientProfile
+                      user => user.Id,                          // Primary key in Users table
+                      (patientProfile, user) => new
+                      {
+                          PatientId = patientProfile.PatientId,  // Patient ID from PatientProfile
+                          FirstName = user.FirstName,            // First name from Users table
+                          LastName = user.LastName               // Last name from Users table
+                      })
+                .ToListAsync();
+
+            return Ok(patients);
+        }
+
+
+
+        [HttpGet("CountDoctorAppointments/{userId}")]
+        public async Task<IActionResult> CountDoctorAppointments(int userId)
+        {
+            // البحث عن الطبيب باستخدام userId
+            var doctor = await _db.Doctors.Include(d => d.User).FirstOrDefaultAsync(d => d.UserId == userId);
+            if (doctor == null)
+            {
+                return NotFound("Doctor not found.");
+            }
+
+            // استرداد عدد المواعيد للطبيب
+            var appointmentCount = await _db.Appointments
+                .Where(a => a.DoctorId == doctor.UserId)  // استخدام DoctorID لاسترداد المواعيد
+                .CountAsync();  // حساب العدد
+
+            if (appointmentCount == 0)
+            {
+                return NotFound("No appointments found for this doctor.");
+            }
+
+            return Ok(new { count = appointmentCount });
+        }
+
+
+
+
+        [HttpGet("GetDoctorAppointmentsByDate/{userId}")]
+        public async Task<IActionResult> GetDoctorAppointmentsByDate(int userId, [FromQuery] DateTime date)
+        {
+            // البحث عن الطبيب باستخدام userId
+            var doctor = await _db.Doctors.FirstOrDefaultAsync(d => d.DoctorId == userId);
+            if (doctor == null)
+            {
+                return NotFound("Doctor not found.");
+            }
+
+            // طباعة بعض المعلومات لتأكيد أن البيانات صحيحة
+            Console.WriteLine($"Doctor found: {doctor.DoctorId}, Searching for appointments on: {date.Date}");
+
+            // جلب جميع المواعيد للطبيب في هذا اليوم
+            var appointments = await _db.Appointments
+                .Where(a => a.DoctorId == doctor.DoctorId && a.AppointmentDate.Date == date.Date)
+                .Select(a => new
+                {
+                    a.AppointmentId,
+                    a.AppointmentDate
+                })
+                .ToListAsync();
+
+
+
+            if (appointments == null || !appointments.Any())
+            {
+                return NotFound("No appointments found for the selected date.");
+            }
+
+            return Ok(appointments);
+        }
+
+
+        // API to get all appointments for a specific doctor using userId passed from client (stored in local storage)
+        [HttpGet("GetAllDoctorAppointments/{userId}")]
+        public async Task<IActionResult> GetAllDoctorAppointments(int userId)
+        {
+            // Find the doctor using the userId
+            var doctor = await _db.Doctors.Include(d => d.User).FirstOrDefaultAsync(d => d.UserId == userId);
+            if (doctor == null)
+            {
+                return NotFound("Doctor not found.");
+            }
+
+            // Retrieve all appointments for the doctor
+            var appointments = await _db.Appointments
+                .Include(a => a.Patient)
+                .ThenInclude(p => p.User)  // Include patient user information
+                .Where(a => a.DoctorId == doctor.UserId)
+                .Select(a => new
+                {
+                    a.AppointmentId,
+                    DoctorName = $"{doctor.User.FirstName} {doctor.User.LastName}",  // Doctor's name from the Users table
+                    PatientName = a.Patient != null ? $"{a.Patient.User.FirstName} {a.Patient.User.LastName}" : "Unknown",  // Check if patient is not null
+                    a.AppointmentDate,
+                    a.Status,
+                    a.Notes
+                })
+                .ToListAsync();
+
+            if (!appointments.Any())
+            {
+                return NotFound("No appointments found for this doctor.");
+            }
+
+            return Ok(appointments);
+        }
+
+
+        [HttpPut("EditAppointment/{appointmentId}")]
+        public async Task<IActionResult> EditAppointment(int appointmentId, [FromForm] AppointmentDTO dto)
+        {
+            // Find the appointment using appointmentId
+            var appointment = await _db.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == appointmentId);
+            if (appointment == null)
+            {
+                return NotFound("Appointment not found.");
+            }
+
+            // Update the appointment details
+            appointment.DoctorId = dto.DoctorID;
+            appointment.PatientId = dto.PatientID;
+            appointment.AppointmentDate = dto.AppointmentDate;
+            appointment.Status = "Confirmed";
+            appointment.Notes = dto.Notes;
+
+            // Save the changes to the database
+            await _db.SaveChangesAsync();
+
+            return Ok(new { message = "Appointment updated successfully." });
+        }
+
+        [HttpDelete("DeleteAppointment/{appointmentId}")]
+        public async Task<IActionResult> DeleteAppointment(int appointmentId)
+        {
+            // Find the appointment using appointmentId
+            var appointment = await _db.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == appointmentId);
+            if (appointment == null)
+            {
+                return NotFound("Appointment not found.");
+            }
+
+            // Remove the appointment from the database
+            _db.Appointments.Remove(appointment);
+            await _db.SaveChangesAsync();
+
+            return Ok(new { message = "Appointment deleted successfully." });
+        }
 
 
 

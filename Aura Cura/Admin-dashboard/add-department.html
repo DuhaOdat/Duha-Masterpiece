@@ -98,7 +98,7 @@
                 <h6 class="m-0">James Bruton</h6>
               </div>
               <div class="mx-3 my-2 d-grid">
-                <a href="login.html" class="btn btn-danger">Logout</a>
+                <a href="../login.html" class="btn btn-danger">Logout</a>
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@
             <img src="assets/images/user6.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
             <div class="m-0">
               <h5 class="mb-1 profile-name text-nowrap text-truncate">Admin Name</h5>
-              <p class="m-0 small profile-name text-nowrap text-truncate">Admin Portal</p>
+              <p class="m-0 small profile-name text-nowrap text-truncate"></p>
             </div>
           </div>
           <!-- Sidebar profile ends -->
@@ -157,6 +157,9 @@
                     <li>
                     <a href="add-test-lab.html">Add Lab Test</a>
                   </li>
+                  <li>
+                    <a href="lab-order.html"> Lab Order</a>
+                  </li>
                 </ul>
               </li>
               <li class="treeview">
@@ -170,9 +173,13 @@
                     <a href="doctors-list.html">Doctors List</a>
                   </li>
                 
-                    <li>
-                    <a href="add-doctors.html">Add Doctor</a>
+                  <li>
+                    <a href="doctor-schedule-list.html">Doctors Schedule List</a>
                   </li>
+                  <li>
+                    <a href="Add-docror-schedule.html">Add  Doctor Schedule</a>
+                  </li>
+                  
                   
                 </ul>
               </li>
@@ -185,16 +192,14 @@
                   <li>
                     <a href="patients-list.html">Patients List</a>
                   </li>
-                  <li>
-                    <a href="add-patient.html">Add Patient</a>
-                  </li>
+                  
                   
                 </ul>
               </li>
               <li class="treeview">
                 <a href="#!">
                   <i class="ri-nurse-line"></i>
-                  <span class="menu-text">Other staff</span>
+                  <span class="menu-text"> staff</span>
                 </a>
                 <ul class="treeview-menu">
                   <li>
@@ -255,25 +260,13 @@
                 </ul>
               </li>
            
-              <!-- <li>
-                <a href="#">
-                  <i class="ri-calendar-line"></i>
-                  <span class="menu-text">Patient Feedback</span>
-                </a>
-              </li> -->
-              
+             
            
             </ul>
           </div>
           <!-- Sidebar menu ends -->
 
-          <!-- Sidebar contact starts -->
-          <div class="sidebar-contact">
-            <p class="fw-light mb-1 text-nowrap text-truncate">Emergency Contact</p>
-            <h5 class="m-0 lh-1 text-nowrap text-truncate">0777601083</h5>
-            <i class="ri-phone-line"></i>
-          </div>
-          <!-- Sidebar contact ends -->
+        
 
         </nav>
         <!-- Sidebar wrapper ends -->
@@ -317,46 +310,38 @@
                             <input type="text" class="form-control" id="departmentName" placeholder="Enter Department Name">
                         </div>
                         <div class="form-col">
-                            <label for="departmentHead" class="form-label">Department Head</label>
-                            <input type="text" class="form-control" id="departmentHead" placeholder="Enter Department Head">
-                        </div>
+                          <label for="description" class="form-label">Description</label>
+                          <textarea class="form-control" id="description" rows="3" placeholder="Enter Description"></textarea>
+                      </div>
+
+
                     </div>
 
-                    <!-- Number of Doctors and Number of Rooms -->
+                   <!-- Number of Beds and Number of Beds -->
                     <div class="form-row">
-                        <div class="form-col">
-                            <label for="numberOfDoctors" class="form-label">Number of Doctors</label>
-                            <input type="number" class="form-control" id="numberOfDoctors" placeholder="Enter Number of Doctors">
-                        </div>
+                      <div class="form-col">
+                        <label for="beds" class="form-label">Number of Beds</label>
+                        <input type="number" class="form-control" id="beds" placeholder="Enter Number of Beds">
+                    </div>
                         <div class="form-col">
                             <label for="numberOfRooms" class="form-label">Number of Rooms</label>
                             <input type="number" class="form-control" id="numberOfRooms" placeholder="Enter Number of Rooms">
                         </div>
                     </div>
 
-                    <!-- Number of Beds and Phone Number -->
+                    <!-- Image and phone -->
                     <div class="form-row">
-                        <div class="form-col">
-                            <label for="beds" class="form-label">Number of Beds</label>
-                            <input type="number" class="form-control" id="beds" placeholder="Enter Number of Beds">
-                        </div>
+                       
                         <div class="form-col">
                             <label for="phoneNumber" class="form-label">Phone Number</label>
                             <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter Phone Number">
                         </div>
+                        <div class="form-col">
+                          <label for="image" class="form-label">Image</label>
+                          <input type="file" class="form-control" id="image" placeholder="Upload Image">
+                      </div>
                     </div>
 
-                    <!-- Location and Description -->
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="location" class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location" placeholder="Enter Location (e.g., 3rd Floor)">
-                        </div>
-                        <div class="form-col">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="description" rows="3" placeholder="Enter Description"></textarea>
-                        </div>
-                    </div>
 
                     <!-- Submit Button -->
                     <div class="submit-btn">
@@ -401,17 +386,13 @@
     <script src="assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
     <script src="assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
 
-    <!-- Apex js -->
-    <script src="assets/vendor/apex/apexcharts.min.js"></script>
-    <script src="assets/vendor/apex/custom/patients/sparklines.js"></script>
-    <script src="assets/vendor/apex/custom/patients/insuranceClaims.js"></script>
-    <script src="assets/vendor/apex/custom/patients/medicalExpenses.js"></script>
-    <script src="assets/vendor/apex/custom/patients/healthActivity.js"></script>
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom JS files -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/medical-images.js"></script>
+    <script src="assets/js/add-department.js"></script>
   </body>
 
 

@@ -121,13 +121,101 @@ namespace Auera_Cura.Controllers
         }
 
 
+        [HttpGet("GetUsersExceptPatients")]
+        public IActionResult GetUsersExceptPatients()
+        {
+            // استرجاع جميع المستخدمين الذين لا يكون دورهم "Patient"
+            var users = _db.Users
+                           .Where(u => u.Role != "Patient")
+                           .Select(u => new
+                           {
+                               u.Id,
+                               u.FirstName,
+                               u.LastName,
+                               u.Email,
+                               u.Role,
+                               u.CreatedAt
+                           })
+                           .ToList();
 
+            return Ok(users);
+        }
 
+        [HttpDelete("DeleteUser/{id}")]
+        public IActionResult DeleteUser(int id)
+        {
+            // البحث عن المستخدم بواسطة الـ ID
+            var user = _db.Users.FirstOrDefault(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound(new { message = "User not found" });
+            }
 
+            var doctorEntries = _db.Doctors.Where(d => d.UserId == id);
+            _db.Doctors.RemoveRange(doctorEntries);
+            var medicalOrders = _db.MedicalImageOrders.Where(m => m.DoctorId == id);
+            _db.MedicalImageOrders.RemoveRange(medicalOrders); ;
+            _db.Users.Remove(user);
+            _db.SaveChanges();
 
+            return Ok(new { message = "User deleted successfully" });
+        }
 
+        [HttpPut("UpdateUser/{id}")]
+        public IActionResult UpdateUser(int id, [FromForm] UpdateUserDTO userDto)
+        {
+            // البحث عن المستخدم بواسطة الـ ID
+            var user = _db.Users.FirstOrDefault(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound(new { message = "User not found" });
+            }
 
+            // تحديث بيانات المستخدم
+            user.FirstName = userDto.FirstName;
+            user.LastName = userDto.LastName;
+            user.Email = userDto.Email;
+            user.Role = userDto.Role;
+           
 
+            _db.Users.Update(user);
+            _db.SaveChanges();
+
+            // إذا كان الدور محدثًا إلى "Doctor"، يتم التحقق من جدول الأطباء
+            if (userDto.Role == "Doctor")
+            {
+                var doctor = _db.Doctors.FirstOrDefault(d => d.UserId == id);
+                if (doctor == null)
+                {
+                    // إذا لم يكن الطبيب موجودًا في جدول الأطباء، يتم إضافته
+                    doctor = new Doctor
+                    {
+                        Email = userDto.Email,
+                        UserId = user.Id
+                    };
+                    _db.Doctors.Add(doctor);
+                }
+                else
+                {
+                    // إذا كان موجودًا، يتم تحديث البيانات
+                    doctor.Email = userDto.Email;
+                    _db.Doctors.Update(doctor);
+                }
+                _db.SaveChanges();
+            }
+            else
+            {
+                // إذا لم يكن المستخدم دكتورًا ويتم تحديث دوره، يتم إزالة السجل من جدول الأطباء
+                var doctor = _db.Doctors.FirstOrDefault(d => d.UserId == id);
+                if (doctor != null)
+                {
+                    _db.Doctors.Remove(doctor);
+                    _db.SaveChanges();
+                }
+            }
+
+            return Ok(new { message = "User updated successfully" });
+        }
 
     }
 }

@@ -113,11 +113,38 @@ namespace Auera_Cura.Controllers
         }
 
         [HttpGet("getAllTestOrder")]
-        public IActionResult getAllTestOrder()
+        public async Task<IActionResult> GetAllTestOrders()
         {
-            var order=_db.LabTestOrders.ToList();
-            return Ok(order);
+            try
+            {
+                // Fetch all lab test orders with related data
+                var orders = await _db.LabTestOrders
+                    .Include(o => o.DoctorUser) // Assuming LabTestOrder has a navigation property DoctorUser
+                    .Include(o => o.PatientUser) // Assuming LabTestOrder has a navigation property PatientUser
+                    .Include(o => o.Test) // Assuming LabTestOrder has a navigation property Test (LabTest)
+                    .Select(order => new
+                    {
+                        order.OrderId,
+                        TestName = order.Test != null ? order.Test.TestName : "N/A", // Assuming LabTest has a property TestName
+                        order.OrderDate,
+                        order.Status,
+                        DoctorName = order.DoctorUser != null ? order.DoctorUser.FirstName + " " + order.DoctorUser.LastName : "N/A",
+                        PatientName = order.PatientUser != null ? order.PatientUser.FirstName + " " + order.PatientUser.LastName : "N/A"
+                    })
+                    .ToListAsync();
+
+                return Ok(orders);
+            }
+            catch (Exception ex)
+            {
+                // Log the error for debugging (optional)
+                Console.WriteLine(ex.Message);
+
+                // Return a generic error message
+                return StatusCode(500, new { message = "An error occurred while retrieving lab test orders." });
+            }
         }
+
 
 
 
@@ -549,6 +576,54 @@ namespace Auera_Cura.Controllers
             }
         }
 
+
+        [HttpGet("GetAllLabTestResults")]
+        public IActionResult GetAllLabTestResults()
+        {
+            var results = _db.LabTestResults
+             .Include(r => r.UploadedByLabTechNavigation) // Include the User (Lab Technician) data
+             .Select(lr => new
+             {
+                 lr.ResultId,
+                 lr.OrderId,
+                 lr.Result,
+                 LabTechnicianName = lr.UploadedByLabTechNavigation.FirstName + " " + lr.UploadedByLabTechNavigation.LastName, 
+                 lr.UploadDate,
+                 lr.CompleteDate,
+                 
+             })
+             .ToList();
+
+            return Ok(results); 
+        }
+
+
+        [HttpGet("GetLabTestResultByOrderId/{orderId}")]
+        public IActionResult GetLabTestResultByOrderId(int orderId)
+        {
+            // Find the lab test result for the given orderId
+            var result = _db.LabTestResults
+                .Include(r => r.UploadedByLabTechNavigation) // Include the Lab Technician data
+                .Where(lr => lr.OrderId == orderId) // Filter by OrderId
+                .Select(lr => new
+                {
+                    lr.ResultId,
+                    lr.OrderId,
+                    lr.Result,
+                    LabTechnicianName = lr.UploadedByLabTechNavigation.FirstName + " " + lr.UploadedByLabTechNavigation.LastName,
+                    lr.UploadDate,
+                    lr.CompleteDate
+                })
+                .FirstOrDefault(); // Fetch the first matching result
+
+            // Check if result is found
+            if (result == null)
+            {
+                return NotFound(new { Message = "Lab test result not found for this order." });
+            }
+
+            return Ok(result);
+        }
 
     }
 }

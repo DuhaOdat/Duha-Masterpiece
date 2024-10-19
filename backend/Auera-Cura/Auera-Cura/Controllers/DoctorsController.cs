@@ -2,6 +2,7 @@
 using Auera_Cura.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auera_Cura.Controllers
 {
@@ -14,22 +15,28 @@ namespace Auera_Cura.Controllers
         {
             _db = db;
         }
-
         [HttpGet("AllDoctors")]
         public IActionResult GetAllDoctors()
         {
             var doctors = _db.Doctors
+                .Include(d => d.User) // Include related User entity for first name and last name
+                .Include(d => d.Department) // Include related Department entity for department name
                 .Select(d => new
                 {
                     d.DoctorId,
+                    FullName = d.User != null ? d.User.FirstName + " " + d.User.LastName : "N/A", // Null check for User entity
                     d.Specialty,
+                    d.Biography,
+                    d.Phone,
+                    d.Email,
+                    d.ExperienceYears,
+                    d.Education,
+                    d.AvailabilityStatus,
+                    d.IsHead,
                     d.Image,
-                    FirstName = _db.Users.Where(u => u.Id == d.UserId)
-                                         .Select(u => u.FirstName)
-                                         .FirstOrDefault(),
-                    LastName = _db.Users.Where(u => u.Id == d.UserId)
-                                        .Select(u => u.LastName)
-                                        .FirstOrDefault()
+                    DepartmentName = d.Department != null ? d.Department.DepartmentName : "N/A", // Department name or N/A if null
+                    d.DoctorSchedules, // Include doctor schedules if needed
+                    IsActive = d.AvailabilityStatus == "Active"
                 })
                 .ToList();
 
@@ -42,44 +49,10 @@ namespace Auera_Cura.Controllers
         }
 
 
-        [HttpPost("AddNewDoctor")]
-        public async Task<ActionResult> AddNedwDoctor([FromForm] editDoctorDTO addDoctorDTO)
-        {
-            if (addDoctorDTO == null)
-            {
-                return BadRequest("doctors data is null");
-            }
-            var ImagesFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
-            if (!Directory.Exists(ImagesFolder))
-            {
-                Directory.CreateDirectory(ImagesFolder);
-            }
-            var imageFile = Path.Combine(ImagesFolder, addDoctorDTO.Image.FileName);
-            using (var stream = new FileStream(imageFile, FileMode.Create))
-            {
-                await addDoctorDTO.Image.CopyToAsync(stream);
-            }
-
-            var doctor = new Doctor
-            {
-      
-                IsHead = addDoctorDTO.IsHead,
-                Image = addDoctorDTO.Image.FileName,
-                Specialty = addDoctorDTO.Specialty,
-                Biography = addDoctorDTO.Biography,
-                Phone = addDoctorDTO.Phone,
-                ExperienceYears = addDoctorDTO.ExperienceYears,
-                Education = addDoctorDTO.Education,
-                DepartmentId = addDoctorDTO.DepartmentId
-            };
-            _db.Doctors.Add(doctor);
-            await _db.SaveChangesAsync();
-            return Ok(doctor);
-        }
 
 
         [HttpPut("EditDoctor/{id}")]
-        public async Task<IActionResult> EditDoctor(int id, [FromBody] editDoctorDTO editDoctorDTO)
+        public async Task<IActionResult> EditDoctor(int id, [FromForm] editDoctorDTO editDoctorDTO)
         {
             // Find the existing doctor by Id
             var doctor = await _db.Doctors.FindAsync(id);
@@ -89,7 +62,6 @@ namespace Auera_Cura.Controllers
             }
 
             // Update doctor's fields
-          
             doctor.IsHead = editDoctorDTO.IsHead ?? doctor.IsHead;
             doctor.Specialty = editDoctorDTO.Specialty ?? doctor.Specialty;
             doctor.Biography = editDoctorDTO.Biography ?? doctor.Biography;
@@ -100,7 +72,7 @@ namespace Auera_Cura.Controllers
             doctor.Education = editDoctorDTO.Education ?? doctor.Education;
             doctor.DepartmentId = editDoctorDTO.DepartmentId ?? doctor.DepartmentId;
 
-           
+            // Handle the image upload
             if (editDoctorDTO.Image != null)
             {
                 var imagesFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
@@ -117,7 +89,7 @@ namespace Auera_Cura.Controllers
                 doctor.Image = editDoctorDTO.Image.FileName;
             }
 
-            
+            // Update the doctor in the database
             _db.Doctors.Update(doctor);
             await _db.SaveChangesAsync();
 
@@ -173,6 +145,8 @@ namespace Auera_Cura.Controllers
                     d.Specialty,
                     d.Image,
                     d.Rating,
+                    d.Phone,
+                    d.IsHead,
                     d.ExperienceYears,
                     d.Education,
                     d.AvailabilityStatus,
@@ -181,7 +155,11 @@ namespace Auera_Cura.Controllers
                                          .FirstOrDefault(),
                     LastName = _db.Users.Where(u => u.Id == d.UserId)
                                         .Select(u => u.LastName)
-                                        .FirstOrDefault()
+                                        .FirstOrDefault(),
+
+                    Email=_db.Users.Where(u => u.Id == d.UserId)
+                                   .Select(u=>u.Email)
+                                   .FirstOrDefault()
                 })
                 .FirstOrDefault();
 
@@ -199,7 +177,8 @@ namespace Auera_Cura.Controllers
         {
             var doctor = _db.Doctors
                             .Where(d => d.UserId == userId)
-                            .Select(d => new {
+                            .Select(d => new
+                            {
                                 d.DoctorId,
                                 d.Biography,
                                 d.Specialty,
@@ -220,6 +199,37 @@ namespace Auera_Cura.Controllers
             }
 
             return Ok(doctor);
+        }
+
+        [HttpDelete("DeleteDoctor/{id}")]
+        public async Task<IActionResult> DeleteDoctor(int id)
+        {
+            // Find the doctor by the provided id
+            var doctor = await _db.Doctors.Include(d => d.User).FirstOrDefaultAsync(d => d.DoctorId == id);
+
+            // If doctor not found, return a 404 Not Found response
+            if (doctor == null)
+            {
+                return NotFound(new { message = "Doctor not found" });
+            }
+
+            // Find the user associated with the doctor
+            var user = doctor.User;
+
+            // Remove the doctor from the database
+            _db.Doctors.Remove(doctor);
+
+            // If there is an associated user, remove the user as well
+            if (user != null)
+            {
+                _db.Users.Remove(user);
+            }
+
+            // Save changes to the database
+            await _db.SaveChangesAsync();
+
+            // Return a success response
+            return Ok(new { message = "Doctor and associated user deleted successfully" });
         }
 
 
