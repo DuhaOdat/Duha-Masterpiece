@@ -396,3 +396,6 @@ C:\Users\Orange\Desktop\my masterpiease\Duha-Masterpiece\backend\Auera-Cura\Auer
 C:\Users\Orange\Desktop\my masterpiease\Duha-Masterpiece\backend\Auera-Cura\Auera-Cura\bin\Debug\net8.0\SixLabors.Fonts.dll
 C:\Users\Orange\Desktop\my masterpiease\Duha-Masterpiece\backend\Auera-Cura\Auera-Cura\bin\Debug\net8.0\SixLabors.ImageSharp.dll
 C:\Users\Orange\Desktop\my masterpiease\Duha-Masterpiece\backend\Auera-Cura\Auera-Cura\bin\Debug\net8.0\de\PdfSharpCore.resources.dll
+C:\Users\Orange\Desktop\my masterpiease\Duha-Masterpiece\backend\Auera-Cura\Auera-Cura\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\Orange\Desktop\my masterpiease\Duha-Masterpiece\backend\Auera-Cura\Auera-Cura\bin\Debug\net8.0\MailKit.dll
+C:\Users\Orange\Desktop\my masterpiease\Duha-Masterpiece\backend\Auera-Cura\Auera-Cura\bin\Debug\net8.0\MimeKit.dll

@@ -82,9 +82,9 @@ namespace Auera_Cura.Controllers
                     return NotFound("Lab test not found.");
                 }
 
-                // Validate if the doctor exists
-                var doctor = await _db.Users.FindAsync(createLabTestOrderDTO.DoctorId);
-                if (doctor == null || doctor.Role != "Doctor")
+                // Validate if the doctor exists in Doctors table
+                var doctor = await _db.Doctors.FindAsync(createLabTestOrderDTO.DoctorId);
+                if (doctor == null)
                 {
                     return BadRequest("Invalid Doctor ID.");
                 }
@@ -111,6 +111,7 @@ namespace Auera_Cura.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
 
         [HttpGet("getAllTestOrder")]
         public async Task<IActionResult> GetAllTestOrders()

@@ -27,6 +27,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -125,7 +126,7 @@
 <!-- Search Modal End -->
 
 
-   <!-- Contact Start -->
+ <!-- Contact Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -135,29 +136,30 @@
             <div class="col-lg-7">
                 <p class="text-center mb-4">Please fill out the form below to get in touch with us. We're here to help you with any inquiries you may have about our medical services.</p>
                 <div class="wow fadeIn" data-wow-delay="0.3s">
-                    <form>
+                    <!-- Contact Form -->
+                    <form id="contactForm" onsubmit="submitContactForm(event)">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" name="name" required>
+                                    <label for="name" >Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email"  name="email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject" required>
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px" name="message" required></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
@@ -172,6 +174,7 @@
     </div>
 </div>
 <!-- Contact End -->
+
 
 
 
@@ -253,9 +256,13 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
     <script>
         document.getElementById('searchBtn').addEventListener('click', function () {
             var searchInput = document.getElementById('searchInput');

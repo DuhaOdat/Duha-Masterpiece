@@ -1,10 +1,43 @@
+// Function to fetch DoctorID based on the UserID stored in localStorage
+async function getDoctorIdFromUserId(userId) {
+    const token = localStorage.getItem('jwtToken'); // Assuming you're using JWT tokens for authorization
+    try {
+        const response = await fetch(`https://localhost:44396/api/Appointments/GetDoctorByUserId/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            const doctorData = await response.json();
+            console.log('Doctor data:', doctorData); // Log the fetched doctor data
+            return doctorData.doctorId; // Get the correct DoctorID
+        } else {
+            throw new Error('Failed to fetch DoctorID');
+        }
+    } catch (error) {
+        console.error('Error fetching DoctorID:', error);
+        return null;
+    }
+}
+
 // Function to fetch and display appointments using async/await
 async function fetchDoctorAppointments() {
     try {
         // Assuming the userId is stored in local storage
         const userId = localStorage.getItem('userId'); 
 
-        const response = await fetch(`https://localhost:44396/api/Appointments/GetAllDoctorAppointments/${userId}`, {
+        // Fetch DoctorID based on UserID
+        const doctorId = await getDoctorIdFromUserId(userId);
+        if (!doctorId) {
+            console.error('DoctorID not found');
+            return;
+        }
+
+        // Fetch appointments using DoctorID
+        const response = await fetch(`https://localhost:44396/api/Appointments/GetAllDoctorAppointmentsBydoctorId/${doctorId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +62,7 @@ async function fetchDoctorAppointments() {
                 <td>${index + 1}</td>
                 <td>${appointment.appointmentId}</td>
                 <td>${appointment.patientName}</td>
-               <td>${appointment.doctorName}</td>
+                <td>${appointment.doctorName}</td>
                 <td>${new Date(appointment.appointmentDate).toLocaleDateString()}</td>
                 <td>${appointment.status}</td>
                 <td>

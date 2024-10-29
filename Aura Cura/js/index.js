@@ -115,7 +115,7 @@ function storeDoctorId(doctorId) {
 
 /************************************* */
 
-let url3 = "https://localhost:44396/api/Services/GetAllServices";
+let url3 = "https://localhost:44396/api/Services/Active";
 
 async function GetAllServices() {
     try {
@@ -176,3 +176,59 @@ function handleServiceClick(serviceLink) {
 
 // Call the function when the page loads
 GetAllServices();
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetchActiveFeedback();
+});
+
+async function fetchActiveFeedback() {
+    try {
+        const response = await fetch("https://localhost:44396/api/Feedback/GetActiveFeedback");
+        if (response.ok) {
+            const feedbackData = await response.json();
+            populateTestimonials(feedbackData);
+        } else {
+            console.error("Failed to fetch active feedback:", response.statusText);
+        }
+    } catch (error) {
+        console.error("Error fetching active feedback:", error);
+    }
+}
+
+function populateTestimonials(feedbackData) {
+    const testimonialContainer = document.querySelector(".testimonial-carousel");
+    testimonialContainer.innerHTML = ""; // Clear existing testimonials
+
+    feedbackData.forEach(feedback => {
+        const testimonialItem = document.createElement("div");
+        testimonialItem.className = "testimonial-item ps-5";
+        testimonialItem.innerHTML = `
+            <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+            <p class="fs-4">"${feedback.testimonialMessege}"</p>
+            <div class="d-flex align-items-center">
+                <div class="ps-3">
+                    <span>${feedback.Username || "Patient"}</span>
+                </div>
+            </div>
+        `;
+
+        testimonialContainer.appendChild(testimonialItem);
+    });
+
+    // Reinitialize the carousel after dynamic content is added
+    if ($(".testimonial-carousel").hasClass("owl-carousel")) {
+        $(".testimonial-carousel").owlCarousel("destroy"); // Destroy existing instance
+        $(".testimonial-carousel").owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: false,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            items: 1
+        });
+    }
+}
+

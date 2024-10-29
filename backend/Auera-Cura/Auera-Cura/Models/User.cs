@@ -48,4 +48,6 @@ public partial class User
     public virtual ICollection<PatientPoint> PatientPoints { get; set; } = new List<PatientPoint>();
 
     public virtual PatientProfile? PatientProfile { get; set; }
+
+    public virtual ICollection<Testimonial> Testimonials { get; set; } = new List<Testimonial>();
 }

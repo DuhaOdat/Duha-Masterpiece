@@ -204,12 +204,49 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "GetAllDoctorAppointmentsBydoctorId",
+    "RelativePath": "api/Appointments/GetAllDoctorAppointmentsBydoctorId/{doctorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
     "Method": "GetAllPatients",
     "RelativePath": "api/Appointments/GetAllPatients",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "GetBookedTimes",
+    "RelativePath": "api/Appointments/GetBookedTimes/{doctorId}/{selectedDate}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "selectedDate",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -606,6 +643,94 @@
       {
         "Name": "PointsRequired",
         "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.ContactUsController",
+    "Method": "adminForm",
+    "RelativePath": "api/ContactUs/adminForm/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "replyMessage",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.ContactUsController",
+    "Method": "getAllContact",
+    "RelativePath": "api/ContactUs/getAllContact",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.ContactUsController",
+    "Method": "getContactByStatus",
+    "RelativePath": "api/ContactUs/getContactByStatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.ContactUsController",
+    "Method": "getFormById",
+    "RelativePath": "api/ContactUs/getFormById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.ContactUsController",
+    "Method": "userForm",
+    "RelativePath": "api/ContactUs/userForm",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Sub",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Message",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -1033,6 +1158,95 @@
         "Name": "EndTime",
         "Type": "System.TimeOnly",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.FeedbackController",
+    "Method": "CreateFeedBack",
+    "RelativePath": "api/Feedback/CreateFeedBack",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "feedbackDto",
+        "Type": "Auera_Cura.DTO.FeedbackDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.FeedbackController",
+    "Method": "DeleteFeedBack",
+    "RelativePath": "api/Feedback/DeleteFeedBack/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.FeedbackController",
+    "Method": "GetActiveFeedback",
+    "RelativePath": "api/Feedback/GetActiveFeedback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.FeedbackController",
+    "Method": "GetAllFeedBack",
+    "RelativePath": "api/Feedback/GetAllFeedBack",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.FeedbackController",
+    "Method": "GetFeedBackById",
+    "RelativePath": "api/Feedback/GetFeedBackById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.FeedbackController",
+    "Method": "UpdateFeedBackIsActive",
+    "RelativePath": "api/Feedback/UpdateFeedBackIsActive/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "isActive",
+        "Type": "System.Boolean",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1584,12 +1798,116 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.ServicesController",
+    "Method": "GetActiveServices",
+    "RelativePath": "api/Services/Active",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.ServicesController",
+    "Method": "AddService",
+    "RelativePath": "api/Services/AddService",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ServiceName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ServiceDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ServiceIcon",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ServiceLink",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsActive",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.ServicesController",
+    "Method": "DeleteService",
+    "RelativePath": "api/Services/DeleteService/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.ServicesController",
+    "Method": "EditService",
+    "RelativePath": "api/Services/EditService/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "servicedto",
+        "Type": "Auera_Cura.DTO.ServiceDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.ServicesController",
     "Method": "GetAllServices",
     "RelativePath": "api/Services/GetAllServices",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.ServicesController",
+    "Method": "GetService",
+    "RelativePath": "api/Services/GetService/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

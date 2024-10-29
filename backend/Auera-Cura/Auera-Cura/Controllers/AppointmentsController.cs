@@ -55,12 +55,6 @@ namespace Auera_Cura.Controllers
 
 
 
-
-
-
-
-
-
         [HttpPost("CreateAppointment")]
         public async Task<IActionResult> CreateAppointment([FromForm] AppointmentDTO dto)
         {
@@ -222,6 +216,41 @@ namespace Auera_Cura.Controllers
             return Ok(appointments);
         }
 
+        [HttpGet("GetAllDoctorAppointmentsBydoctorId/{doctorId}")]
+        public async Task<IActionResult> GetAllDoctorAppointmentsBydoctorId(int doctorId)
+        {
+            
+            var doctor = await _db.Doctors.Include(d => d.User).FirstOrDefaultAsync(d => d.DoctorId == doctorId);
+            if (doctor == null)
+            {
+                return NotFound("Doctor not found.");
+            }
+
+           
+            var appointments = await _db.Appointments
+                .Include(a => a.Patient)
+                .ThenInclude(p => p.User)  
+                .Where(a => a.DoctorId == doctorId) 
+                .Select(a => new
+                {
+                    a.AppointmentId,
+                    DoctorName = $"{doctor.User.FirstName} {doctor.User.LastName}",  // Doctor's name from the Users table
+                    PatientName = a.Patient != null ? $"{a.Patient.User.FirstName} {a.Patient.User.LastName}" : "Unknown",  // Check if patient is not null
+                    a.AppointmentDate,
+                    a.Status,
+                    a.Notes
+                })
+                .ToListAsync();
+
+            if (!appointments.Any())
+            {
+                return NotFound("No appointments found for this doctor.");
+            }
+
+            return Ok(appointments);
+        }
+
+
 
         [HttpPut("EditAppointment/{appointmentId}")]
         public async Task<IActionResult> EditAppointment(int appointmentId, [FromForm] AppointmentDTO dto)
@@ -343,6 +372,17 @@ namespace Auera_Cura.Controllers
             return Ok(upcomingAppointments);
         }
 
+        [HttpGet("GetBookedTimes/{doctorId}/{selectedDate}")]
+        public async Task<IActionResult> GetBookedTimes(int doctorId, DateTime selectedDate)
+        {
+            // تأكد من أن التنسيق يأخذ فقط الأوقات المحجوزة في اليوم المحدد
+            var bookedTimes = await _db.Appointments
+                .Where(a => a.DoctorId == doctorId && a.AppointmentDate.Date == selectedDate.Date)
+                .Select(a => a.AppointmentDate.ToString("HH:mm")) // احصل على الوقت بصيغة HH:mm
+                .ToListAsync();
+
+            return Ok(bookedTimes);
+        }
 
 
     }

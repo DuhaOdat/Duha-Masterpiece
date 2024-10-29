@@ -21,6 +21,8 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<BloodType> BloodTypes { get; set; }
 
+    public virtual DbSet<ContactU> ContactUs { get; set; }
+
     public virtual DbSet<Department> Departments { get; set; }
 
     public virtual DbSet<Doctor> Doctors { get; set; }
@@ -48,6 +50,8 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<Reward> Rewards { get; set; }
 
     public virtual DbSet<Service> Services { get; set; }
+
+    public virtual DbSet<Testimonial> Testimonials { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -118,6 +122,19 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.BloodType1)
                 .HasMaxLength(5)
                 .HasColumnName("BloodType");
+        });
+
+        modelBuilder.Entity<ContactU>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__ContactU__3214EC27E17207F2");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Email).HasMaxLength(255);
+            entity.Property(e => e.Name).HasMaxLength(255);
+            entity.Property(e => e.Subject).HasMaxLength(500);
         });
 
         modelBuilder.Entity<Department>(entity =>
@@ -387,6 +404,24 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.ServiceIcon).HasMaxLength(255);
             entity.Property(e => e.ServiceLink).HasMaxLength(255);
             entity.Property(e => e.ServiceName).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<Testimonial>(entity =>
+        {
+            entity.HasKey(e => e.TestimonialId).HasName("PK__Testimon__D2FDAA23C534BD79");
+
+            entity.ToTable("Testimonial");
+
+            entity.Property(e => e.TestimonialId).HasColumnName("Testimonial_id");
+            entity.Property(e => e.IsAccept)
+                .HasDefaultValue(false)
+                .HasColumnName("is_accept");
+            entity.Property(e => e.TestimonialMessege).HasColumnName("Testimonial_messege");
+            entity.Property(e => e.UserId).HasColumnName("userID");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Testimonials)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__Testimoni__userI__1B9317B3");
         });
 
         modelBuilder.Entity<User>(entity =>
