@@ -149,3 +149,5 @@ async function fetchDoctorSchedule() {
 
 // Call this function to fetch the schedule when the page loads or when needed
 document.addEventListener("DOMContentLoaded", fetchDoctorSchedule);
+
+

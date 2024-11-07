@@ -12,4 +12,6 @@ public partial class Reward
     public string? Description { get; set; }
 
     public int? PointsRequired { get; set; }
+
+    public virtual ICollection<RewardClaim> RewardClaims { get; set; } = new List<RewardClaim>();
 }

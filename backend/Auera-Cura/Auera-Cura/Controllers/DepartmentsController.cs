@@ -206,10 +206,10 @@ namespace Auera_Cura.Controllers
             foreach (var doctor in department.Doctors)
             {
                 var hasLabTests = await _db.LabTestOrders.AnyAsync(l => l.DoctorUserId == doctor.UserId);
-                var hasMedicalTests = await _db.MedicalImageOrders.AnyAsync(m => m.DoctorId == doctor.UserId);
+                
 
                 // If any doctor has related lab or medical tests, prevent deletion
-                if (hasLabTests || hasMedicalTests)
+                if (hasLabTests )
                 {
                     return BadRequest(new { message = "Cannot delete department. Related doctors have test orders." });
                 }
@@ -236,10 +236,9 @@ namespace Auera_Cura.Controllers
                 foreach (var doctor in department.Doctors)
                 {
                     var hasLabTests = await _db.LabTestOrders.AnyAsync(l => l.DoctorUserId == doctor.UserId);
-                    var hasMedicalTests = await _db.MedicalImageOrders.AnyAsync(m => m.DoctorId == doctor.UserId);
-
+                    
                     // If any doctor has related lab or medical tests, prevent deletion
-                    if (hasLabTests || hasMedicalTests)
+                    if (hasLabTests )
                     {
                         return BadRequest(new { message = "Cannot delete department. Related doctors have test orders." });
                     }

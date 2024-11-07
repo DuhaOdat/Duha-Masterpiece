@@ -23,6 +23,7 @@
     <!-- Scrollbar CSS -->
     <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="assets/css/main.min.css">
+    <link rel="stylesheet" href="assets/css/notification.css">
 </head>
 
 <body>
@@ -54,10 +55,19 @@
             <!-- App header actions starts -->
             <div class="header-actions">
               
+                <!-- أيقونة الجرس -->
+                <div class="notification-icon" onclick="toggleNotificationPopup()">
+                  🔔
+                  <span id="notificationBadge" class="badge"></span>
+              </div>
 
-                <!-- Header actions starts -->
-                <div class="d-lg-flex d-none gap-2"></div>
-                <!-- Header actions ends -->
+              <!-- القائمة المنبثقة للإشعارات -->
+              <div id="notificationPopup" class="notification-popup">
+                  <h4 style="text-align: center; padding: 10px; border-bottom: 1px solid #ddd;">Your Notifications</h4>
+                  <div id="notifications" class="notifications-list">
+                      <!-- سيتم عرض الإشعارات هنا -->
+                  </div>
+              </div>
 
                  <!-- Header user settings starts -->
           <div class="dropdown ms-2">
@@ -254,6 +264,7 @@
         <!-- Custom JS files -->
         <script src="assets/js/custom.js"></script>
         <script src="assets/js/show-appoinment.js"></script>
+        <script src="assets/js/notofication.js"></script>
  
         
         <!-- JavaScript for search functionality -->

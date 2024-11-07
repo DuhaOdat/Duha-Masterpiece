@@ -33,21 +33,13 @@ public partial class User
 
     public virtual ICollection<LabTestResult> LabTestResults { get; set; } = new List<LabTestResult>();
 
-    public virtual ICollection<MedicalImage> MedicalImageDoctors { get; set; } = new List<MedicalImage>();
-
-    public virtual ICollection<MedicalImageOrder> MedicalImageOrderDoctors { get; set; } = new List<MedicalImageOrder>();
-
-    public virtual ICollection<MedicalImageOrder> MedicalImageOrderPatients { get; set; } = new List<MedicalImageOrder>();
-
-    public virtual ICollection<MedicalImage> MedicalImagePatients { get; set; } = new List<MedicalImage>();
-
-    public virtual ICollection<MedicalImage> MedicalImageUploadedByLabTechNavigations { get; set; } = new List<MedicalImage>();
-
     public virtual ICollection<Notification> Notifications { get; set; } = new List<Notification>();
 
     public virtual ICollection<PatientPoint> PatientPoints { get; set; } = new List<PatientPoint>();
 
     public virtual PatientProfile? PatientProfile { get; set; }
+
+    public virtual ICollection<RewardClaim> RewardClaims { get; set; } = new List<RewardClaim>();
 
     public virtual ICollection<Testimonial> Testimonials { get; set; } = new List<Testimonial>();
 }

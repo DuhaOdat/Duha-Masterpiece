@@ -74,7 +74,7 @@ namespace Auera_Cura.Controllers
             try
             {
                 string fromEmail = data.Email;
-                string fromName = "test";
+                string fromName = "Auera Cura";
                 string subjectText = "subject";
                 string messageText = $@"
                     <html>

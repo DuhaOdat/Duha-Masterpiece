@@ -362,6 +362,22 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "ClaimReward",
+    "RelativePath": "api/bloodDonation/claimReward",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Auera_Cura.DTO.RewardClaimRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
     "Method": "ConfirmBloodDonation",
     "RelativePath": "api/bloodDonation/ConfirmBloodDonation",
     "HttpMethod": "POST",
@@ -372,6 +388,22 @@
         "Name": "requestId",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "DeleteBloodDonationRequest",
+    "RelativePath": "api/bloodDonation/DeleteBloodDonationRequest/{requestId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -414,6 +446,16 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "GetAllRewardClaims",
+    "RelativePath": "api/bloodDonation/getAllRewardClaims",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
     "Method": "GetAllRewards",
     "RelativePath": "api/bloodDonation/getAllRewards",
     "HttpMethod": "GET",
@@ -448,6 +490,22 @@
     "Parameters": [
       {
         "Name": "patientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "GetClaimedRewards",
+    "RelativePath": "api/bloodDonation/getClaimedRewards/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -536,6 +594,22 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "MarkAsCollected",
+    "RelativePath": "api/bloodDonation/markAsCollected/{rewardClaimId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rewardClaimId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
     "Method": "ProcessBloodDonationRequest",
     "RelativePath": "api/bloodDonation/ProcessBloodDonationRequest/{requestId}",
     "HttpMethod": "PUT",
@@ -566,6 +640,22 @@
         "Name": "LabTechnicianId",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "SendCongratulatoryEmail",
+    "RelativePath": "api/bloodDonation/sendCongratulatoryEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Auera_Cura.DTO.SendEmailRequest",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1472,57 +1562,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Auera_Cura.Controllers.MedicalImagesController",
-    "Method": "CancelImageOrder",
-    "RelativePath": "api/MedicalImages/CancelImageOrder/{orderId}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "orderId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auera_Cura.Controllers.MedicalImagesController",
-    "Method": "GetCompletedImageResults",
-    "RelativePath": "api/MedicalImages/GetCompletedImageResults/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auera_Cura.Controllers.MedicalImagesController",
-    "Method": "GetMedicalImageResults",
-    "RelativePath": "api/MedicalImages/GetMedicalImageResults/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auera_Cura.Controllers.MedicalImagesController",
+    "ContainingType": "Auera_Cura.Controllers.NotificationsController",
     "Method": "GetNotifications",
-    "RelativePath": "api/MedicalImages/GetNotifications/{userId}",
+    "RelativePath": "api/Notifications/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1536,10 +1578,10 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Auera_Cura.Controllers.MedicalImagesController",
-    "Method": "GetPendingImageOrders",
-    "RelativePath": "api/MedicalImages/GetPendingImageOrders/{userId}",
-    "HttpMethod": "GET",
+    "ContainingType": "Auera_Cura.Controllers.NotificationsController",
+    "Method": "MarkNotificationsAsRead",
+    "RelativePath": "api/Notifications/markAsRead/{userId}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -1547,105 +1589,6 @@
         "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auera_Cura.Controllers.MedicalImagesController",
-    "Method": "NotifyForImageUpload",
-    "RelativePath": "api/MedicalImages/NotifyForImageUpload/{orderId}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "orderId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auera_Cura.Controllers.MedicalImagesController",
-    "Method": "PlaceImageOrder",
-    "RelativePath": "api/MedicalImages/PlaceImageOrder",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "PatientID",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "DoctorID",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "ImageTypeID",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Notes",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auera_Cura.Controllers.MedicalImagesController",
-    "Method": "SubmitMedicalImageResult",
-    "RelativePath": "api/MedicalImages/SubmitMedicalImageResult",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "ImageID",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "DoctorID",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Result",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Auera_Cura.Controllers.MedicalImagesController",
-    "Method": "UploadMedicalImage",
-    "RelativePath": "api/MedicalImages/UploadMedicalImage",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "OrderID",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "UploadedByLabTech",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "FilePath",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -2034,11 +1977,6 @@
       },
       {
         "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Password",
         "Type": "System.String",
         "IsRequired": false
       },

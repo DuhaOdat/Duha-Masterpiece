@@ -21,6 +21,11 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- SweetAlert2 JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -136,11 +141,7 @@
                     <i class="fas fa-vials"></i> Lab Results
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="medical-result.html">
-                    <i class="fas fa-x-ray"></i> Medical Images
-                </a>
-            </li>
+          
             <!-- Blood Donation History -->
             <li class="nav-item">
                 <a class="nav-link" href="#" aria-expanded="false" id="bloodDonationToggle">
@@ -149,16 +150,24 @@
                 </a>
                 <ul class="nav flex-column ms-3" id="bloodDonationSubmenu" style="display: none;">
                     <li class="nav-item">
-                        <a class="nav-link" href="show-blood-donations.html">Show All Donations</a>
+                        <a class="nav-link" href="show-blood-donations.html"> Donations Request</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="add-blood-donation.html">Add New Donation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="previous-donation.html">Previous Blood Donation</a>
                     </li>
                 </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="donation-rewards.html">
                     <i class="fas fa-trophy"></i> Donation Rewards
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="your-Reward.html">
+                    <i class="fas fa-trophy"></i> Your Rewards
                 </a>
             </li>
             <li class="nav-item">
@@ -195,10 +204,10 @@
                                 </div>
             
                                 <!-- Preferred Donation Date -->
-                                <div class="col-md-6 mb-3">
+                                <!-- <div class="col-md-6 mb-3">
                                     <label for="donationDate" class="form-label">Preferred Donation Date</label>
                                     <input type="date" class="form-control" id="donationDate" name="PreferredDonationDate" required>
-                                </div>
+                                </div> -->
             
                                 <!-- Submit Button -->
                                 <div class="text-center">

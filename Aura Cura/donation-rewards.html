@@ -135,11 +135,7 @@
                         <i class="fas fa-vials"></i> Lab Results
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="medical-result.html">
-                        <i class="fas fa-x-ray"></i> Medical Images
-                    </a>
-                </li>
+              
                 <!-- Blood Donation History -->
                 <li class="nav-item">
                     <a class="nav-link" href="#" aria-expanded="false" id="bloodDonationToggle">
@@ -148,16 +144,24 @@
                     </a>
                     <ul class="nav flex-column ms-3" id="bloodDonationSubmenu" style="display: none;">
                         <li class="nav-item">
-                            <a class="nav-link" href="show-blood-donations.html">Show All Donations</a>
+                            <a class="nav-link" href="show-blood-donations.html">Donations Request</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="add-blood-donation.html">Add New Donation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="previous-donation.html">Previous Blood Donation</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="donation-rewards.html">
                         <i class="fas fa-trophy"></i> Donation Rewards
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="your-Reward.html">
+                        <i class="fas fa-trophy"></i> Your Rewards
                     </a>
                 </li>
                 <li class="nav-item">
@@ -170,102 +174,31 @@
 
     
 
-
-        <!-- Main Content Area -->
-        <div class="content">
-
-         <!-- Donation Rewards Start -->
-<div class="container ">
-    <div class="mb-4">
-        <h2 class="mb-4">Donation Rewards</h2>
-    </div>
-
-    <div class="row g-4">
-        <!-- Package 1 -->
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card border-0 shadow-sm h-100 card-custom-bg " id="reward1">
-                <img class="card-img-top fixed-image-size" src="img/reward1.png" alt="Package 1">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Basic Health Checkup</h5>
-                    <p class="card-text">Earn 100 points to redeem a free basic health checkup at our hospital.</p>
-                    <p class="text-primary">Points Required: 100</p>
-                </div>
-            </div>
+<!-- Main Content Area -->
+<div class="content">
+    <!-- Donation Rewards Start -->
+    <div class="container">
+        <div class="mb-4">
+            <h2 class="mb-4">Donation Rewards</h2>
         </div>
-
-        <!-- Package 2 -->
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card border-0 shadow-sm h-100 card-custom-bg" id="reward2">
-                <img class="card-img-top fixed-image-size" src="img/reward2.png" alt="Package 2">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Health Package</h5>
-                    <p class="card-text">Earn 150 points to redeem a health package at our hospital.</p>
-                    <p class="text-primary">Points Required: 150</p>
-                </div>
+         <!-- Points Tracker Start -->
+         <div class="points-container">
+            <p id="pointsText">Your Current Points: <span id="currentPoints">0</span> </p>
+            <div class="progress-bar">
+              <div id="progress" class="progress"></div>
             </div>
-        </div>
+          </div>
+          
+        <!-- Points Tracker End -->
 
-        <!-- Package 3 -->
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card border-0 shadow-sm h-100 card-custom-bg" id="reward3">
-                <img class="card-img-top fixed-image-size" src="img/reward3.png" alt="Package 3">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Comprehensive Blood Test</h5>
-                    <p class="card-text">Earn 200 points to redeem a comprehensive blood test package.</p>
-                    <p class="text-primary">Points Required: 200</p>
-                </div>
-            </div>
+        <!-- Container لعرض الجوائز -->
+        <div class="row g-4" id="rewardsContainer">
+            <!-- سيتم إضافة الجوائز هنا ديناميكيًا بواسطة JavaScript -->
         </div>
     </div>
-
-    <div class="row g-4">
-        <!-- Package 4 -->
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card border-0 shadow-sm h-100 card-custom-bg" id="reward4">
-                <img class="card-img-top fixed-image-size" src="img/reward4.png" alt="Package 4">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Special Blood Test</h5>
-                    <p class="card-text">Earn 250 points to redeem a special blood test package.</p>
-                    <p class="text-primary">Points Required: 250</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Package 5 -->
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card border-0 shadow-sm h-100 card-custom-bg" id="reward5">
-                <img class="card-img-top fixed-image-size" src="img/reward5.png" alt="Package 5">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Full Body Checkup</h5>
-                    <p class="card-text">Earn 500 points to redeem a full body checkup package.</p>
-                    <p class="text-primary">Points Required: 500</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Package 6 -->
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card border-0 shadow-sm h-100 card-custom-bg" id="reward6">
-                <img class="card-img-top fixed-image-size" src="img/reward6.png" alt="Package 6">
-                <div class="card-body text-center">
-                    <h5 class="card-title">VIP Health Checkup</h5>
-                    <p class="card-text">Earn 600 points to redeem a VIP health checkup package.</p>
-                    <p class="text-primary">Points Required: 600</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Donation Rewards End -->
 </div>
-<!-- Donation Rewards End -->
 
-            
-        
-
-
-           
-           
-
-        </div>
        
 
 

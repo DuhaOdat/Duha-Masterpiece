@@ -31,6 +31,7 @@
     <!-- Scrollbar CSS -->
     <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
      <link rel="stylesheet" href="assets/css/main.min.css">
+     <link rel="stylesheet" href="assets/css/notification.css">
      <style>
       .form-container {
     margin-top: 20px;
@@ -71,21 +72,21 @@
         <!-- App header actions starts -->
         <div class="header-actions">
 
-         
-
-          <!-- Header actions starts -->
-          <div class="d-lg-flex d-none gap-2">
-
-           
-
-           
-        
-
-          
-
-          
-              <!-- Notifications dropdown ends -->
+            <!-- أيقونة الجرس -->
+            <div class="notification-icon" onclick="toggleNotificationPopup()">
+              🔔
+              <span id="notificationBadge" class="badge"></span>
           </div>
+
+          <!-- القائمة المنبثقة للإشعارات -->
+          <div id="notificationPopup" class="notification-popup">
+              <h4 style="text-align: center; padding: 10px; border-bottom: 1px solid #ddd;">Your Notifications</h4>
+              <div id="notifications" class="notifications-list">
+                  <!-- سيتم عرض الإشعارات هنا -->
+              </div>
+          </div>
+
+         
           <!-- Header actions ends -->
 
             <!-- Header user settings starts -->
@@ -280,6 +281,7 @@
     <!-- Custom JS files -->
     <script src="assets/js/custom.js"></script>
    <script  src="assets/js/lab-test-request.js"></script>
+   <script src="assets/js/notofication.js"></script>
   
 
 <!-- JavaScript to handle form submission and modal confirmation -->

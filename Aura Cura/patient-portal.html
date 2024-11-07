@@ -32,6 +32,7 @@
     <!-- Template Stylesheet -->
   
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/patient-portal.css" rel="stylesheet">
 </head>
 
 
@@ -135,11 +136,11 @@
                     <i class="fas fa-vials"></i> Lab Results
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="medical-result.html">
                     <i class="fas fa-x-ray"></i> Medical Images
                 </a>
-            </li>
+            </li> -->
             <!-- Blood Donation History -->
             <li class="nav-item">
                 <a class="nav-link" href="#" aria-expanded="false" id="bloodDonationToggle">
@@ -148,16 +149,24 @@
                 </a>
                 <ul class="nav flex-column ms-3" id="bloodDonationSubmenu" style="display: none;">
                     <li class="nav-item">
-                        <a class="nav-link" href="show-blood-donations.html">Show All Donations</a>
+                        <a class="nav-link" href="show-blood-donations.html">Donations Request</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="add-blood-donation.html">Add New Donation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="previous-donation.html">Previous Blood Donation</a>
                     </li>
                 </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="donation-rewards.html">
                     <i class="fas fa-trophy"></i> Donation Rewards
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="your-Reward.html">
+                    <i class="fas fa-trophy"></i> Your Rewards
                 </a>
             </li>
             <li class="nav-item">
@@ -174,7 +183,19 @@
         <!-- Main Content Area -->
         <div class="content">
           
-           
+              <!-- أيقونة الجرس -->
+              <div class="notification-icon" onclick="toggleNotificationPopup()">
+                🔔
+                <span id="notificationBadge" class="badge"></span>
+            </div>
+
+            <!-- القائمة المنبثقة للإشعارات -->
+            <div id="notificationPopup" class="notification-popup">
+                <h4 style="text-align: center; padding: 10px; border-bottom: 1px solid #ddd;">Your Notifications</h4>
+                <div id="notifications" class="notifications-list">
+                    <!-- سيتم عرض الإشعارات هنا -->
+                </div>
+            </div>
                           <div class="app-body">
             
                          <div id="dashboard" class="tab-content active">
@@ -182,6 +203,7 @@
                                <h3>Welcome, patient Name</h3>
                                <p>Here you can manage your medical information, view upcoming appointments, and access lab results, etc.</p>
                         </div>
+                       
                            <div class="row">
                                <div class="col-lg-4">
                                    <div class="card text-center mb-4">
@@ -189,7 +211,7 @@
                                          <i class="fas fa-calendar-alt fa-3x mb-3 text-primary"></i>
                                          <h5 class="card-title">Appointments</h5>
                                           <p class="card-text">Review your upcoming and past appointments.</p>
-                                          <a href="#" class="text-primary">See You Appointment</a>
+                                          <a href="appoinment.html" class="text-primary">See You Appointment</a>
                                       </div>
                                   </div>
                                </div>
@@ -249,7 +271,7 @@
             
                                         <h5 class="card-title">Blood Donation Rewards</h5>
                                         <p class="card-text">check your recent reward and available reward.</p>
-                                       <a href="donation-rewards.html" class="text-primary">See your reward</a>
+                                       <a href="your-Reward.html" class="text-primary">See your reward</a>
                                    </div>
                                  </div>
                              </div>
@@ -351,9 +373,9 @@
 <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
 <!-- Template Javascript -->
-<script src="js/lab-result.js"></script>
-<script src="js/appointments.js"></script>
+
 <script src="js/main.js"></script>
+<script src="js/patient-portal.js"></script>
 
 
 

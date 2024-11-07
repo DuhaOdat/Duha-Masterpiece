@@ -1,0 +1,78 @@
+        
+        
+        .content {
+            position: relative;
+        }
+        /* تصميم الجرس والقائمة */
+        .notification-icon {
+            position: absolute;
+            top: 40px; /* زيادة أو تقليل هذه القيمة حسب الحاجة */
+    right: 40px; /* زيادة أو تقليل هذه القيمة حسب الحاجة */
+            font-size: 24px;
+            cursor: pointer;
+            display: inline-block;
+            z-index: 1000;
+        }
+
+        .notification-icon .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        /* تصميم القائمة المنبثقة */
+        .notification-popup {
+            display: none;
+            position: absolute;
+            top: 90px; /* جعلها تتماشى مع الجرس */
+    right: 40px; /* يجب أن تتماشى مع موقع الجرس */
+            background-color: #d6d1d1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 300px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 999;
+        }
+
+        .notification-popup h4 {
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .notification-popup .notification {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-family: Arial, sans-serif;
+        }
+
+        .notification-popup .notification:last-child {
+            border-bottom: none;
+        }
+
+        .notification-popup .notification p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .notification-popup .notification .date {
+            font-size: 0.85em;
+            color: #888;
+            text-align: right;
+            margin-top: 8px;
+        }
+
+        /* إخفاء الشارة عند عدم وجود إشعارات */
+        .badge.hidden {
+            display: none;
+        }
+    </style>

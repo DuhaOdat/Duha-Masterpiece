@@ -31,77 +31,69 @@
     <!-- Scrollbar CSS -->
     <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
      <link rel="stylesheet" href="assets/css/main.min.css">
+     <link rel="stylesheet" href="assets/css/notification.css">
+   
   </head>
 
   <body>
 
-    <!-- Page wrapper starts -->
-    <div class="page-wrapper">
+   
 
+       <!-- Page wrapper starts -->
+    <div class="page-wrapper">
       <!-- App header starts -->
       <div class="app-header d-flex align-items-center">
-
-        <!-- Toggle buttons starts -->
-        <div class="d-flex">
-          <button class="toggle-sidebar">
-            <i class="ri-menu-line"></i>
-          </button>
-          <button class="pin-sidebar">
-            <i class="ri-menu-line"></i>
-          </button>
-        </div>
-        <!-- Toggle buttons ends -->
-
-        <!-- App brand starts -->
-        <div class="app-brand ms-3">
-        
-          <a href="index.html" class="navbar-brand">
-            <h1 class="text-white"><i class="fa fa-heartbeat"></i> Aurea Cura</h1>
-        </a>
-        </div>
-        <!-- App brand ends -->
-
-        <!-- App header actions starts -->
-        <div class="header-actions">
-
-          <!-- Header actions starts -->
-          <div class="d-lg-flex d-none gap-2">
-
-           
-
-           
-        
-
-          
-
-          
-              <!-- Notifications dropdown ends -->
+          <!-- Toggle buttons -->
+          <div class="d-flex">
+              <button class="toggle-sidebar">
+                  <i class="ri-menu-line"></i>
+              </button>
+              <button class="pin-sidebar">
+                  <i class="ri-menu-line"></i>
+              </button>
           </div>
-          <!-- Header actions ends -->
 
-          <!-- Header user settings starts -->
-          <div class="dropdown ms-2">
-            <a id="userSettings" class="dropdown-toggle d-flex align-items-center" href="#!" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="avatar-box">Dr<span class="status busy"></span></div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end shadow-lg">
-              <div class="px-3 py-2">
-                <span class="small"></span>
-                <h6 class="m-0 " id="doctor-name-header"></h6>
-              </div>
-              <div class="mx-3 my-2 d-grid">
-                <a href="../login.html" class="btn btn-danger" onclick="logout()">Logout</a>
-              </div>
-            </div>
+          <!-- App brand -->
+          <div class="app-brand ms-3">
+              <a href="index.html" class="navbar-brand">
+                  <h1 class="text-white"><i class="fa fa-heartbeat"></i> Aurea Cura</h1>
+              </a>
           </div>
-          <!-- Header user settings ends -->
 
-        </div>
-        <!-- App header actions ends -->
+          <!-- App header actions -->
+          <div class="header-actions">
+                 <!-- أيقونة الجرس -->
+                 <div class="notification-icon" onclick="toggleNotificationPopup()">
+                  🔔
+                  <span id="notificationBadge" class="badge"></span>
+              </div>
+  
+              <!-- القائمة المنبثقة للإشعارات -->
+              <div id="notificationPopup" class="notification-popup">
+                  <h4 style="text-align: center; padding: 10px; border-bottom: 1px solid #ddd;">Your Notifications</h4>
+                  <div id="notifications" class="notifications-list">
+                      <!-- سيتم عرض الإشعارات هنا -->
+                  </div>
+              </div>
 
+              <!-- User settings -->
+              <div class="dropdown ms-2">
+                  <a id="userSettings" class="dropdown-toggle d-flex align-items-center" href="#!" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <div class="avatar-box">Dr<span class="status busy"></span></div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end shadow-lg">
+                      <div class="px-3 py-2">
+                          <span class="small"></span>
+                          <h6 class="m-0" id="doctor-name-header"></h6>
+                      </div>
+                      <div class="mx-3 my-2 d-grid">
+                          <a href="../login.html" class="btn btn-danger" onclick="logout()">Logout</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-      <!-- App header ends -->
 
       <!-- Main container starts -->
       <div class="main-container">
@@ -371,6 +363,12 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="assets/js/doctor-profile.js"></script>
+    <script src="assets/js/notofication.js"></script>
+    <script>
+   
+  </script>
+  
+  
   </body>
 
 

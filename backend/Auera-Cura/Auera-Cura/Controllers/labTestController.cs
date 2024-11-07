@@ -7,6 +7,8 @@ using Auera_Cura.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
 
 namespace Auera_Cura.Controllers
 {
@@ -247,6 +249,7 @@ namespace Auera_Cura.Controllers
             var labTestOrder = await _db.LabTestOrders
                 .Include(o => o.PatientUser) // Include the patient to notify later
                 .Include(o => o.DoctorUser)  // Include the doctor to notify later
+                .Include(o => o.Test)        // Include the lab test for test name
                 .FirstOrDefaultAsync(o => o.OrderId == uploadResultDTO.OrderId);
 
             if (labTestOrder == null)
@@ -279,15 +282,19 @@ namespace Auera_Cura.Controllers
             _db.LabTestResults.Add(labTestResult);
             await _db.SaveChangesAsync();
 
-            // Notify the patient and doctor (Optional)
+            // Notify the patient and doctor with more detailed messages
             if (labTestOrder.PatientUserId.HasValue)
             {
-                await NotifyUser(labTestOrder.PatientUserId.Value, "Your lab test result is ready.");
+                var patientMessage = $"Hello {labTestOrder.PatientUser.FirstName}, your lab test result '{labTestOrder.Test.TestName}' is now available.";
+                await NotifyUser(labTestOrder.PatientUserId.Value, patientMessage);
+                await SendEmail(labTestOrder.PatientUser.Email, "Lab Test Result Available", patientMessage);
             }
 
             if (labTestOrder.DoctorUserId.HasValue)
             {
-                await NotifyUser(labTestOrder.DoctorUserId.Value, "The lab test result for your patient is available.");
+                var doctorMessage = $"The lab test result '{labTestOrder.Test.TestName}' for your patient {labTestOrder.PatientUser.FirstName} {labTestOrder.PatientUser.LastName} is now available.";
+                await NotifyUser(labTestOrder.DoctorUserId.Value, doctorMessage);
+                await SendEmail(labTestOrder.DoctorUser.Email, "Patient Lab Test Result Available", doctorMessage);
             }
 
             return Ok(new { message = "Lab test result uploaded successfully.", resultId = labTestResult.ResultId });
@@ -317,8 +324,32 @@ namespace Auera_Cura.Controllers
         }
 
 
+        private async Task SendEmail(string toEmail, string subject, string body)
+        {
+            using (var client = new SmtpClient("smtp.gmail.com"))
+            {
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential("odatduha@gmail.com", "ijmt lrkb drnt vcao");
+                client.EnableSsl = true;
+                client.Port = 587; // Change port if needed
 
-        [HttpGet("GetAllLabTestOrdersForDoctor/{doctorId}")]
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("odatduha@gmail.com", "Auera Cura"),
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                };
+
+                mailMessage.To.Add(toEmail);
+
+                await client.SendMailAsync(mailMessage);
+            }
+        }
+
+
+
+            [HttpGet("GetAllLabTestOrdersForDoctor/{doctorId}")]
         public async Task<IActionResult> GetAllLabTestOrdersForDoctor(int doctorId)
         {
             // Check if the doctor exists

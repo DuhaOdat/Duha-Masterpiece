@@ -1,9 +1,9 @@
+
 document.addEventListener('DOMContentLoaded', async function () {
     const userId = localStorage.getItem('userId'); // Assume the user's ID is stored in local storage
     const token = localStorage.getItem('jwtToken'); // Assume token is stored for authentication
 
     try {
-        
         // Fetch user and patient profile data using the GetUserProfile API
         const response = await fetch(`https://localhost:44396/api/bloodDonation/GetUserProfile/${userId}`, {
             headers: {
@@ -22,27 +22,31 @@ document.addEventListener('DOMContentLoaded', async function () {
         document.getElementById('fullName').value = userData.fullName;
         document.getElementById('bloodType').value = userData.bloodType;
         document.getElementById('emailAddress').value = userData.email;
-        
-        
 
     } catch (error) {
         console.error('Error fetching user data:', error);
-        document.getElementById('responseMessage').innerHTML = `<div class="alert alert-danger"> Please Fill all field.</div>`;
+        
+        // Use SweetAlert to display the error message
+        // Swal.fire({
+        //     icon: 'error',
+        //     title: 'Oops...',
+        //     text: 'Unable to load user information. Please try again.',
+        //     confirmButtonText: 'OK'
+        // });
     }
 });
+
 
 // Handle form submission
 document.getElementById('bloodDonationForm').addEventListener('submit', async function (e) {
     e.preventDefault(); // Prevent the default form submission
 
-    const donationDate = document.getElementById('donationDate').value;
     const notes = document.getElementById('comments')?.value || ''; // Add additional info or comments if needed
     const patientId = localStorage.getItem('userId'); // Assume user is logged in and ID is in localStorage
 
     // Prepare form data for submission
     const formData = new FormData();
     formData.append('PatientId', patientId);
-    formData.append('PreferredDonationDate', donationDate);
     formData.append('Notes', notes);
 
     try {
@@ -61,10 +65,21 @@ document.getElementById('bloodDonationForm').addEventListener('submit', async fu
             throw new Error(data.message || 'Error submitting the request');
         }
 
-        // Display success message
-        document.getElementById('responseMessage').innerHTML = `<div class="alert alert-success">Blood donation request submitted successfully! Request ID: ${data.requestId}</div>`;
+        // Use SweetAlert to show the success message with a confirmation button
+        Swal.fire({
+            icon: 'success',
+            title: 'Request Submitted!',
+            html: `Blood donation request submitted successfully!<br> Request ID: ${data.requestId}.<br>Your preferred donation date is <strong>${data.preferredDonationDate}</strong>.`,
+            confirmButtonText: 'OK'
+        });
+
     } catch (error) {
-        // Display error message
-        document.getElementById('responseMessage').innerHTML = `<div class="alert alert-danger">Error: ${error.message}</div>`;
+        // Use SweetAlert to display the error message
+        Swal.fire({
+            icon: 'error',
+            title: 'Submission Failed!',
+            text: error.message || 'An error occurred. Please try again.',
+            confirmButtonText: 'OK'
+        });
     }
 });

@@ -2,43 +2,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     const userId = localStorage.getItem('userId'); // احصل على الـ UserId من localStorage
     const token = localStorage.getItem('jwtToken');
 
-    // Load Patient Points and Donation Requests
-    loadPatientPoints(userId, token);
+    // Load  Donation Requests
+   
     loadPendingDonationRequests(userId, token);
 });
 
-// Load Patient Points
-async function loadPatientPoints(userId, token) {
-    try {
-        const response = await fetch(`https://localhost:44396/api/bloodDonation/GetPatientPointByUserId/${userId}`, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
-        });
 
-        if (!response.ok) {
-            throw new Error('Failed to fetch points data.');
-        }
 
-        const data = await response.json();
-        console.log(data);
-
-        if (data && data.currentPoints !== undefined && data.totalPoints !== undefined) {
-            document.getElementById('currentPoints').innerText = `Your Current Points: ${data.currentPoints} / ${data.totalPoints}`;
-            const progressPercentage = (data.currentPoints / data.totalPoints) * 100;
-            document.getElementById('progress').style.width = `${progressPercentage}%`;
-        } else {
-            document.getElementById('currentPoints').innerText = 'Points data is unavailable.';
-        }
-
-    } catch (error) {
-        console.error(error);
-        document.getElementById('currentPoints').innerText = 'Failed to load points data.';
-    }
-}
-
-// Load Pending Donation Requests
 async function loadPendingDonationRequests(userId, token) {
     try {
         const response = await fetch(`https://localhost:44396/api/bloodDonation/GetPendingBloodDonationRequests/${userId}`, {
@@ -54,6 +24,7 @@ async function loadPendingDonationRequests(userId, token) {
 
         const requests = await response.json();
         const container = document.getElementById('donationRequests');
+        container.innerHTML = ''; // Clear any previous entries
 
         if (requests.length === 0) {
             container.innerHTML = '<p class="no-requests">No pending requests found.</p>';
@@ -61,8 +32,8 @@ async function loadPendingDonationRequests(userId, token) {
             requests.forEach(request => {
                 const preferredDate = request.preferredDonationDate
                     ? new Date(request.preferredDonationDate).toLocaleDateString()
-                    : 'Not specified'; // If the preferred donation date is not set
-                
+                    : 'Not specified';
+
                 const card = `
                     <div class="request-card">
                         <div class="request-header">Request Date: ${new Date(request.requestDate).toLocaleDateString()}</div>
@@ -70,7 +41,7 @@ async function loadPendingDonationRequests(userId, token) {
                             <p><strong>Blood Type:</strong> ${request.bloodType}</p>
                             <p><strong>Preferred Donation Date:</strong> ${preferredDate}</p>
                             <p><strong>Status:</strong> <span class="status pending">${request.status}</span></p>
-                            <p><strong>Notes:</strong> ${request.notes ? request.notes : 'No additional notes'}</p>
+                            <button class="btn btn-danger btn-sm" onclick="deleteRequest(${request.requestId})">Delete</button>
                         </div>
                     </div>
                 `;
@@ -83,6 +54,66 @@ async function loadPendingDonationRequests(userId, token) {
         document.getElementById('donationRequests').innerHTML = '<p class="no-requests">Failed to load requests. Please try again later.</p>';
     }
 }
+
+
+
+async function deleteRequest(requestId) {
+    const token = localStorage.getItem('jwtToken');
+    const userId = localStorage.getItem('userId');
+    console.log("Attempting to delete request with ID:", requestId); // Log to verify
+
+    const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "Do you want to delete this pending request?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    });
+
+    if (result.isConfirmed) {
+        try {
+            const response = await fetch(`https://localhost:44396/api/bloodDonation/DeleteBloodDonationRequest/${requestId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Failed to delete the request.');
+            }
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Deleted!',
+                text: 'Your pending request has been deleted.',
+                confirmButtonText: 'OK'
+            });
+
+            loadPendingDonationRequests(userId, token); // Reload the list to reflect deletion
+
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: error.message || 'An error occurred. Please try again.',
+                confirmButtonText: 'OK'
+            });
+        }
+    }
+}
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', async function () {
     const userId = localStorage.getItem('userId'); // Get the UserId from localStorage
     const token = localStorage.getItem('jwtToken'); // Get JWT Token

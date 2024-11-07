@@ -35,12 +35,6 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<LabTestResult> LabTestResults { get; set; }
 
-    public virtual DbSet<MedicalImage> MedicalImages { get; set; }
-
-    public virtual DbSet<MedicalImageOrder> MedicalImageOrders { get; set; }
-
-    public virtual DbSet<MedicalImageType> MedicalImageTypes { get; set; }
-
     public virtual DbSet<Notification> Notifications { get; set; }
 
     public virtual DbSet<PatientPoint> PatientPoints { get; set; }
@@ -48,6 +42,8 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<PatientProfile> PatientProfiles { get; set; }
 
     public virtual DbSet<Reward> Rewards { get; set; }
+
+    public virtual DbSet<RewardClaim> RewardClaims { get; set; }
 
     public virtual DbSet<Service> Services { get; set; }
 
@@ -258,75 +254,6 @@ public partial class MyDbContext : DbContext
                 .HasConstraintName("FK__Lab_Test___Uploa__31B762FC");
         });
 
-        modelBuilder.Entity<MedicalImage>(entity =>
-        {
-            entity.HasKey(e => e.ImageId).HasName("PK__MedicalI__7516F4ECF47EFBB5");
-
-            entity.Property(e => e.ImageId).HasColumnName("ImageID");
-            entity.Property(e => e.DoctorId).HasColumnName("DoctorID");
-            entity.Property(e => e.FilePath).HasMaxLength(255);
-            entity.Property(e => e.ImageTypeId).HasColumnName("ImageTypeID");
-            entity.Property(e => e.PatientId).HasColumnName("PatientID");
-            entity.Property(e => e.Status)
-                .HasMaxLength(50)
-                .HasDefaultValue("Pending");
-            entity.Property(e => e.UploadDate)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
-
-            entity.HasOne(d => d.Doctor).WithMany(p => p.MedicalImageDoctors)
-                .HasForeignKey(d => d.DoctorId)
-                .HasConstraintName("FK__MedicalIm__Docto__76619304");
-
-            entity.HasOne(d => d.ImageType).WithMany(p => p.MedicalImages)
-                .HasForeignKey(d => d.ImageTypeId)
-                .HasConstraintName("FK__MedicalIm__Image__719CDDE7");
-
-            entity.HasOne(d => d.Patient).WithMany(p => p.MedicalImagePatients)
-                .HasForeignKey(d => d.PatientId)
-                .HasConstraintName("FK__MedicalIm__Patie__756D6ECB");
-
-            entity.HasOne(d => d.UploadedByLabTechNavigation).WithMany(p => p.MedicalImageUploadedByLabTechNavigations)
-                .HasForeignKey(d => d.UploadedByLabTech)
-                .HasConstraintName("FK__MedicalIm__Uploa__72910220");
-        });
-
-        modelBuilder.Entity<MedicalImageOrder>(entity =>
-        {
-            entity.HasKey(e => e.OrderId).HasName("PK__MedicalI__C3905BAF2415C87D");
-
-            entity.Property(e => e.OrderId).HasColumnName("OrderID");
-            entity.Property(e => e.DoctorId).HasColumnName("DoctorID");
-            entity.Property(e => e.ImageTypeId).HasColumnName("ImageTypeID");
-            entity.Property(e => e.OrderDate)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
-            entity.Property(e => e.PatientId).HasColumnName("PatientID");
-            entity.Property(e => e.Status)
-                .HasMaxLength(50)
-                .HasDefaultValue("Pending");
-
-            entity.HasOne(d => d.Doctor).WithMany(p => p.MedicalImageOrderDoctors)
-                .HasForeignKey(d => d.DoctorId)
-                .HasConstraintName("FK__MedicalIm__Docto__7A3223E8");
-
-            entity.HasOne(d => d.ImageType).WithMany(p => p.MedicalImageOrders)
-                .HasForeignKey(d => d.ImageTypeId)
-                .HasConstraintName("FK__MedicalIm__Image__7B264821");
-
-            entity.HasOne(d => d.Patient).WithMany(p => p.MedicalImageOrderPatients)
-                .HasForeignKey(d => d.PatientId)
-                .HasConstraintName("FK__MedicalIm__Patie__793DFFAF");
-        });
-
-        modelBuilder.Entity<MedicalImageType>(entity =>
-        {
-            entity.HasKey(e => e.ImageTypeId).HasName("PK__MedicalI__B9E9EB962639A8CE");
-
-            entity.Property(e => e.ImageTypeId).HasColumnName("ImageTypeID");
-            entity.Property(e => e.ImageTypeName).HasMaxLength(50);
-        });
-
         modelBuilder.Entity<Notification>(entity =>
         {
             entity.HasKey(e => e.NotificationId).HasName("PK__Notifica__20CF2E324901F660");
@@ -391,6 +318,27 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.RewardId).HasColumnName("RewardID");
             entity.Property(e => e.Description).HasMaxLength(255);
             entity.Property(e => e.RewardName).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<RewardClaim>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__RewardCl__3214EC0795B3EAB6");
+
+            entity.ToTable("RewardClaim");
+
+            entity.Property(e => e.ClaimedDate).HasColumnType("datetime");
+            entity.Property(e => e.CollectedDate).HasColumnType("datetime");
+            entity.Property(e => e.EmailSentDate).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Reward).WithMany(p => p.RewardClaims)
+                .HasForeignKey(d => d.RewardId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__RewardCla__Rewar__2334397B");
+
+            entity.HasOne(d => d.User).WithMany(p => p.RewardClaims)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__RewardCla__UserI__22401542");
         });
 
         modelBuilder.Entity<Service>(entity =>

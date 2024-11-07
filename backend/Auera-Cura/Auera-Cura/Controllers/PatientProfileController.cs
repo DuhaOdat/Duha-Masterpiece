@@ -157,14 +157,14 @@ namespace Auera_Cura.Controllers
                 return NotFound(new { message = "Patient not found" });
             }
 
-            // التحقق إذا كان لدى المريض طلبات فحص مختبر أو صور طبية أو مواعيد
+            // التحقق إذا كان لدى المريض طلبات فحص مختبر  أو مواعيد
             var hasLabTestOrders = await _db.LabTestOrders.AnyAsync(l => l.PatientUserId == patient.UserId);
-            var hasMedicalImageOrders = await _db.MedicalImageOrders.AnyAsync(m => m.PatientId == patient.UserId);
+           
             var hasAppointments = await _db.Appointments.AnyAsync(a => a.PatientId == patient.PatientId);
 
-            if (hasLabTestOrders || hasMedicalImageOrders || hasAppointments)
+            if (hasLabTestOrders  || hasAppointments)
             {
-                return BadRequest(new { message = "Cannot delete patient. Patient has related lab tests, medical images, or appointments." });
+                return BadRequest(new { message = "Cannot delete patient. Patient has related lab tests, or appointments." });
             }
 
             // إذا لم يكن لديه طلبات، احذف المريض

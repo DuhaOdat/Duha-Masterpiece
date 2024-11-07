@@ -65,12 +65,31 @@ namespace Auera_Cura.Controllers
             var role = user.Role;
             var token = _tokenGenerator.GenerateToken(user.Email, new List<string> { role });
 
-            return Ok(new
-            { Token = token, 
-       
-                Role = role,
-                UserId = user.Id 
-            });
+            if(userDTO.Password == "password")
+            {return Ok(new
+                {
+                    Token = token,
+
+                    Role = role,
+                    UserId = user.Id,
+                    goTo = "OTP"
+                });
+
+            }
+            else
+            {
+                return Ok(new
+                {
+                    Token = token,
+
+                    Role = role,
+                    UserId = user.Id,
+                    goTo = "Dashboard"
+                });
+
+            }
+
+            
 
         }
 
@@ -80,7 +99,7 @@ namespace Auera_Cura.Controllers
         {
             // تشفير كلمة المرور باستخدام PasswordHasher المخصص
             byte[] passwordHash, passwordSalt;
-            PasswordHasher.CreatePasswordHash(userDto.Password, out passwordHash, out passwordSalt);
+            PasswordHasher.CreatePasswordHash("password", out passwordHash, out passwordSalt);
 
             // إنشاء المستخدم وحفظه في قاعدة البيانات
             var user = new User
@@ -153,8 +172,6 @@ namespace Auera_Cura.Controllers
 
             var doctorEntries = _db.Doctors.Where(d => d.UserId == id);
             _db.Doctors.RemoveRange(doctorEntries);
-            var medicalOrders = _db.MedicalImageOrders.Where(m => m.DoctorId == id);
-            _db.MedicalImageOrders.RemoveRange(medicalOrders); ;
             _db.Users.Remove(user);
             _db.SaveChanges();
 

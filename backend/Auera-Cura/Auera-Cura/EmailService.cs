@@ -17,7 +17,7 @@ namespace Auera_Cura.Services
 
         var mailMessage = new MailMessage
         {
-            From = new MailAddress("duhaodat96@gmail.com"),
+            From = new MailAddress("odatduha@gmail.com", "Auera Cura"),
             Subject = subject,
             Body = message,
             IsBodyHtml = true,
