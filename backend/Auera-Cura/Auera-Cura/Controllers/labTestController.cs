@@ -657,5 +657,32 @@ namespace Auera_Cura.Controllers
             return Ok(result);
         }
 
+
+        [HttpPost("SetLabTestOrderInProgress/{orderId}")]
+        public async Task<IActionResult> SetLabTestOrderInProgress(int orderId)
+        {
+            // Find the order by ID
+            var labTestOrder = await _db.LabTestOrders.FindAsync(orderId);
+
+            // Check if the order exists
+            if (labTestOrder == null)
+            {
+                return NotFound("Lab test order not found.");
+            }
+
+            // Allow setting to "In Progress" only if the current status is "Pending"
+            if (labTestOrder.Status != "Pending")
+            {
+                return BadRequest("Only pending orders can be set to In Progress.");
+            }
+
+            // Update the status to "In Progress"
+            labTestOrder.Status = "In Progress";
+            await _db.SaveChangesAsync();
+
+            return Ok(new { message = "Lab test order status set to In Progress." });
+        }
+
+
     }
 }

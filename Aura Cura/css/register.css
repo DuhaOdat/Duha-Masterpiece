@@ -1,0 +1,22 @@
+/* Ensure extra padding for eye icon space in input fields */
+.form-control {
+    padding-right: 40px;
+}
+
+/* Position the eye icon */
+.position-relative span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Feedback text alignment */
+.form-text {
+    margin-top: 5px;
+    color: #6c757d; /* Optional: lighter color for feedback text */
+}
+
+
+

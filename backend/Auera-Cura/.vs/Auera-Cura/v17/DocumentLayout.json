@@ -3,6 +3,42 @@
   "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\doctorschedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\doctorschedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\dto\\doctorscheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\dto\\doctorscheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\patientprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\patientprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\dto\\appointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\dto\\appointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\labtestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\labtestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\doctorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\doctorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\blooddonationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\blooddonationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,10 +55,6 @@
       "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\dto\\rewardclaimrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\models\\patientpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\models\\patientpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\contactuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\contactuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\labtestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|solutionrelative:auera-cura\\controllers\\labtestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7470E27D-164B-4FA0-AE89-4233F7AD7E5D}|Auera-Cura\\Auera-Cura.csproj|c:\\users\\orange\\desktop\\my masterpiease\\duha-masterpiece\\backend\\auera-cura\\auera-cura\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -79,19 +107,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\EmailService.cs",
-              "RelativeDocumentMoniker": "Auera-Cura\\EmailService.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\EmailService.cs",
-              "RelativeToolTip": "Auera-Cura\\EmailService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAiwA0AAABHAAAAAAAAAA==",
+              "Title": "DoctorScheduleDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\DoctorScheduleDTO.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\DTO\\DoctorScheduleDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\DoctorScheduleDTO.cs",
+              "RelativeToolTip": "Auera-Cura\\DTO\\DoctorScheduleDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T14:02:15.885Z",
+              "WhenOpened": "2024-11-16T01:33:26.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DoctorschedulesController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\DoctorschedulesController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\DoctorschedulesController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\DoctorschedulesController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\DoctorschedulesController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAQwGoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T01:26:53.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\Appointment.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\Appointment.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\Appointment.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T00:36:50.978Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "AppointmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\AppointmentsController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\AppointmentsController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\AppointmentsController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\AppointmentsController.cs",
+              "ViewState": "AgIAAFoBAAAAAAAAAAAIwGgBAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T23:18:50.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "SendEmailRequest.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\SendEmailRequest.cs",
               "RelativeDocumentMoniker": "Auera-Cura\\DTO\\SendEmailRequest.cs",
@@ -99,12 +166,11 @@
               "RelativeToolTip": "Auera-Cura\\DTO\\SendEmailRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAcwAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T13:56:29.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-06T13:56:29.521Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "RewardClaimRequest.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\RewardClaimRequest.cs",
               "RelativeDocumentMoniker": "Auera-Cura\\DTO\\RewardClaimRequest.cs",
@@ -112,12 +178,11 @@
               "RelativeToolTip": "Auera-Cura\\DTO\\RewardClaimRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T23:13:58.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-05T23:13:58.516Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "bloodDonationController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\bloodDonationController.cs",
               "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\bloodDonationController.cs",
@@ -125,44 +190,17 @@
               "RelativeToolTip": "Auera-Cura\\Controllers\\bloodDonationController.cs",
               "ViewState": "AgIAAJ0AAAAAAAAAAAAiwLEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T23:13:14.672Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-05T23:13:14.672Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ContactUsController.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\ContactUsController.cs",
-              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\ContactUsController.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\ContactUsController.cs",
-              "RelativeToolTip": "Auera-Cura\\Controllers\\ContactUsController.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAiwG0AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T19:00:12.666Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "NotificationsController.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\NotificationsController.cs",
-              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\NotificationsController.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\NotificationsController.cs",
-              "RelativeToolTip": "Auera-Cura\\Controllers\\NotificationsController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAACoAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T20:24:38.711Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "MyDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\MyDbContext.cs",
               "RelativeDocumentMoniker": "Auera-Cura\\Models\\MyDbContext.cs",
               "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\MyDbContext.cs",
               "RelativeToolTip": "Auera-Cura\\Models\\MyDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T18:41:21.738Z",
               "EditorCaption": ""
@@ -170,25 +208,63 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "PatientPoint.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\PatientPoint.cs",
-              "RelativeDocumentMoniker": "Auera-Cura\\Models\\PatientPoint.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\PatientPoint.cs",
-              "RelativeToolTip": "Auera-Cura\\Models\\PatientPoint.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
+              "Title": "PatientProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\PatientProfile.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\PatientProfile.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\PatientProfile.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\PatientProfile.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA9wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T23:29:09.904Z",
+              "WhenOpened": "2024-11-16T01:05:11.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppointmentDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\AppointmentDTO.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\DTO\\AppointmentDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\DTO\\AppointmentDTO.cs",
+              "RelativeToolTip": "Auera-Cura\\DTO\\AppointmentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T23:49:04.174Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "DoctorsController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\DoctorsController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\DoctorsController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\DoctorsController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\DoctorsController.cs",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAYwJcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-09T17:46:05.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ContactUsController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\ContactUsController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\ContactUsController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\ContactUsController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\ContactUsController.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAiwG0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T19:00:12.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "labTestController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\labTestController.cs",
               "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\labTestController.cs",
               "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\labTestController.cs",
               "RelativeToolTip": "Auera-Cura\\Controllers\\labTestController.cs",
-              "ViewState": "AgIAAC4BAAAAAAAAAAA2wFEBAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAJgCAAAAAAAAAAAYwKwCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T20:01:09.883Z",
               "EditorCaption": ""
@@ -196,6 +272,42 @@
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\EmailService.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\EmailService.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\EmailService.cs",
+              "RelativeToolTip": "Auera-Cura\\EmailService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwA0AAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T14:02:15.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "NotificationsController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\NotificationsController.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\NotificationsController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\NotificationsController.cs",
+              "RelativeToolTip": "Auera-Cura\\Controllers\\NotificationsController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAACoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T20:24:38.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PatientPoint.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\PatientPoint.cs",
+              "RelativeDocumentMoniker": "Auera-Cura\\Models\\PatientPoint.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\PatientPoint.cs",
+              "RelativeToolTip": "Auera-Cura\\Models\\PatientPoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T23:29:09.904Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "Notification.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Models\\Notification.cs",
               "RelativeDocumentMoniker": "Auera-Cura\\Models\\Notification.cs",
@@ -203,12 +315,11 @@
               "RelativeToolTip": "Auera-Cura\\Models\\Notification.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAowBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T19:58:39.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T19:58:39.898Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "PatientProfileController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\PatientProfileController.cs",
               "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\PatientProfileController.cs",
@@ -216,12 +327,11 @@
               "RelativeToolTip": "Auera-Cura\\Controllers\\PatientProfileController.cs",
               "ViewState": "AgIAAKoAAAAAAAAAAAAkwKYAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T18:40:20.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T18:40:20.733Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\UsersController.cs",
@@ -229,12 +339,11 @@
               "RelativeToolTip": "Auera-Cura\\Controllers\\UsersController.cs",
               "ViewState": "AgIAAJYAAAAAAAAAAAAgwK0AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T18:39:46.173Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T18:39:46.173Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 19,
               "Title": "DepartmentsController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\my masterpiease\\Duha-Masterpiece\\backend\\Auera-Cura\\Auera-Cura\\Controllers\\DepartmentsController.cs",
               "RelativeDocumentMoniker": "Auera-Cura\\Controllers\\DepartmentsController.cs",
@@ -242,8 +351,7 @@
               "RelativeToolTip": "Auera-Cura\\Controllers\\DepartmentsController.cs",
               "ViewState": "AgIAAPQAAAAAAAAAAAAkwO4AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T18:38:42.412Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T18:38:42.412Z"
             }
           ]
         }

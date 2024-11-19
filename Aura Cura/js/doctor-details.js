@@ -15,6 +15,7 @@ async function loadDoctorDetails(doctorId) {
             throw new Error("Failed to fetch doctor details");
         }
         const doctor = await response.json();
+        console.log(doctor);
         displayDoctorDetails(doctor);
     } catch (error) {
         console.error("Error fetching doctor details:", error);
@@ -38,7 +39,8 @@ function displayDoctorDetails(doctor) {
 
     // Display biography, specialties, education, and working hours
     document.getElementById("doctor-biography").textContent = doctor.biography;
-    displaySpecialties(doctor.specialty);
+    displaySpecialties(doctor.departmentName);
+    displayDepartment(doctor.specialty);
     displayEducation(doctor.education);
     displayWorkingHours(doctor.workingHours);
 }
@@ -65,6 +67,15 @@ function displayAvailabilityStatus(status) {
     availabilityElement.textContent = status;
 }
 
+
+
+// Function to display Department Name
+function displayDepartment(departmentName) {
+    const DepartmentNameContainer = document.getElementById("doctor-department");
+    DepartmentNameContainer.innerHTML = departmentName
+        ? `<li class="list-group-item">${departmentName}</li>` 
+        : `<li class="list-group-item">No Department available</li>`;
+}
 // Function to display specialties
 function displaySpecialties(specialty) {
     const specialtiesContainer = document.getElementById("doctor-specialties");

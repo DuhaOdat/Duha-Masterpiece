@@ -12,6 +12,7 @@ async function fetchDoctors() {
 
         // Parse the response data as JSON
         const doctors = await response.json();
+        console.log('Doctor API Response:', doctors);
 
         // Select the table body where you want to display the data
         const doctorList = document.getElementById('doctor-list');
@@ -29,7 +30,7 @@ async function fetchDoctors() {
                   <td>${doctor.phone}</td>
                   <td>${doctor.email}</td>
                   <td>${doctor.departmentName}</td>
-                  <td>${doctor.isActive ? 'Active' : 'Inactive'}</td>
+                  <td>${doctor.availabilityStatus}</td>
                   <td>
                       <button class="btn btn-info" onclick="viewSchedule(${doctor.doctorId})">View Schedule</button>
                   </td>
@@ -144,9 +145,13 @@ async function fetchDoctorDetails(doctorId) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 // Function to open the update modal and pre-fill it with the doctor's current data
 function openUpdateModal(doctorId) {
+    
     fetchDoctorDetailsForUpdate(doctorId);
+
+    fetchDepartments(); // Fetch the departments for dropdown
 }
 
 // Fetch current doctor details for pre-filling the form
@@ -159,24 +164,68 @@ async function fetchDoctorDetailsForUpdate(doctorId) {
         }
 
         const doctor = await response.json();
-        console.log(doctor);
 
-        // Populate the update form with the current details
+        // تعبئة الحقول بالقيم الموجودة للطبيب
         document.getElementById('update-doctorId').value = doctor.doctorId;
         document.getElementById('update-isHead').value = doctor.isHead ? 'true' : 'false';
-        document.getElementById('update-specialty').value = doctor.specialty;
-        document.getElementById('update-biography').value = doctor.biography;
-        document.getElementById('update-phone').value = doctor.phone;
-        document.getElementById('update-rating').value = doctor.rating;
-        document.getElementById('update-experience').value = doctor.experienceYears;
-        document.getElementById('update-availability').value = doctor.availabilityStatus;
-        document.getElementById('update-education').value = doctor.education;
-        document.getElementById('update-department').value = doctor.departmentId;
+        document.getElementById('update-specialty').value = doctor.specialty || '';
+        document.getElementById('update-biography').value = doctor.biography || '';
+        document.getElementById('update-phone').value = doctor.phone || '';
+        document.getElementById('update-rating').value = doctor.rating || '';
+        document.getElementById('update-experience').value = doctor.experienceYears || '';
+        document.getElementById('update-availability').value = doctor.availabilityStatus || '';
+        document.getElementById('update-education').value = doctor.education || '';
 
-        // Show the modal
+
+           // تعبئة القائمة المنسدلة للحالة (Availability Status)
+           const availabilityDropdown = document.getElementById('update-availability');
+           availabilityDropdown.value = doctor.availabilityStatus || '';
+        // تعبئة القائمة المنسدلة للقسم
+        await fetchDepartments(doctor.departmentId);
+
+        // عرض الصورة الحالية
+        const imagePath = doctor.image
+            ? `../../../../backend/Auera-Cura/Auera-Cura/Uploads/${doctor.image}`
+            : 'path/to/placeholder/image.png';
+        document.getElementById('update-image-preview').src = imagePath;
+
+        // عرض المودال
         $('#doctorUpdateModal').modal('show');
     } catch (error) {
         console.error('Error fetching doctor details for update:', error);
+    }
+}
+
+
+// Fetch departments for the dropdown list
+async function fetchDepartments() {
+    try {
+        const response = await fetch('https://localhost:44396/api/Departments/allDepartments');
+        if (!response.ok) {
+            throw new Error('Failed to fetch departments');
+        }
+
+        const departments = await response.json();
+        const dropdown = document.getElementById('update-department');
+
+        // Clear existing options
+        dropdown.innerHTML = '';
+
+        // Add default empty option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = '-- Select Department --';
+        dropdown.appendChild(defaultOption);
+
+        // Populate dropdown with departments
+        departments.forEach(department => {
+            const option = document.createElement('option');
+            option.value = department.departmentId;
+            option.textContent = department.departmentName;
+            dropdown.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error fetching departments:', error);
     }
 }
 
@@ -186,17 +235,27 @@ document.getElementById('doctorUpdateForm').addEventListener('submit', async fun
 
     const doctorId = document.getElementById('update-doctorId').value;
 
-    // Create FormData to send the form data and image
+    // Create FormData to send only filled data
     const formData = new FormData();
-    formData.append('isHead', document.getElementById('update-isHead').value);
-    formData.append('specialty', document.getElementById('update-specialty').value);
-    formData.append('biography', document.getElementById('update-biography').value);
-    formData.append('phone', document.getElementById('update-phone').value);
-    formData.append('rating', document.getElementById('update-rating').value);
-    formData.append('experienceYears', document.getElementById('update-experience').value);
-    formData.append('availabilityStatus', document.getElementById('update-availability').value);
-    formData.append('education', document.getElementById('update-education').value);
-    formData.append('departmentId', document.getElementById('update-department').value);
+
+    const fields = [
+        { id: 'update-isHead', key: 'isHead' },
+        { id: 'update-specialty', key: 'specialty' },
+        { id: 'update-biography', key: 'biography' },
+        { id: 'update-phone', key: 'phone' },
+        { id: 'update-rating', key: 'rating' },
+        { id: 'update-experience', key: 'experienceYears' },
+        { id: 'update-availability', key: 'availabilityStatus' },
+        { id: 'update-education', key: 'education' },
+        { id: 'update-department', key: 'departmentId' },
+    ];
+
+    fields.forEach(field => {
+        const value = document.getElementById(field.id).value;
+        if (value) {
+            formData.append(field.key, value);
+        }
+    });
 
     // Check if a new image is selected
     const imageFile = document.getElementById('update-image').files[0];
@@ -224,6 +283,10 @@ document.getElementById('doctorUpdateForm').addEventListener('submit', async fun
         alert('Error updating doctor');
     }
 });
+
+
+
+
 // Function to fetch and display the schedules of a specific doctor
 async function viewSchedule(doctorId) {
     try {
@@ -234,10 +297,15 @@ async function viewSchedule(doctorId) {
         }
 
         const schedules = await response.json();
-        console.log(schedules); // Check the fetched schedules in the console
+
+        // Check if there are no schedules
+        if (!schedules || schedules.length === 0) {
+            alert('No schedules have been added for this doctor yet.'); // Custom message
+            return; // Exit the function
+        }
 
         // Select the table body or the modal body where you want to display the schedules
-        const scheduleList = document.getElementById('schedule-list'); // Adjust this to your actual HTML structure
+        const scheduleList = document.getElementById('schedule-list');
 
         // Clear any existing schedule data
         scheduleList.innerHTML = '';
@@ -257,7 +325,7 @@ async function viewSchedule(doctorId) {
         // Show the modal (using Bootstrap)
         $('#doctorScheduleModal').modal('show');
     } catch (error) {
-        console.error('Error fetching schedules:there is no schedule', error);
-        alert('Error fetching schedules');
+        console.error('Error fetching schedules:', error);
+        alert('No schedules have been added for this doctor yet.'); // Custom message for error
     }
 }

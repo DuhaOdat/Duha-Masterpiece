@@ -203,7 +203,13 @@ document.getElementById('submitAppointment').addEventListener('click', async () 
         });
 
         const result = await response.json();
-
+        console.log('Data being submitted:', {
+            DoctorID: doctorId,
+            PatientID: patientId,
+            AppointmentDate: appointmentDateTime,
+            Notes: notes
+        });
+        
         if (response.ok) {
             Swal.fire('Success', result.message || 'Appointment created successfully.', 'success');
 

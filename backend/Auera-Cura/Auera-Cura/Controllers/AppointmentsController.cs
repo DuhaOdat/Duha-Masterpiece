@@ -216,21 +216,22 @@ namespace Auera_Cura.Controllers
             return Ok(appointments);
         }
 
+
         [HttpGet("GetAllDoctorAppointmentsBydoctorId/{doctorId}")]
         public async Task<IActionResult> GetAllDoctorAppointmentsBydoctorId(int doctorId)
         {
-            
+
             var doctor = await _db.Doctors.Include(d => d.User).FirstOrDefaultAsync(d => d.DoctorId == doctorId);
             if (doctor == null)
             {
                 return NotFound("Doctor not found.");
             }
 
-           
+
             var appointments = await _db.Appointments
                 .Include(a => a.Patient)
-                .ThenInclude(p => p.User)  
-                .Where(a => a.DoctorId == doctorId) 
+                .ThenInclude(p => p.User)
+                .Where(a => a.DoctorId == doctorId)
                 .Select(a => new
                 {
                     a.AppointmentId,

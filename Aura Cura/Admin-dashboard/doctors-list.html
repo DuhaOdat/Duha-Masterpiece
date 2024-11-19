@@ -428,23 +428,32 @@
                   </div>
 
                   <div class="mb-3">
-                      <label for="update-availability" class="form-label">Availability Status</label>
-                      <input type="text" id="update-availability" class="form-control">
-                  </div>
+                    <label for="update-availability" class="form-label">Availability Status</label>
+                    <select id="update-availability" class="form-control">
+                        <option value="">-- Select Status --</option>
+                        <option value="Available">Available</option>
+                        <option value="Not Available">Not Available</option>
+                    </select>
+                </div>
+                
 
                   <div class="mb-3">
                       <label for="update-education" class="form-label">Education</label>
                       <input type="text" id="update-education" class="form-control">
                   </div>
 
-                  <div class="mb-3">
+                    <!-- هنا تم التعديل ليصبح حقل القسم قائمة منسدلة -->
+                    <div class="mb-3">
                       <label for="update-department" class="form-label">Department</label>
-                      <input type="text" id="update-department" class="form-control">
+                      <select id="update-department" class="form-control">
+                          <!-- الخيارات سيتم تعبئتها من خلال JavaScript -->
+                      </select>
                   </div>
 
                   <div class="mb-3">
                       <label for="update-image" class="form-label">Upload Image</label>
                       <input type="file" id="update-image" class="form-control">
+                      <img id="update-image-preview" src="" alt="Current Image" style="width: 100px; height: auto; margin-top: 10px;">
                   </div>
               </div>
 

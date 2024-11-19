@@ -1,8 +1,11 @@
+
+
+
 // Function to validate the time selection
 function validateTimeSelection(startTime, endTime) {
     const start = new Date(`1970-01-01T${startTime}:00`);
     const end = new Date(`1970-01-01T${endTime}:00`);
-    
+
     return end > start; // Ensure that end time is greater than start time
 }
 
@@ -12,7 +15,11 @@ async function addDoctorSchedule(event) {
 
     // Collect form data
     const doctorId = document.getElementById('doctorId').value;
-    const dayOfWeek = document.getElementById('dayOfWeek').value;
+
+    // Collect selected days from checkboxes
+    const selectedDays = Array.from(document.querySelectorAll('#dayOfWeek input[type="checkbox"]:checked'))
+        .map(checkbox => checkbox.value);
+
     const startTime = document.getElementById('startTime').value;
     const endTime = document.getElementById('endTime').value;
 
@@ -26,19 +33,8 @@ async function addDoctorSchedule(event) {
         return; // Prevent form submission if validation fails
     }
 
-    // Proceed with the API call to add the new schedule
-    const formData = new FormData();
-    formData.append('DoctorId', doctorId);
-    formData.append('DayOfWeek', dayOfWeek);
-    formData.append('StartTime', startTime);
-    formData.append('EndTime', endTime);
-
-    console.log('DoctorId:', doctorId);
-    console.log('DayOfWeek:', dayOfWeek);
-    console.log('StartTime:', startTime);
-    console.log('EndTime:', endTime);
-
-    if (!doctorId || !dayOfWeek || !startTime || !endTime) {
+    // Ensure all required fields are filled
+    if (!doctorId || selectedDays.length === 0 || !startTime || !endTime) {
         Swal.fire({
             icon: 'error',
             title: 'Missing Data',
@@ -47,27 +43,37 @@ async function addDoctorSchedule(event) {
         return; // Stop execution if validation fails
     }
 
+    // Proceed with the API call to add the new schedule
+    const formData = new FormData();
+    formData.append('DoctorId', doctorId);
+    selectedDays.forEach(day => formData.append('DaysOfWeek', day)); // Append each selected day to FormData
+    formData.append('StartTime', startTime);
+    formData.append('EndTime', endTime);
+
     try {
-        const addScheduleResponse = await fetch('https://localhost:44396/api/Doctorschedules/AddDoctorSchedule', {
+        const addScheduleResponse = await fetch('https://localhost:44396/api/Doctorschedules/AddDoctorSchedules', {
             method: 'POST',
             body: formData // Send form data
         });
 
+        const result = await addScheduleResponse.json();
+
         if (!addScheduleResponse.ok) {
-            const errorData = await addScheduleResponse.json(); // Handle cases when there's a valid JSON error response
             Swal.fire({
                 icon: 'error',
                 title: 'Schedule Conflict',
-                text: errorData.message || 'Failed to add doctor schedule due to conflict.',
+                text: result.message || 'Failed to add doctor schedule due to conflict.',
             });
+            console.error('Conflicts:', result.conflictingDays);
             return;
         }
 
         Swal.fire({
             icon: 'success',
             title: 'Success',
-            text: 'Doctor schedule added successfully!',
+            text: result.message,
         });
+        console.log('Added Days:', result.addedDays);
 
     } catch (error) {
         console.error('Error adding doctor schedule:', error);

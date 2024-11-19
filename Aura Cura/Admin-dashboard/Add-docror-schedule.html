@@ -344,45 +344,68 @@
             <h5>Add Doctor Schedule</h5>
         </div>
         <div class="card-body">
-            <form id="doctorScheduleForm">
-                <!-- Doctor Selection and Day of Week -->
-                <div class="form-row">
-                    <div class="form-col">
-                        <label for="doctorId" class="form-label">Doctor</label>
-                        <select class="form-control" id="doctorId" name="doctorId">
-                            <option value="" disabled selected>Select Doctor</option>
-                            <!-- Populate options dynamically with doctors -->
-                        </select>
-                    </div>
-                    <div class="form-col">
-                        <label for="dayOfWeek" class="form-label">Day of Week</label>
-                        <select class="form-control" id="dayOfWeek" name="dayOfWeek">
-                            <option value="Sunday">Sunday</option>
-                            <option value="Monday">Monday</option>
-                            <option value="Tuesday">Tuesday</option>
-                            <option value="Wednesday">Wednesday</option>
-                            <option value="Thursday">Thursday</option>
-                        </select>
+          <form id="doctorScheduleForm">
+            <!-- Doctor Selection -->
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="doctorId" class="form-label">Doctor</label>
+                    <select class="form-control" id="doctorId" name="doctorId">
+                        <option value="" disabled selected>Select Doctor</option>
+                        <!-- Populate options dynamically with doctors -->
+                    </select>
+                </div>
+            </div>
+        
+            <!-- Day of Week Selection (Checkboxes) -->
+            <div class="form-row">
+                <div class="form-col">
+                    <label class="form-label">Days of Week</label>
+                    <div id="dayOfWeek" class="checkbox-group">
+                        <div>
+                            <input type="checkbox" id="Sunday" name="DaysOfWeek" value="Sunday">
+                            <label for="Sunday">Sunday</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Monday" name="DaysOfWeek" value="Monday">
+                            <label for="Monday">Monday</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Tuesday" name="DaysOfWeek" value="Tuesday">
+                            <label for="Tuesday">Tuesday</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Wednesday" name="DaysOfWeek" value="Wednesday">
+                            <label for="Wednesday">Wednesday</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="Thursday" name="DaysOfWeek" value="Thursday">
+                            <label for="Thursday">Thursday</label>
+                        </div>
+                       
+                      
                     </div>
                 </div>
-
-                <!-- Start Time and End Time with min and max constraints -->
-                <div class="form-row">
-                    <div class="form-col">
-                        <label for="startTime" class="form-label">Start Time</label>
-                        <input type="time" name="startTime" class="form-control" id="startTime" placeholder="Enter Start Time" min="08:00" max="18:00">
-                    </div>
-                    <div class="form-col">
-                        <label for="endTime" class="form-label">End Time</label>
-                        <input type="time" name="endTime" class="form-control" id="endTime" placeholder="Enter End Time" min="08:00" max="18:00">
-                    </div>
+            </div>
+        
+            <!-- Start Time and End Time -->
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="startTime" class="form-label">Start Time</label>
+                    <input type="time" name="startTime" class="form-control" id="startTime" placeholder="Enter Start Time" min="08:00" max="18:00">
                 </div>
-
-                <!-- Submit Button -->
-                <div class="submit-btn">
-                    <button type="submit" class="btn btn-primary">Add Schedule</button>
+                <div class="form-col">
+                    <label for="endTime" class="form-label">End Time</label>
+                    <input type="time" name="endTime" class="form-control" id="endTime" placeholder="Enter End Time" min="08:00" max="18:00">
                 </div>
-            </form>
+            </div>
+        
+            <!-- Submit Button -->
+            <div class="submit-btn">
+                <button type="submit" class="btn btn-primary">Add Schedule</button>
+            </div>
+        </form>
+        
+        
         </div>
     </div>
 </div>

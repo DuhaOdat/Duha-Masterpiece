@@ -76,7 +76,7 @@ public partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.Patient).WithMany(p => p.Appointments)
                 .HasForeignKey(d => d.PatientId)
-                .HasConstraintName("FK__Appointme__Patie__0697FACD");
+                .HasConstraintName("FK_Appointments_Users_PatientID");
         });
 
         modelBuilder.Entity<BloodDonationRequest>(entity =>

@@ -150,6 +150,11 @@ namespace Auera_Cura.Controllers
                     d.ExperienceYears,
                     d.Education,
                     d.AvailabilityStatus,
+                    // Fetching the department name from the Departments table
+                    DepartmentName = _db.Departments
+                                .Where(dep => dep.DepartmentId == d.DepartmentId)
+                                .Select(dep => dep.DepartmentName)
+                                .FirstOrDefault(),
                     FirstName = _db.Users.Where(u => u.Id == d.UserId)
                                          .Select(u => u.FirstName)
                                          .FirstOrDefault(),
@@ -230,6 +235,45 @@ namespace Auera_Cura.Controllers
 
             // Return a success response
             return Ok(new { message = "Doctor and associated user deleted successfully" });
+        }
+
+        [HttpGet("filter/doctors")]
+        public async Task<IActionResult> GetDoctors(string doctorName = null, string department = null)
+        {
+            var doctors = _db.Doctors.AsQueryable();
+
+            // الحالة الأولى: إذا تم تحديد القسم فقط
+            if (!string.IsNullOrEmpty(department) && string.IsNullOrEmpty(doctorName))
+            {
+                doctors = doctors.Where(d => d.Department.DepartmentName == department);
+
+            }
+
+            // الحالة الثانية: إذا تم تحديد اسم الدكتور فقط
+            else if (!string.IsNullOrEmpty(doctorName) && string.IsNullOrEmpty(department))
+            {
+                doctors = doctors.Where(d => (d.User.FirstName + " " + d.User.LastName).Contains(doctorName));
+            }
+
+
+            // الحالة الثالثة: إذا تم تحديد القسم واسم الدكتور معاً
+            else if (!string.IsNullOrEmpty(department) && !string.IsNullOrEmpty(doctorName))
+            {
+                doctors = doctors.Where(d => d.Department.DepartmentName == department && (d.User.FirstName + " " + d.User.LastName).Contains(doctorName));
+            }
+
+            var result = await doctors.ToListAsync();
+            return Ok(result);
+        }
+
+        [HttpGet("api/departments")]
+        public async Task<IActionResult> GetDepartments()
+        {
+            var departments = await _db.Departments
+                .Select(d => new { d.DepartmentId, d.DepartmentName })
+                .ToListAsync();
+
+            return Ok(departments);
         }
 
 

@@ -1009,6 +1009,16 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.DoctorsController",
+    "Method": "GetDepartments",
+    "RelativePath": "api/Doctors/api/departments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorsController",
     "Method": "DeleteDoctor",
     "RelativePath": "api/Doctors/DeleteDoctor/{id}",
     "HttpMethod": "DELETE",
@@ -1091,6 +1101,27 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.DoctorsController",
+    "Method": "GetDoctors",
+    "RelativePath": "api/Doctors/filter/doctors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "department",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorsController",
     "Method": "GetDoctorByDepartmentId",
     "RelativePath": "api/Doctors/GetDoctorByDepartmentId/{departmentId}",
     "HttpMethod": "GET",
@@ -1139,15 +1170,20 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.DoctorschedulesController",
-    "Method": "AddDoctorSchedule",
-    "RelativePath": "api/Doctorschedules/AddDoctorSchedule",
+    "Method": "AddDoctorSchedules",
+    "RelativePath": "api/Doctorschedules/AddDoctorSchedules",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "DayOfWeek",
-        "Type": "System.String",
+        "Name": "DoctorId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "DaysOfWeek",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       },
       {
@@ -1158,11 +1194,6 @@
       {
         "Name": "EndTime",
         "Type": "System.TimeOnly",
-        "IsRequired": false
-      },
-      {
-        "Name": "DoctorId",
-        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -1529,6 +1560,22 @@
     "Parameters": [
       {
         "Name": "patientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.labTestController",
+    "Method": "SetLabTestOrderInProgress",
+    "RelativePath": "api/labTest/SetLabTestOrderInProgress/{orderId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
         "Type": "System.Int32",
         "IsRequired": true
       }

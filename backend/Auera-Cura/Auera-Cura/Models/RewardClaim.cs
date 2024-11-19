@@ -11,7 +11,7 @@ public partial class RewardClaim
 
     public int RewardId { get; set; }
 
-    public DateTime ClaimedDate { get; set; }
+    public DateTime? ClaimedDate { get; set; }
 
     public bool IsClaimed { get; set; }
 

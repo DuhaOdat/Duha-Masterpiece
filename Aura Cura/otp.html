@@ -32,6 +32,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/otp.css" rel="stylesheet">
 </head>
 
 <body>
@@ -90,11 +91,11 @@
         <div class="container pt-5">
             <div class="row g-5 pt-5">
                 <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight">Login</h1>
+                    <h1 class="display-4 text-white mb-4 animated slideInRight">Reset Password</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
                             <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">login</li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Reset Password</li>
                         </ol>
                     </nav>
                 </div>
@@ -126,103 +127,70 @@
     </div>
     <!-- Search Modal End -->
 
-
-    <section class="content-inner shop-account">
-        <!-- Product -->
+    <section id="reset-password-container" class="content-inner shop-account">
+        <!-- Introductory Text -->
+        <div id="central-wrapper">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h4>RESET PASSWORD</h4>
+            <p>To reset your password, please enter your Email and we'll send you an OTP to verify your account.
+                After your account is verified, you'll be able to reset your password.
+            </p>
+        </div>
+    
+        <!-- Form Container -->
         <div class="container">
-            <div style="text-align: center;">
-                <h4>RESET PASSWORD</h4>
-                <p>To reset your password, please enter your Email and we'll sent you an OTP to vertify your
-                    account.
-                    After your account is vertified, you'll be able to reset your password.
-                </p>
-            </div>
-
-
-            <div class="row">
-                <div class="col-lg-4 col-md-4 mb-2">
+            <div class="row justify-content-center">
+                <!-- Email Section -->
+                <div class="col-lg-12 mb-2" id="Reset-Request">
                     <div class="login-area">
-                        <div class="tab-content">
-
-                            <form id="Reset-Request" class="tab-pane active col-12" style="display: block;">
-                                <h4 class="text-secondary">Your Email</h4>
-                                <p class="font-weight-600">We will send you an email with an OTP to reset your
-                                    password.</p>
-                                    <br>
-                                <div class="mb-4">
-                                    <label class="label-title">E-MAIL *</label>
-                                    <input name="email" id="resetPasswordEmail" required class="form-control"
-                                        placeholder="Your Email" type="email">
-                                </div>
-                                <br>
-                                <div class="text-left">
-                                    <button type="button" id="form1btn" onclick="SendOTP()"
-                                        class="btn btn-primary btnhover me-2">Send OTP</button>
-                                </div>
-                            </form>
+                        <h4 class="text-secondary">Your Email</h4>
+                        <p>We will send you an email with an OTP to reset your password.</p>
+                        <div class="mb-4">
+                            <label class="label-title">E-MAIL *</label>
+                            <input name="email" id="resetPasswordEmail" required class="form-control"
+                                   placeholder="Your Email" type="email">
                         </div>
+                        <button type="button" onclick="SendOTP(); showSection('check-OTP')" 
+                                class="btn btn-primary btnhover">Send OTP</button>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 mb-2">
+    
+                <!-- OTP Section -->
+                <div class="col-lg-12 mb-2" id="check-OTP" style="display: none;">
                     <div class="login-area">
-                        <div class="tab-content nav">
-
-                            <form id="check-OTP" class="tab-pane active col-12">
-                                <h4 class="text-secondary">OTP</h4>
-                                <p class="font-weight-600">Enter the OTP in your email. <br> OTP will expire after 5 minutes.</p>
-                                <div id="ten-countdown"></div>
-                                <div class="mb-3">
-                                    <label class="label-title">OTP *</label>
-                                    <input name="otp" id="resetPasswordOTP" disabled required
-                                        class="form-control" placeholder="Your OTP" type="text">
-                                    
-                                    <a class="m-l5" onclick="SendOTP()" id="form2-1" style="display: none;"><i
-                                            class="fa-solid fa-repeat"></i> Re-send OTP</a>
-                                </div>
-                                <div class="text-left">
-                                    <button class="btn btn-outline-secondary btnhover m-r10" id="form2-2"
-                                        disabled onclick="goBack1()">Back</button>
-                                    <button type="button" disabled id="form2-3" onclick="checkOTP()"
-                                        class="btn btn-primary btnhover">Submit</button>
-                                </div>
-                            </form>
-
+                        <h4 class="text-secondary">OTP</h4>
+                        <p>Enter the OTP sent to your email. OTP will expire after 5 minutes.</p>
+                        <div class="mb-3">
+                            <label class="label-title">OTP *</label>
+                            <input name="otp" id="resetPasswordOTP" required class="form-control" placeholder="Your OTP" type="text">
                         </div>
+                        <button type="button" onclick="showSection('Reset-Request')" 
+                                class="btn btn-outline-secondary">Back</button>
+                        <button type="button" onclick="checkOTP(); showSection('new-password')" 
+                                class="btn btn-primary btnhover">Submit</button>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 mb-2">
+    
+                <!-- New Password Section -->
+                <div class="col-lg-12 mb-2" id="new-password" style="display: none;">
                     <div class="login-area">
-                        <div class="tab-content nav">
-
-                            <form id="new-password" class="tab-pane active  col-12">
-                                <h4 class="text-secondary">New PassWord</h4>
-                                <p class="font-weight-600">You can enter your new password.
-                                </p>
-                                <br><br>
-                                <div class="mb-3">
-                                    <label class="label-title">Password *</label>
-                                    <input name="newPassword" id="resetPasswordNewPWD" required=""
-                                        class="form-control" disabled placeholder="Your new password"
-                                        type="password">
-                                </div>
-                                <br>
-                                <div class="text-left">
-                                    <button id="form3-1" disabled
-                                        class="btn btn-outline-secondary btnhover m-r10" href="#check-OTP"
-                                        onclick="goBack2()">Back</button>
-                                    <button type="button" onclick="NewPWD()" disabled id="form3-2"
-                                        class="btn btn-primary btnhover" data-bs-toggle="tab">Reset
-                                        Password</button>
-                                </div>
-                            </form>
-
+                        <h4 class="text-secondary">New Password</h4>
+                        <p>You can enter your new password.</p>
+                        <div class="mb-3">
+                            <label class="label-title">Password *</label>
+                            <input name="newPassword" id="resetPasswordNewPWD" required class="form-control" 
+                                   placeholder="Your new password" type="password">
                         </div>
+                        <button type="button" onclick="showSection('check-OTP')" 
+                                class="btn btn-outline-secondary">Back</button>
+                        <button type="button" onclick="NewPWD()" class="btn btn-primary btnhover">Reset Password</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Product END -->
+        </div>
     </section>
+    
    
    
 
@@ -326,6 +294,15 @@
                 searchInput.focus();
             }
         });
+
+        function showSection(sectionId) {
+    document.getElementById("Reset-Request").style.display = "none";
+    document.getElementById("check-OTP").style.display = "none";
+    document.getElementById("new-password").style.display = "none";
+
+    document.getElementById(sectionId).style.display = "block";
+}
+
     </script>
 </body>
 

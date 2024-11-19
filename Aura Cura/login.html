@@ -151,17 +151,22 @@
                       />
                     </div>
                   
-                    <!-- Password Input -->
-                    <div class="mb-3">
-                      <input
-                        type="password"
-                        class="form-control"
-                        placeholder="Password"
-                        name="Password"
-                        id="password"
-                        required
-                      />
-                    </div>
+              <!-- Password Input -->
+<div class="mb-3" style="position: relative;">
+    <input
+        type="password"
+        class="form-control"
+        placeholder="Password"
+        name="Password"
+        id="password"
+        required
+        style="padding-right: 40px;" 
+    />
+    <span onclick="togglePassword()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+        <i id="eyeIcon" class="fas fa-eye-slash"></i>
+    </span>
+</div>
+
                   
                     <!-- Remember Me and Forgot Password -->
                     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -176,7 +181,7 @@
                           Remember Me
                         </label>
                       </div>
-                      <a href="#" class="text-secondary">Forgot Password?</a>
+                      <a href="otp.html" class="text-secondary">Forgot Password?</a>
                     </div>
                   
                     <!-- Submit Button -->
@@ -288,6 +293,24 @@
                 searchInput.focus();
             }
         });
+
+
+
+        function togglePassword() {
+    const passwordField = document.getElementById("password");
+    const eyeIcon = document.getElementById("eyeIcon");
+    
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    } else {
+        passwordField.type = "password";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    }
+}
+
     </script>
 </body>
 

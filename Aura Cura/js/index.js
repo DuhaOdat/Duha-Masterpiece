@@ -52,6 +52,47 @@ async function getAllDepartments()
 }
 
 }
+document.addEventListener('DOMContentLoaded', (event) => {
+    let doctorId = localStorage.getItem('selectedDoctorId');
+    if (doctorId) {
+        getDoctorDetails(doctorId);
+    }
+
+    let departmentId = localStorage.getItem("selectedDepartmentId");
+    if (departmentId) {
+        getDepartmentDetails(departmentId); 
+        getDoctorsByDepartmentId(departmentId); // Only call if departmentId exists
+    }
+});
+
+/******************************************************* */
+
+async function getDepartmentDetails(departmentId) 
+{
+    let url = `https://localhost:44396/api/Departments/GetDepartmentById/${departmentId}`;
+    try {
+        let response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch department details");
+        }
+
+        let data = await response.json();
+        document.getElementById("department-name2").textContent = `Doctors in ${data.departmentName} Department`;
+
+        // Update HTML with the fetched data
+        document.getElementById("department-image").src = `../backend/Auera-Cura/Auera-Cura/Uploads/${data.image}`;
+        document.getElementById("department-name").textContent = data.departmentName;
+        document.getElementById("department-description").textContent = data.departmentDescription;
+        document.getElementById("head-doctor").textContent = `Head: ${data.headDoctor}`;
+        document.getElementById("phone").textContent = `Phone: ${data.phone}`;
+        document.getElementById("rooms").textContent = `Number of Rooms: ${data.numberOfRooms}`;
+        document.getElementById("beds").textContent = `Number of Beds: ${data.numberOfBeds}`;
+
+    } catch (error) {
+        console.error("Error fetching department details:", error);
+    }
+}
 getAllDepartments();
 
 
@@ -88,7 +129,7 @@ async function getAllDoctors()
         <div class="col-md-3 wow fadeIn mb-4" data-wow-delay="0.1s">
                         <div class="team-item bg-white text-center rounded p-4 pt-0">
                             <img class="img-fluid rounded-circle p-4" src="../backend/Auera-Cura/Auera-Cura/Uploads/${doctor.image}" alt="${doctor.firstName}">
-                            <h5 class="mb-0">${doctor.firstName} ${doctor.lastName}</h5>
+                              <h5 class="mb-0">${doctor.fullName}</h5>
                             <small>${doctor.specialty}</small>
                             <div class="d-flex justify-content-center mt-3">
                                 <a onclick="storeDoctorId(${doctor.doctorId})"class="btn btn-link" href="doctor-details.html?id=${doctor.doctorId}">More Details</a>

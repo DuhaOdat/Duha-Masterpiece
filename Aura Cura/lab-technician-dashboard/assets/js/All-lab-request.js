@@ -2,8 +2,64 @@
 const apiEndpoint = 'https://localhost:44396/api/Technicians/GetAllLabTestOrders';
 
 // Function to fetch and display lab test orders in the table
+// async function displayLabTestOrders() {
+//     const tableBody = document.querySelector('#labTestTable tbody'); // Select the table body
+
+//     try {
+//         const response = await fetch(apiEndpoint, {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             }
+//         });
+
+//         if (!response.ok) {
+//             throw new Error(`Error: ${response.status}`);
+//         }
+
+//         const labOrders = await response.json();
+
+//         // Check if there are lab orders
+//         if (labOrders.length === 0) {
+//             tableBody.innerHTML = '<tr><td colspan="8">No lab orders found.</td></tr>';
+//         } else {
+//             // Clear any existing rows
+//             tableBody.innerHTML = '';
+
+//             // Loop through each lab order and add a row to the table
+//             labOrders.forEach((order, index) => {
+//                 const isCompleted = order.status === 'Completed';
+//                 const uploadButton = isCompleted
+//                     ? '<button class="btn btn-primary btn-sm" disabled>Upload Result</button>'
+//                     : `<button class="btn btn-primary btn-sm" onclick="openUploadModal(${order.orderId})">Upload Result</button>`;
+                
+//                 const viewButton = isCompleted 
+//                     ? `<button class="btn btn-secondary btn-sm" onclick="openViewResultModal(${order.orderId})">View Result</button>` 
+//                     : '';
+
+//                 // Use += to append each row's content to the table body
+//                 tableBody.innerHTML += `
+//                     <tr>
+//                         <td>${index + 1}</td>
+//                         <td>${order.orderId}</td>
+//                         <td>${order.patientName}</td>
+//                         <td>${order.testName}</td>
+//                         <td>${order.doctorName}</td>
+//                         <td>${new Date(order.orderDate).toLocaleDateString()}</td>
+//                         <td>${order.status}</td>
+//                         <td>${uploadButton} ${viewButton}</td>
+//                     </tr>
+//                 `;
+//             });
+//         }
+//     } catch (error) {
+//         console.error('Error fetching lab test orders:', error);
+//         tableBody.innerHTML = `<tr><td colspan="8">Error fetching lab test orders: ${error.message}</td></tr>`;
+//     }
+// }
+
 async function displayLabTestOrders() {
-    const tableBody = document.querySelector('#labTestTable tbody'); // Select the table body
+    const tableBody = document.querySelector('#labTestTable tbody');
 
     try {
         const response = await fetch(apiEndpoint, {
@@ -19,44 +75,51 @@ async function displayLabTestOrders() {
 
         const labOrders = await response.json();
 
-        // Check if there are lab orders
-        if (labOrders.length === 0) {
-            tableBody.innerHTML = '<tr><td colspan="8">No lab orders found.</td></tr>';
-        } else {
-            // Clear any existing rows
-            tableBody.innerHTML = '';
+        tableBody.innerHTML = labOrders.length === 0
+            ? '<tr><td colspan="8">No lab orders found.</td></tr>'
+            : '';
 
-            // Loop through each lab order and add a row to the table
-            labOrders.forEach((order, index) => {
-                const isCompleted = order.status === 'Completed';
-                const uploadButton = isCompleted
-                    ? '<button class="btn btn-primary btn-sm" disabled>Upload Result</button>'
-                    : `<button class="btn btn-primary btn-sm" onclick="openUploadModal(${order.orderId})">Upload Result</button>`;
-                
-                const viewButton = isCompleted 
-                    ? `<button class="btn btn-secondary btn-sm" onclick="openViewResultModal(${order.orderId})">View Result</button>` 
-                    : '';
+        labOrders.forEach((order, index) => {
+            const isCompleted = order.status === 'Completed';
+            const isPending = order.status === 'Pending';
 
-                // Use += to append each row's content to the table body
-                tableBody.innerHTML += `
-                    <tr>
-                        <td>${index + 1}</td>
-                        <td>${order.orderId}</td>
-                        <td>${order.patientName}</td>
-                        <td>${order.testName}</td>
-                        <td>${order.doctorName}</td>
-                        <td>${new Date(order.orderDate).toLocaleDateString()}</td>
-                        <td>${order.status}</td>
-                        <td>${uploadButton} ${viewButton}</td>
-                    </tr>
-                `;
-            });
-        }
+            const setInProgressButton = isPending 
+                ? `<button class="btn btn-warning btn-sm" onclick="setOrderInProgress(${order.orderId})">Set In Progress</button>`
+                : '';
+
+            const uploadButton = isCompleted
+                ? '<button class="btn btn-primary btn-sm" disabled>Upload Result</button>'
+                : `<button class="btn btn-primary btn-sm" onclick="openUploadModal(${order.orderId})">Upload Result</button>`;
+
+            const viewButton = isCompleted
+                ? `<button class="btn btn-secondary btn-sm" onclick="openViewResultModal(${order.orderId})">View Result</button>`
+                : '';
+
+            tableBody.innerHTML += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${order.orderId}</td>
+                    <td>${order.patientName}</td>
+                    <td>${order.testName}</td>
+                    <td>${order.doctorName}</td>
+                    <td>${new Date(order.orderDate).toLocaleDateString()}</td>
+                    <td>${order.status}</td>
+                    <td>
+                        ${setInProgressButton} 
+                        ${uploadButton} 
+                        ${viewButton}
+                    </td>
+                </tr>
+            `;
+        });
     } catch (error) {
         console.error('Error fetching lab test orders:', error);
         tableBody.innerHTML = `<tr><td colspan="8">Error fetching lab test orders: ${error.message}</td></tr>`;
     }
 }
+
+
+
 
 // Call the function when the page loads or when needed
 document.addEventListener('DOMContentLoaded', displayLabTestOrders);

@@ -1,0 +1,115 @@
+/* Main container styling to center content */
+#reset-password-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+
+/* Central wrapper to align content */
+#central-wrapper {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Style the container inside the central wrapper */
+#central-wrapper .container {
+    background-color: #ffffff;
+    padding: 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Adjust button width */
+#central-wrapper .btn-primary {
+    width: 100%;
+}
+
+/* Center each column within the container */
+#reset-password-container .container {
+    max-width: 600px; /* Limit the width of the form */
+    background-color: #ffffff;
+    padding: 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center; /* Center align all text */
+}
+
+/* Title styling */
+#reset-password-container h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1A73E8;
+    margin-bottom: 20px;
+}
+
+/* Spacing for form sections */
+#reset-password-container .row > div {
+    margin-bottom: 30px;
+}
+
+/* Label styling */
+#reset-password-container .label-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+}
+
+/* Input styling */
+#reset-password-container .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f7f9fc;
+    text-align: center; /* Center the input text */
+}
+
+/* Button styling */
+#reset-password-container .btn-primary, 
+#reset-password-container .btn-outline-secondary {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 5px; /* Space between buttons */
+    width: 100%; /* Make buttons full width */
+}
+
+#reset-password-container .btn-primary {
+    background-color: #1A73E8;
+    border: none;
+    color: white;
+}
+
+#reset-password-container .btn-outline-secondary {
+    border: 1px solid #1A73E8;
+    color: #1A73E8;
+    background-color: transparent;
+}
+
+#reset-password-container .btnhover:hover {
+    background-color: #0056b3;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #reset-password-container .container {
+        padding: 20px;
+    }
+    
+    #reset-password-container .btn-primary, 
+    #reset-password-container .btn-outline-secondary {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

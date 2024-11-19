@@ -100,3 +100,28 @@ getAllDoctors();
 function storeDoctorId(doctorId) {
     localStorage.setItem('selectedDoctorId', doctorId);
 }
+
+document.addEventListener("DOMContentLoaded", async function () {
+    const departmentSelect = document.querySelector('select');
+
+    try {
+        const response = await fetch('https://localhost:44396/api/Doctors/api/departments');
+        const departments = await response.json();
+
+        // Clear existing options
+        departmentSelect.innerHTML = '<option>Select Department</option>';
+
+        // Populate the select with departments from API
+        departments.forEach(department => {
+            const option = document.createElement('option');
+            option.value = department.departmentName; // استخدم name أو id حسب ما تحتاج
+            option.textContent = department.departmentName;
+            departmentSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Error fetching departments:", error);
+    }
+});
+
+
+

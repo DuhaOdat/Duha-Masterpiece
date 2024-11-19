@@ -1,6 +1,11 @@
 
 async function SendOTP() {
     const url = "https://localhost:44396/api/OTP/reset/request";
+  
+    if (document.getElementById("resetPasswordEmail").value === "") {
+        alert("Please enter your email address.");
+        return;
+    }
     const response = await fetch(url,
         {
             method: "POST",
@@ -140,7 +145,7 @@ async function NewPWD(event) {
         //     }
         // });
         localStorage.removeItem("OTP");
-        window.location.href = "shop-login.html";
+        window.location.href = "login.html";
         
     } else {
         resetWrong();
@@ -152,26 +157,26 @@ async function NewPWD(event) {
 
 
 
-async function goBack1() {
-    document.getElementById("resetPasswordOTP").setAttribute("disabled", true);
-    document.getElementById("form2-2").setAttribute("disabled", true);
-    document.getElementById("form2-1").style.display = "none";
-    document.getElementById("form2-3").setAttribute("disabled", true);
+// async function goBack1() {
+//     document.getElementById("resetPasswordOTP").setAttribute("disabled", true);
+//     document.getElementById("form2-2").setAttribute("disabled", true);
+//     document.getElementById("form2-1").style.display = "none";
+//     document.getElementById("form2-3").setAttribute("disabled", true);
 
-    document.getElementById("resetPasswordEmail").removeAttribute('disabled');
-    document.getElementById("form1btn").removeAttribute('disabled');
-}
+//     document.getElementById("resetPasswordEmail").removeAttribute('disabled');
+//     document.getElementById("form1btn").removeAttribute('disabled');
+// }
 
-async function goBack2() {
-    document.getElementById("resetPasswordOTP").removeAttribute('disabled');
-    document.getElementById("form2-1").style.display = "block";
-    document.getElementById("form2-2").removeAttribute('disabled');
-    document.getElementById("form2-3").removeAttribute('disabled');
+// async function goBack2() {
+//     document.getElementById("resetPasswordOTP").removeAttribute('disabled');
+//     document.getElementById("form2-1").style.display = "block";
+//     document.getElementById("form2-2").removeAttribute('disabled');
+//     document.getElementById("form2-3").removeAttribute('disabled');
 
-    document.getElementById("resetPasswordNewPWD").setAttribute("disabled", true);
-    document.getElementById("form3-1").setAttribute("disabled", true);
-    document.getElementById("form3-2").setAttribute("disabled", true);
-}
+//     document.getElementById("resetPasswordNewPWD").setAttribute("disabled", true);
+//     document.getElementById("form3-1").setAttribute("disabled", true);
+//     document.getElementById("form3-2").setAttribute("disabled", true);
+// }
 
 
 
