@@ -28,20 +28,31 @@ function toggleResults(type) {
 }
 
 // Function to dynamically load results into the page
+
 function loadResults(tests, type) {
     const resultsDiv = document.getElementById('resultsContent');
+
+    // Clear the results content before adding new results
+    resultsDiv.innerHTML = '';
+
+    // Check if the array is empty
+    if (tests.length === 0) {
+        const noResultsMessage = `
+            <div class="no-results-message">
+                <p>No ${type === 'pending' ? 'pending' : 'completed'} tests found for the selected date.</p>
+            </div>
+        `;
+        resultsDiv.innerHTML = noResultsMessage;
+        return; // Stop further processing
+    }
+
+    // Loop through tests and add cards
     tests.forEach(test => {
-        console.log(tests);
-
         const statusLabel = type === 'pending' ? `<span class="status-label pending">Pending</span>` : `<span class="status-label complete">Complete</span>`;
-      
         const completeDateInfo = type === 'complete' ? `<p class="order-date">Completed Date: ${test.completeDate}</p>` : '';
-
-        // Removed the View button and kept only the Download button
         const viewDownloadButtons = type === 'complete'
-        ? `<a class="btn btn-success" href="https://localhost:44396/api/labTest/DownloadLabResult/${test.orderId}" download>Download</a>`  // استخدام API لتحميل PDF
-        : '';
-    
+            ? `<a class="btn btn-success" href="https://localhost:44396/api/labTest/DownloadLabResult/${test.orderId}" download>Download</a>`
+            : '';
 
         const card = `
             <div class="col-md-6">
@@ -62,6 +73,7 @@ function loadResults(tests, type) {
         resultsDiv.innerHTML += card;
     });
 }
+
 
 // Fetch lab results from the API
 async function fetchLabResults() {
@@ -105,18 +117,47 @@ async function fetchLabResults() {
     }
 }
 
-// Search functionality (simple demo, can be expanded)
+// Search functionality to filter results by date range
 function searchResults() {
-    const fromDate = document.getElementById("fromDate").value;
-    const toDate = document.getElementById("toDate").value;
+    const searchDate = document.getElementById("searchDate").value;
 
-    // In a real scenario, you'd filter the test data based on the date range and refresh the results.
-    alert(`Searching tests from ${fromDate} to ${toDate}`);
+    if (!searchDate) {
+        alert("Please select a date.");
+        return;
+    }
+
+ 
+    const selectedDate = new Date(searchDate);
+
+   
+    const currentType = document.getElementById('pendingBtn').classList.contains('active') ? 'pending' : 'complete';
+
+    let filteredTests = [];
+    if (currentType === 'pending') {        filteredTests = pendingTests.filter(test => {
+            const orderDate = new Date(test.orderDate);
+            return orderDate.toDateString() === selectedDate.toDateString();
+        });
+    } else if (currentType === 'complete') {
+   
+        filteredTests = completeTests.filter(test => {
+            const completeDate = new Date(test.completeDate);
+            return completeDate.toDateString() === selectedDate.toDateString();
+        });
+    }
+
+ 
+    loadResults(filteredTests, currentType);
 }
 
 // Clear search filters
 function clearSearch() {
-    document.getElementById("fromDate").value = "";
-    document.getElementById("toDate").value = "";
-    toggleResults('pending'); // Reload original results
+    document.getElementById("searchDate").value = "";
+
+    
+    const currentType = document.getElementById('pendingBtn').classList.contains('active') ? 'pending' : 'complete';
+    toggleResults(currentType);
 }
+
+
+
+

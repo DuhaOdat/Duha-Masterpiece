@@ -294,6 +294,22 @@ namespace Auera_Cura.Controllers
         }
 
 
+        [HttpGet("GetPatientIdByUserId/{userId}")]
+        public async Task<IActionResult> GetPatientIdByUserId(int userId)
+        {
+            // Find the patient profile using the provided userId
+            var patient = await _db.PatientProfiles.FirstOrDefaultAsync(p => p.UserId == userId);
+            if (patient == null)
+            {
+                return NotFound("Patient not found.");
+            }
+
+            // Return the patientId
+            return Ok(new
+            {
+                PatientId = patient.PatientId
+            });
+        }
 
 
         [HttpGet("GetPastAppointments/{patientId}")]

@@ -64,12 +64,7 @@
         <!-- App header actions starts -->
         <div class="header-actions">
 
-          <!-- Search container starts -->
-          <div class="search-container d-lg-block d-none mx-3">
-            <input type="text" class="form-control" id="searchId" placeholder="Search">
-            <i class="ri-search-line"></i>
-          </div>
-          <!-- Search container ends -->
+        
 
           <!-- Header actions starts -->
           <div class="d-lg-flex d-none gap-2">
@@ -204,7 +199,7 @@
                <h5 class="card-title">Lab Test Order</h5>
                <!-- Search Input -->
                <div class="input-group" style="width: 300px;">
-                   <input type="text" class="form-control" id="searchInput" placeholder="Search by Patient ID or Name" onkeyup="searchTable()">
+                   <input type="text" class="form-control" id="searchInput" placeholder="Search by Patient Name" onkeyup="searchTable()">
                    <span class="input-group-text"><i class="fas fa-search"></i></span>
                </div>
            </div>
@@ -330,7 +325,31 @@
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/technician-profile.js"></script>
     <script src="assets/js/all-lab-request.js"></script>
-   
+           <!-- JavaScript for search functionality -->
+           <script>
+            // Function to search in the table
+            function searchTable() {
+                let input = document.getElementById("searchInput");
+                let filter = input.value.toLowerCase();
+                let table = document.getElementById("labTestTable");
+                let rows = table.getElementsByTagName("tr");
+
+                for (let i = 1; i < rows.length; i++) {
+                    let cells = rows[i].getElementsByTagName("td");
+                    let patientName = cells[2].textContent || cells[2].innerText; // Patient Name
+                    let appointmentId = cells[1].textContent || cells[1].innerText; // Appointment ID
+
+                    // Check if the search value matches the patient name or the appointment ID
+                    if (patientName.toLowerCase().indexOf(filter) > -1 || appointmentId.toLowerCase().indexOf(filter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+          
+
+        </script>
   </body>
 
 

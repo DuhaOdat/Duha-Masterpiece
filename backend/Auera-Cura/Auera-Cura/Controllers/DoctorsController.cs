@@ -277,5 +277,38 @@ namespace Auera_Cura.Controllers
         }
 
 
+        [HttpGet("Search")]
+        public async Task<IActionResult> SearchDoctors([FromQuery] string name, [FromQuery] string department)
+        {
+            
+            var query = _db.Doctors
+                .Include(d => d.User) 
+                .Include(d => d.Department)
+                .AsQueryable();
+
+           
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(d => (d.User.FirstName + " " + d.User.LastName).Contains(name));
+            }
+
+         
+            if (!string.IsNullOrEmpty(department))
+            {
+                query = query.Where(d => d.Department.DepartmentName == department);
+            }
+
+            var results = await query.Select(d => new
+            {
+                d.DoctorId,
+                FullName = d.User.FirstName + " " + d.User.LastName,
+                d.Department.DepartmentName,
+                d.Image
+            }).ToListAsync();
+
+            return Ok(results);
+        }
+
+
     }
 }

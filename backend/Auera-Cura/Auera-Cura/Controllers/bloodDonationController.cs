@@ -265,7 +265,7 @@ namespace Auera_Cura.Controllers
         [HttpGet("GetPatientPointByUserId/{userId}")]
         public async Task<IActionResult> GetPatientPointByUserId(int userId)
         {
-            // البحث عن السجل في جدول PatientProfile بناءً على UserId
+          
             var patientProfile = await _db.PatientProfiles
                 .FirstOrDefaultAsync(p => p.UserId == userId);
 
@@ -274,11 +274,11 @@ namespace Auera_Cura.Controllers
                 return NotFound(new { message = "Patient profile not found" });
             }
 
-            // إرجاع النقاط الحالية من جدول PatientProfile
+           
             var result = new
             {
-                CurrentPoints = patientProfile.RewardPoints,  // جلب النقاط من RewardPoints
-                TotalPoints = 600 // هنا يمكنك تحديد مجموع النقاط كما تريد
+                CurrentPoints = patientProfile.RewardPoints,  
+                TotalPoints = 600  
             };
 
             return Ok(result);
@@ -296,8 +296,8 @@ namespace Auera_Cura.Controllers
 
             // Retrieve all blood donation requests for the patient
             var bloodDonationRequests = await _db.BloodDonationRequests
-                .Include(r => r.BloodType)         // Load BloodType
-                .Include(r => r.LabTechnician)     // Load LabTechnician
+                .Include(r => r.BloodType)         
+                .Include(r => r.LabTechnician)    
                 .Where(r => r.PatientId == patientId)
                 .Select(r => new
                 {
@@ -305,6 +305,7 @@ namespace Auera_Cura.Controllers
                     BloodType = r.BloodType != null ? r.BloodType.BloodType1 : "Unknown", // Handle null blood types
                     r.RequestDate,
                     r.Status,
+                    r.PreferredDonationDate,
                     r.Notes,
                     LabTechnician = r.LabTechnician != null ? $"{r.LabTechnician.FirstName} {r.LabTechnician.LastName}" : "Not assigned yet"
                 })
@@ -340,7 +341,7 @@ namespace Auera_Cura.Controllers
                     r.RequestId,
                     BloodType = r.BloodType != null ? r.BloodType.BloodType1 : "Unknown",
                     r.RequestDate,
-                    r.PreferredDonationDate, // إضافة التاريخ المفضل للتبرع
+                    r.PreferredDonationDate, 
                     r.Status,
                     r.Notes,
                     LabTechnician = r.LabTechnician != null ? $"{r.LabTechnician.FirstName} {r.LabTechnician.LastName}" : "Not assigned yet"
@@ -370,8 +371,8 @@ namespace Auera_Cura.Controllers
 
             // Retrieve all approved and confirmed blood donation requests for the patient
             var approvedRequests = await _db.BloodDonationRequests
-                .Include(r => r.BloodType)         // Load BloodType
-                .Include(r => r.LabTechnician)     // Load LabTechnician
+                .Include(r => r.BloodType)       
+                .Include(r => r.LabTechnician)    
                 .Where(r => r.PatientId == patientId && r.Status == "Approved" && r.DonationConfirmed == true) // Only confirmed donations
                 .Select(r => new
                 {
@@ -394,6 +395,43 @@ namespace Auera_Cura.Controllers
             return Ok(approvedRequests);
         }
 
+
+
+        [HttpGet("GetApprovedBloodDonationRequestswithoutConfirm/{patientId}")]
+        public async Task<IActionResult> GetApprovedBloodDonationRequestswithoutConfirm(int patientId)
+        {
+            // Check if the patient exists
+            var patient = await _db.Users.FindAsync(patientId);
+            if (patient == null)
+            {
+                return NotFound("Patient not found.");
+            }
+
+            // Retrieve all approved and confirmed blood donation requests for the patient
+            var approvedRequests = await _db.BloodDonationRequests
+                .Include(r => r.BloodType)
+                .Include(r => r.LabTechnician)
+                .Where(r => r.PatientId == patientId && r.Status == "Approved") 
+                .Select(r => new
+                {
+                    r.RequestId,
+                    BloodType = r.BloodType != null ? r.BloodType.BloodType1 : "Unknown",
+                    r.RequestDate,
+                    r.PreferredDonationDate,
+                    r.DonationDate, // The actual donation date
+                    r.Status,
+                    r.Notes,
+                    RewardPoints = r.BloodType != null ? r.BloodType.RewardPoints : 0 // Retrieve the correct points based on blood type
+                })
+                .ToListAsync();
+
+            if (!approvedRequests.Any())
+            {
+                return NotFound("No approved blood donation requests found for this patient.");
+            }
+
+            return Ok(approvedRequests);
+        }
 
 
 
@@ -435,7 +473,7 @@ namespace Auera_Cura.Controllers
         [HttpGet("GetAvailableRewards/{patientId}")]
         public async Task<IActionResult> GetAvailableRewards(int patientId)
         {
-            // العثور على الملف الشخصي للمريض
+       
             var patientProfile = await _db.PatientProfiles
                                           .Include(p => p.BloodType)
                                           .FirstOrDefaultAsync(p => p.UserId == patientId);
@@ -445,10 +483,10 @@ namespace Auera_Cura.Controllers
                 return NotFound("Patient profile not found.");
             }
 
-            // التحقق من نقاط المريض
+        
             var patientPoints = patientProfile.RewardPoints ?? 0;
 
-            // استرجاع جميع الجوائز التي تتوافق مع نقاط المريض
+           
             var availableRewards = await _db.Rewards
                                             .Where(r => r.PointsRequired <= patientPoints)
                                             .Select(r => new
@@ -872,6 +910,9 @@ namespace Auera_Cura.Controllers
             return Ok(claimedRewards);
         }
 
+       
 
     }
+
+
 }

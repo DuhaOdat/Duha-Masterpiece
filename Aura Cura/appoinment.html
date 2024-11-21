@@ -32,10 +32,19 @@
     <!-- Template Stylesheet -->
   
     <link href="css/style.css" rel="stylesheet">
+ <style>
+    .no-appointments-message {
+    text-align: center;
+    color: #555;
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+ </style>
 </head>
 
 
-<body onload="loadLastSection()" class="no-hero">
+<body  class="no-hero">
     <!-- Spinner Start --> 
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -72,10 +81,6 @@
 
                 <!-- Search Icon and Input -->
                 <div class="d-flex align-items-center ms-auto mt-3 mt-lg-0">
-                    <input id="searchInput" class="form-control me-2 search-input" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn me-3" id="searchBtn" type="button">
-                        <i class="bi bi-search text-white"></i>
-                    </button>
                     <a href="login.html" class="btn btn-outline-light me-2">Login</a>
                    
                 </div>
@@ -88,25 +93,6 @@
 
    
 
-
-  <!-- Search Modal Start -->
-  <div class="modal fade" id="searchModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Search</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Search Modal End -->
 
 
 
@@ -190,17 +176,15 @@
         <button id="futureBtn" onclick="toggleAppointments('future')">Upcoming Appointments</button>
     </div>
 
-    <!-- قسم المواعيد السابقة -->
     <div id="past-appointments-section" class="appointments-section active">
         <div class="appointments-container" id="past-appointments">
-            <!-- سيتم عرض المواعيد السابقة هنا -->
+           
         </div>
     </div>
 
-    <!-- قسم المواعيد القادمة -->
     <div id="future-appointments-section" class="appointments-section">
         <div class="appointments-container" id="upcoming-appointments">
-            <!-- سيتم عرض المواعيد القادمة هنا -->
+            
         </div>
     </div>
 
@@ -225,40 +209,33 @@
         <div class="row g-5">
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
                 <a href="index.html" class="d-inline-block mb-3">
-                    <h1 class="text-white">Aura Cura</h1>
+                    <h1 class="text-white">Aurea Cura</h1>
                 </a>
                 <p class="mb-0">"Aura Cura: Where Healing Begins with Care
-                    Our commitment is to the highest standards of healthcare, ensuring that each individual receives the personalized attention they deserve. At Aura Cura, 
+                    Our commitment is to the highest standards of healthcare, ensuring that each individual receives the personalized attention they deserve. At Aurea Cura, 
                     we believe in healing with heart.
                 </p>
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
                 <h5 class="text-white mb-4">Get In Touch</h5>
-                <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                </div>
+                <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, Jordan, Irbid</p>
+                <p><i class="fa fa-phone-alt me-3"></i>+9625874859</p>
+                <p><i class="fa fa-envelope me-3"></i>AueraCura@gmail.com</p>
+               
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
                 <h5 class="text-white mb-4">Popular Link</h5>
                 <a class="btn btn-link" href="about.html">About Us</a>
                 <a class="btn btn-link" href="contact.html">Contact Us</a>
-                <a class="btn btn-link" href="services.html">Services</a>
                 <a class="btn btn-link" href="departments.html">Departments</a>
                 <a class="btn btn-link" href="doctors.html">Doctors</a>
                
             </div>
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
                 <h5 class="text-white mb-4">Our Services</h5>
-                <a class="btn btn-link" href="BloodDonation.html">Blood Donation</a>
-                <a class="btn btn-link" href="booking.html">Book Appointment</a>
-                <a class="btn btn-link" href="patientportal.html">patient Records</a>
+                <a class="btn btn-link" href="">Blood Donation</a>
+                <a class="btn btn-link" href="">Show Appointment</a>
+                <a class="btn btn-link" href="">patient Records</a>
                 
             </div>
         </div>
@@ -273,9 +250,8 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
-                        <a href="">Home</a>
-                         <a href="">Help</a>
-                        <a href="">FAQs</a>
+                        <a href="index.html">Home</a>
+                        
                     </div>
                 </div>
             </div>
@@ -304,19 +280,6 @@
 
 <script src="js/appoinment.js"> </script>
 
-<script>
-    document.getElementById('searchBtn').addEventListener('click', function () {
-        var searchInput = document.getElementById('searchInput');
-        if (searchInput.classList.contains('expanded')) {
-            searchInput.classList.remove('expanded');
-            searchInput.blur();
-        } else {
-            searchInput.classList.add('expanded');
-            searchInput.focus();
-        }
-    });
- 
-</script>
 </body>
 
 </html>

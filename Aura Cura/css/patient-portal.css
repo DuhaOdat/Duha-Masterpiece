@@ -3,11 +3,11 @@
         .content {
             position: relative;
         }
-        /* تصميم الجرس والقائمة */
+      
         .notification-icon {
             position: absolute;
-            top: 40px; /* زيادة أو تقليل هذه القيمة حسب الحاجة */
-    right: 40px; /* زيادة أو تقليل هذه القيمة حسب الحاجة */
+            top: 40px; 
+    right: 40px; 
             font-size: 24px;
             cursor: pointer;
             display: inline-block;
@@ -25,12 +25,12 @@
             font-size: 12px;
         }
 
-        /* تصميم القائمة المنبثقة */
+      
         .notification-popup {
             display: none;
             position: absolute;
-            top: 90px; /* جعلها تتماشى مع الجرس */
-    right: 40px; /* يجب أن تتماشى مع موقع الجرس */
+            top: 90px; 
+    right: 40px; 
             background-color: #d6d1d1;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
@@ -71,8 +71,27 @@
             margin-top: 8px;
         }
 
-        /* إخفاء الشارة عند عدم وجود إشعارات */
+    
         .badge.hidden {
             display: none;
         }
-    </style>
+ 
+@media (max-width: 768px) {
+    .notification-icon {
+        top: 20px;
+        right: 20px;
+        font-size: 20px; 
+    }
+}
+
+
+@media (max-width: 425px) {
+    .notification-icon {
+        top: 15px;
+        right: 15px;
+        font-size: 18px;
+    }
+}
+
+
+/****************************/

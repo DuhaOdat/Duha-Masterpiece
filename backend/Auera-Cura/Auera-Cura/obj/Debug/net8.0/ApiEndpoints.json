@@ -320,6 +320,22 @@
   },
   {
     "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
+    "Method": "GetPatientIdByUserId",
+    "RelativePath": "api/Appointments/GetPatientIdByUserId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.AppointmentsController",
     "Method": "GetUpcomingAppointments",
     "RelativePath": "api/Appointments/GetUpcomingAppointments/{patientId}",
     "HttpMethod": "GET",
@@ -468,6 +484,22 @@
     "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
     "Method": "GetApprovedBloodDonationRequests",
     "RelativePath": "api/bloodDonation/GetApprovedBloodDonationRequests/{patientId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.bloodDonationController",
+    "Method": "GetApprovedBloodDonationRequestswithoutConfirm",
+    "RelativePath": "api/bloodDonation/GetApprovedBloodDonationRequestswithoutConfirm/{patientId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1164,6 +1196,27 @@
         "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Auera_Cura.Controllers.DoctorsController",
+    "Method": "SearchDoctors",
+    "RelativePath": "api/Doctors/Search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "department",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

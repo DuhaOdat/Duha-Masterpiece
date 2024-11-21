@@ -39,8 +39,8 @@ function displayDoctorDetails(doctor) {
 
     // Display biography, specialties, education, and working hours
     document.getElementById("doctor-biography").textContent = doctor.biography;
-    displaySpecialties(doctor.departmentName);
-    displayDepartment(doctor.specialty);
+    displayDepartment(doctor.departmentName);
+    displaySpecialties(doctor.specialty);
     displayEducation(doctor.education);
     displayWorkingHours(doctor.workingHours);
 }
